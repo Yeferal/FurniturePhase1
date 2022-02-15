@@ -9,6 +9,7 @@ import { TemplateHomeComponent } from './module/white/pages/template-home/templa
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
