@@ -1,9 +1,9 @@
 # FurniturePhase1
 
-puerto por defecto 4200
-ng sever
-ng sever -o
-ng sever -o --port <no_puerto>
+    puerto por defecto 4200
+    ng sever
+    ng sever -o
+    ng sever -o --port <no_puerto>
 
 ### Para crear un componente (componentes de las paginas)
     * ng g c <nombreCompoenente>
