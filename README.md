@@ -52,7 +52,7 @@
     * pages (si y solo si el modulo va ser una pagina)
     * services
 
-La estructura quedaria asi:  
+### La estructura quedaria asi:  
     .  
     ├── app.component.html  
     ├── app.component.spec.ts  
@@ -71,10 +71,11 @@ La estructura quedaria asi:
     ├── module  
     |   ├── pieces  
     |       ├── components  
-    |       |   ├── search-pieces.components.html  
-    |       |   ├── search-pieces.components.scss  
-    |       |   ├── search-pieces.components.spec.ts  
-    |       |   └── search-pieces.components .ts  
+    |       |   └── search-pieces  
+    |       |       ├── search-pieces.components.html  
+    |       |       ├── search-pieces.components.scss  
+    |       |       ├── search-pieces.components.spec.ts  
+    |       |       └── search-pieces.components.ts  
     |       ├── pages  
     |       |   └── list-pieces  
     |       |       ├── pices-page.components.html  
