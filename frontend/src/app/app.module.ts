@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-// import { SearchPiecePipe } from './shared/pipes/search-piece.pipe';
+import { SalesRoutingModule } from './modules/sales/sales-routing.module';
+import { AdminRoutingModule } from './modules/admin/admin-routing.module';
+import { ManufactureRoutingModule } from './modules/manufacture/manufacture-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    SalesRoutingModule,
+    AdminRoutingModule,
+    ManufactureRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
