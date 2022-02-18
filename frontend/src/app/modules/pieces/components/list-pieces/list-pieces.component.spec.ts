@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WhiteComponent } from './white.component';
+import { ListPiecesComponent } from './list-pieces.component';
 
-describe('WhiteComponent', () => {
-  let component: WhiteComponent;
-  let fixture: ComponentFixture<WhiteComponent>;
+describe('ListPiecesComponent', () => {
+  let component: ListPiecesComponent;
+  let fixture: ComponentFixture<ListPiecesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WhiteComponent ]
+      declarations: [ ListPiecesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WhiteComponent);
+    fixture = TestBed.createComponent(ListPiecesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

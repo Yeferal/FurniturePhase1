@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateHomeComponent implements OnInit {
 
-  constructor() {
-
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
