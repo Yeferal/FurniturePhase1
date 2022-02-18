@@ -10,6 +10,7 @@ import { ModalComponent } from './shared/components/modal/modal.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PiecesRoutingModule } from './module/pieces/pieces-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    PiecesRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
