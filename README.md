@@ -25,7 +25,7 @@
     ng g guard <nombreGuardian>
 
 ### Para crear un routing
-    ng generate module <name_module> --flat --module=app
+    ng generate module <name_routing> --flat --module=app
     ng generate module pieces-routing --flat --module=app
     ng generate module .\module\pieces\pieces-routing --flat --module=app
 
@@ -39,13 +39,13 @@
 
     ng g module <name_module>
 
-### Nota: Cuando crea el modulo crea una carpeta con el mismo nombre del modulo, no es necesario crear un carpeta primero para el modulo.
+Nota: Cuando crea el modulo crea una carpeta con el mismo nombre del modulo, no es necesario crear un carpeta primero para el modulo.
 
 ### 2. Crear routing  
-    ng generate module <name_module> --flat --module=app
+    ng generate module <name_routing> --flat --module=app
 
-### Sugerencia: para el nombre agregar siempre "-routing", Ejemplo name-routing  
-### Nota: Crea un routing dentro de la carpeta del modulo creado.
+Sugerencia: para el nombre agregar siempre "-routing", Ejemplo name-routing  
+Nota: Crea un routing dentro de la carpeta del modulo creado.
 
 ### 3. Crear Carpetas  
 Dentro del modulo creado Crear las carpetas  
