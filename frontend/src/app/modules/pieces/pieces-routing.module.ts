@@ -4,7 +4,7 @@ import { PiecesComponent } from './pages/pieces/pieces.component';
 
 const routes: Routes = [
   {
-    path: '3',
+    path: 'pieces',
     component: PiecesComponent
   },
   {

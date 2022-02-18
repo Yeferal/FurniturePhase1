@@ -8,7 +8,7 @@ const routes: Routes = [ //TODO: router-outlet (Padre)
     loadChildren: () => import(`./modules/white/white.module`).then(m => m.WhiteModule)
   },
   {
-    path: '3',
+    path: 'home',
     loadChildren: () => import(`./modules/pieces/pieces.module`).then(m => m.PiecesModule)
   },
   // {

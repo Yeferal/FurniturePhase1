@@ -2,7 +2,9 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
+        <!-- Sidebar -->
         <app-side-bar></app-side-bar>
+        <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -18,28 +20,124 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-
-                    <!-- OPCION 1 Heading-->
-                    <!-- <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> -->
-                    <!-- OPCION 2 Heading-->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">List Pieces</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
-
-                    <!-- CONTENDIDO -->
                     <!-- Content Row -->
                     <div class="row">
-                        <!-- AQUI IRIA EL CONTENDIDO -->
-                    </div>
-                    
+                        <div class="col-lg-12">
 
-                    <!-- Content Row -->
-                    <!-- <div class="row">
-                        AQUI IRIA EL CONTENDIDO
-                    </div> -->
+                            <!-- Dropdown Card Example -->
+                            <div class="card shadow mb-auto">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Pieces</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="dataTables_length" id="dataTable_length">
+                                                    <label>Show 
+                                                        <select [formControl]="rowsNumForm" (click)="setNumRows()" name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                                                            <option value="10">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                            <option value="all">All</option>
+                                                        </select> entries
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <div id="dataTable_filter" class="dataTables_filter">
+                                                    <label>Search:
+                                                        <input type="search" [(ngModel)]="searchValue" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="table-responsive">
+                                        
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>Name</th>
+                                                    <th>precio</th>
+                                                    <th>tipo</th>
+                                                    <th>cantidad</th>
+                                                    <th>precio venta</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>Name</th>
+                                                    <th>precio</th>
+                                                    <th>tipo</th>
+                                                    <th>cantidad</th>
+                                                    <th>precio venta</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr *ngFor="let item of list | searchPiece: searchValue | paginate: { itemsPerPage: maxSizeRows, currentPage: p }">
+                                                    <td>{{item.id}}</td>
+                                                    <td>{{item.name}}</td>
+                                                    <td>{{item.precio}}</td>
+                                                    <td>{{item.tipo}}</td>
+                                                    <td>{{item.cantidad}}</td>
+                                                    <td>{{item.precio_venta}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="row"><div class="col-sm-12 col-md-5">
+                                        </div>
+                                        <div class="col-sm-12 col-md-7">
+                                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                                <ul class="pagination">
+                                                    <li class="paginate_button page-item active">
+                                                    <pagination-controls 
+                                                    (pageChange)="p = $event" 
+                                                    [maxSize]= " list.length "
+                                                    [directionLinks]="true"
+                                                    [autoHide]="true"
+                                                    [responsive]="true"
+                                                    previousLabel="Previous"
+                                                    nextLabel="Next"
+                                                    screenReaderPaginationLabel="Pagination"
+                                                    screenReaderPageLabel="page"
+                                                    screenReaderCurrentLabel="You're on page">
+                                                    </pagination-controls>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
 
 
                 </div>
@@ -48,7 +146,9 @@
             </div>
             <!-- End of Main Content -->
 
+            <!-- Footer -->
             <app-footer></app-footer>
+            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -61,5 +161,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
+    <!-- Logout Modal-->
     <app-modal></app-modal>
 </div>

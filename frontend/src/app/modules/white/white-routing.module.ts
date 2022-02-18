@@ -9,10 +9,10 @@ const routes: Routes = [
     path: '1',
     component: WhitePageComponent
   },
-  // {
-  //   path: '2',
-  //   component: TemplateHomeComponent
-  // },
+  {
+    path: '2',
+    component: TemplateHomeComponent
+  },
   // // {
   // //   path: 'favorites',
   // //   loadChildren: () => import('@modules/favorites/favorites.module').then(m => m.FavoritesModule)
