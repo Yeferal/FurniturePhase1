@@ -1,0 +1,129 @@
+<div id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <app-side-bar></app-side-bar>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <app-top-bar></app-top-bar>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+
+                    <!-- OPCION 1 Heading-->
+                    <h1 class="h3 mb-4 text-gray-800">Categorias</h1>
+                    <!-- OPCION 2 Heading-->
+                    <!-- CONTENDIDO -->
+                    <!-- Content Row -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <app-search (search)="getCategoriesByName($event)"></app-search>
+                        </div>
+                        <br><br>
+                        <div class="col-lg-12">
+                            <!-- Dropdown Card Example -->
+                            <div class="card shadow mb-auto">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Pieces</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Settings</div>
+                                            <a class="dropdown-item" href="">Add new category</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                        <div class="row">
+                                            
+                                        </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>Name</th>
+                                                    <th>Remove</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>Name</th>
+                                                    <th>Remove</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr *ngFor="let item of categories ">
+                                                    <td>{{item.id}}</td>
+                                                    <td>{{item.title}}</td>
+                                                    <td><button style="background-color: transparent; border: none">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                                                        </svg>
+                                                    </button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="row"><div class="col-sm-12 col-md-5">
+                                        </div>
+                                        <div class="col-sm-12 col-md-7">
+                                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                                <ul class="pagination">
+                                                    <li class="paginate_button page-item active">
+                                                    
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+
+                    <!-- Content Row -->
+                    <!-- <div class="row">
+                        AQUI IRIA EL CONTENDIDO
+                    </div> -->
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <app-footer></app-footer>
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <app-modal></app-modal>
+</div>
