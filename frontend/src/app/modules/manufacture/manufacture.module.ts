@@ -4,11 +4,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ManufactureRoutingModule } from './manufacture-routing.module';
 import { ListCategoryComponent } from './pages/list-category/list-category.component';
 import { AppSearchComponent } from './components/app-search/app-search.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ListFurnitureComponent } from './pages/list-furniture/list-furniture.component';
+import { ListPiecesComponent } from './components/list-pieces/list-pieces.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
+    ListPiecesComponent,
     ListCategoryComponent,
     AppSearchComponent,
     ListFurnitureComponent
@@ -17,7 +21,10 @@ import { ListFurnitureComponent } from './pages/list-furniture/list-furniture.co
     CommonModule,
     SharedModule,
     ManufactureRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule,
   ]
 })
 export class ManufactureModule { }

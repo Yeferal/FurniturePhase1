@@ -11,18 +11,18 @@ const routes: Routes = [ //TODO: router-outlet (Padre)
     path: 'home', //http://localhost:4200/
     loadChildren: () => import(`./modules/pieces/pieces.module`).then(m => m.PiecesModule)
   },
-  {
-    path: 'sales', //http://localhost:4200/sales
-    loadChildren: () => import(`./modules/sales/sales.module`).then(m => m.SalesModule)
-  },
+  // {
+  //   path: 'sales', //http://localhost:4200/sales
+  //   loadChildren: () => import(`./modules/sales/sales.module`).then(m => m.SalesModule)
+  // },
   {
     path: 'fabricate', //http://localhost:4200/fabricate
     loadChildren: () => import(`./modules/manufacture/manufacture.module`).then(m => m.ManufactureModule)
   },
-  {
-    path: 'admin', //http://localhost:4200/admin
-    loadChildren: () => import(`./modules/admin/admin.module`).then(m => m.AdminModule),
-  },
+  // {
+  //   path: 'admin', //http://localhost:4200/admin
+  //   loadChildren: () => import(`./modules/admin/admin.module`).then(m => m.AdminModule),
+  // },
   // {
   //   path: '',//TODO (Private) 🔴🔴
   //   component: HomePageComponent,

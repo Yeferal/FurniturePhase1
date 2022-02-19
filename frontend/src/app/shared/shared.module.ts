@@ -5,6 +5,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { SearchPiecePipe } from './pipes/search-piece.pipe';
+// import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { SearchPiecePipe } from './pipes/search-piece.pipe';
   ],
   imports: [
     CommonModule,
-    
+    // SidebarModule.forRoot()
   ],
   exports: [
     FooterComponent,
