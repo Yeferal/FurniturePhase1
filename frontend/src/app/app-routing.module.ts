@@ -29,6 +29,10 @@ const routes: Routes = [ //TODO: router-outlet (Padre)
   //   loadChildren: () => import(`./modules/home/home.module`).then(m => m.HomeModule),
   //   canActivate: [SessionGuard]
   // }
+  {
+    path: 'pi', //http://localhost:4200/fabricate
+    loadChildren: () => import(`./modules/pieces/pieces.module`).then(m => m.PiecesModule)
+  },
 ];
 
 @NgModule({
