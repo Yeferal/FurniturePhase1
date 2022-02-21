@@ -109,10 +109,13 @@
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
-    <a (click)="toggledSodeBarAction()" class="btn btn-light btn-circle" style="margin: 10px auto;">
-        <span class="icon text-gray-600">
-            <i class="fas fa-arrow-left"></i>
-        </span>
+    <a (click)="toggledSodeBarAction()" class="btn btn-circle btn-light" style="margin: 0px auto; opacity: 0.2;">
+        <button *ngIf="isToggled" class="rounded-circle border-0">
+            <i class="fas fa-angle-left"></i>
+        </button>
+        <button *ngIf="!isToggled" class="rounded-circle border-0">
+            <i class="fas fa-angle-right"></i>
+        </button>
     </a>
 
     <!-- <div class="text-center d-none d-md-inline">
