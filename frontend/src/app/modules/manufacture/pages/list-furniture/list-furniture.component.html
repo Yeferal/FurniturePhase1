@@ -31,18 +31,19 @@
                                 <div class="row">
                                   <div class="col-lg-3">
                                     <label for="staticEmail" >Fecha inicio</label>
-                                    <input class="form-control" type="date" formControlName="dateStart" id="">
+                                    <input class="form-control" type="date" [ngModel]='date| date:"yyyy-MM-dd" ' formControlName="dateStart" id="">
                                   </div>
                                   <div class="col-lg-3">
                                       <label for="staticEmail" >Fecha fin</label>
-                                    <input type="date" class="form-control" formControlName="dateEnd" name="dateEnd" id="">
+                                    <input type="date" class="form-control" [ngModel]='date| date:"yyyy-MM-dd" ' formControlName="dateEnd" name="dateEnd" id="">
                                   </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-lg-3">
-                                        <select formControlName="order" class="form-control">
-                                            <option value="0">Mayor a menor</option>
+                                        <select formControlName="order"  class="form-control">
+                                             <option value="" selected disabled hidden>Orden</option>
+                                            <option value="0" selected="selected">Mayor a menor</option>
                                             <option value="1">Menor a mayor</option>
                                         </select>
                                     </div>
