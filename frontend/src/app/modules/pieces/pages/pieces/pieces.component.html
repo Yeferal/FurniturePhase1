@@ -111,11 +111,18 @@
                                                     <td>{{item.cantidad}}</td>
                                                     <td>{{item.precio_venta}}</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#exampleModal">
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal" (click)="setIdPieceAndCost(item.id,item.precio)" data-target="#exampleModal">
                                                             Remover
                                                         </button>
                                                     </td>
-                                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#confirmModal">Eliminar</button></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#confirmModal">Eliminar</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#provideModal">
+                                                            Abastecer
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -172,8 +179,37 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
+</div>
+<div class="modal fade" id="provideModal" tabindex="-1" role="dialog" aria-labelledby="provideModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="provideModalLabel">Agregar nueva pieza</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formProvide" (ngSubmit)="providePieces()">
+                <div class="form-group">
+                  <label for="numpieces">Numero de piezas</label>
+                  <input formControlName="totalProvide" type="number" autocomplete="off" class="form-control" id="numpieces" aria-describedby="emailHelp" >
+                </div>
+                <div class="form-group">
+                    <label for="costpieces">Costo de compra</label>
+                    <input formControlName="cost" type="text" autocomplete="off" class="form-control" id="costpieces" aria-describedby="emailHelp" >
+                  </div>
+                  
+                <button type="submit" [disabled]="formProvide.invalid" class="btn btn-success">Agregar</button>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -190,7 +226,7 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 
                 </div>
