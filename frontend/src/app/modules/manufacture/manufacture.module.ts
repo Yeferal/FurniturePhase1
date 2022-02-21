@@ -5,12 +5,14 @@ import { ManufactureRoutingModule } from './manufacture-routing.module';
 import { ListPiecesComponent } from './components/list-pieces/list-pieces.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CreateCategoryPieceComponent } from './components/create-category-piece/create-category-piece.component';
 
 
 
 @NgModule({
   declarations: [
-    ListPiecesComponent
+    ListPiecesComponent,
+    CreateCategoryPieceComponent
   ],
   imports: [
     CommonModule,
