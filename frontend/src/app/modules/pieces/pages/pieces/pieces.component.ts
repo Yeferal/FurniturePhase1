@@ -128,11 +128,28 @@ export class PiecesComponent implements OnInit {
     }
     
   }
-
   pageChanged(event: any){
 
   }
 
+  formRemove = new FormGroup(
+    {
+      totalRemove:new FormControl('',[
+        Validators.required,Validators.pattern('[0-9]+')
+      ]),
+    }
+  );
+  idPiece: number;
+  setIdPiece(id: number){
+    this.idPiece = id;
+  }
 
+  deletePiece(){
+    console.log(this.idPiece);
+    
+  }
 
+  removePieces(){
+    console.log(this.idPiece)
+  }
 }

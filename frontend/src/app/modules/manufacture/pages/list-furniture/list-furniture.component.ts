@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Furniture } from '../../models/furniture';
 import { FurnitureService } from '../../services/furniture.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-list-furniture',
@@ -9,7 +10,8 @@ import { FurnitureService } from '../../services/furniture.service';
   styleUrls: ['./list-furniture.component.scss']
 })
 export class ListFurnitureComponent implements OnInit {
-  constructor(private furnitureService : FurnitureService) { }
+  constructor(private furnitureService : FurnitureService
+    ) { }
   public furnitures : Array<Furniture> = []
   formFilter = new FormGroup(
     {
@@ -18,7 +20,11 @@ export class ListFurnitureComponent implements OnInit {
       order:new FormControl('')
     }
   );
+
+  date = new Date().toISOString() ;  
+
   ngOnInit(): void {
+    
     this.furnitureService.getAllFurnitures().subscribe(
       res => {
         this.furnitures=res
