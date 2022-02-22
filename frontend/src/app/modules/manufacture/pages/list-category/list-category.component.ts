@@ -32,4 +32,9 @@ export class ListCategoryComponent implements OnInit {
     console.log(name);
   }
 
+  deleteCategory(id: any){
+    console.log('Id Categoria: ',id);
+    
+  }
+
 }
