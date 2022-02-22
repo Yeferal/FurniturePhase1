@@ -133,4 +133,51 @@ export class ListPiecesComponent implements OnInit {
 
   }
 
+  //declarations of forms and the validators which are used
+  formRemove = new FormGroup(
+    {
+      totalRemove:new FormControl('0',[
+        Validators.required,Validators.pattern('[0-9]+')
+      ]),
+    }
+  );
+
+  formProvide = new FormGroup(
+    {
+      totalProvide:new FormControl('',[
+        Validators.pattern('[0-9]+'),
+        Validators.required,
+        Validators.min(0)
+      ]),
+      cost:new FormControl('',[
+        Validators.min(0),
+        Validators.pattern('[0-9]+($|.[0-9]+)'),
+        Validators.required,
+      ])
+    }
+  )
+
+  //variables for actions
+  idPiece: number;
+  costPieces: number
+  setIdPiece(id: number){
+    this.idPiece = id;
+  }
+
+  setIdPieceAndCost(id: number, cost: number){
+    this.idPiece = id;
+    this.costPieces=cost;
+  }
+  deletePiece(){
+    console.log(this.idPiece);
+    
+  }
+
+  removePieces(){
+    console.log(this.idPiece)
+  }
+
+  providePieces(){
+    console.log(this.idPiece)
+  }
 }
