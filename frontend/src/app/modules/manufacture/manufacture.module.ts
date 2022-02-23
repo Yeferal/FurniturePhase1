@@ -11,6 +11,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { PieceInformationComponent } from './components/piece-information/piece-information.component';
 import { PieceFormComponent } from './components/piece-form/piece-form.component';
 import { FurnitureInformationComponent } from './components/furniture-information/furniture-information.component';
+import { CreateCategoryPieceComponent } from './components/create-category-piece/create-category-piece.component';
+import { FilterListPiecesComponent } from './components/filter-list-pieces/filter-list-pieces.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { FurnitureInformationComponent } from './components/furniture-informatio
     PieceInformationComponent,
     PieceFormComponent,
     FurnitureInformationComponent
+    CreateCategoryPieceComponent,
+    FilterListPiecesComponent,
   ],
   imports: [
     CommonModule,
