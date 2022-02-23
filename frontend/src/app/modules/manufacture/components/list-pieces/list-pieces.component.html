@@ -41,12 +41,16 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-6 col-md-3">
                             <div id="dataTable_filter" class="dataTables_filter">
                                 <label>Search:
                                     <input type="search" [(ngModel)]="searchValue" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
                                 </label>
                             </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                          <br>
+                          <button class="btn btn-success" (click)="updateIsEdit(false)" data-toggle="modal" data-target="#pieceFormModal">Crear pieza</button>
                         </div>
                     </div>
                 <div class="table-responsive">
@@ -60,9 +64,7 @@
                                 <th>tipo</th>
                                 <th>cantidad</th>
                                 <th>precio venta</th>
-                                <th>Remover</th>
-                                <th>Eliminar</th>
-                                <th>Abastecer</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -73,9 +75,7 @@
                                 <th>tipo</th>
                                 <th>cantidad</th>
                                 <th>precio venta</th>
-                                <th>Remover</th>
-                                <th>Eliminar</th>
-                                 <th>Abastecer</th>
+                                <th>Acciones</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -87,17 +87,16 @@
                                 <td>{{item.cantidad}}</td>
                                 <td>{{item.precio_venta}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" (click)="setIdPieceAndCost(item.id,item.precio)" data-target="#exampleModal">
-                                        Remover
-                                    </button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#confirmModal">Eliminar</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-success" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#provideModal">
-                                        Abastecer
-                                    </button>
+                                  <app-actions 
+                                    (isEditEvent)="updateIsEdit($event)" (messageEvent)="changeSelectedId($event)" 
+                                    [model]="'piece'" [id]="item.id" 
+                                    [infModalId]="'pieceInfModal'"
+                                    [formModalId]="'pieceFormModal'"
+                                    [deleteModalId]="'undefined'">                                    
+                                    <button type="button" class="btn btn-outline-success" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#provideModal">Abastecer</button>
+                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" (click)="setIdPieceAndCost(item.id,item.precio)" data-target="#exampleModal">Remover</button>
+                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#confirmModal">Eliminar</button>
+                                  </app-actions>
                                 </td>
                             </tr>
                         </tbody>

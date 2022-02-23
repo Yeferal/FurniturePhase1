@@ -86,6 +86,7 @@
                                                     <th>id</th>
                                                     <th>Name</th>
                                                     <th>Description</th>
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
@@ -93,6 +94,7 @@
                                                     <th>id</th>
                                                     <th>Name</th>
                                                     <th>Description</th>
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </tfoot>
                                             <tbody>
@@ -100,6 +102,11 @@
                                                     <td>{{item.id}}</td>
                                                     <td>{{item.title}}</td>
                                                     <td>{{item.description}}</td>
+                                                    <td><app-actions 
+                                                        (messageEvent)="changeSelectedId($event)" [model]="'furniture'" [id]="item.id" 
+                                                        [infModalId]="'furnitureInfModal'"
+                                                        [formModalId]="'furnitureFormModal'"
+                                                        [deleteModalId]="'furnitureDeleteModal'"></app-actions></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -120,6 +127,7 @@
 
                         </div>
                     </div>
+                    
                     
 
                     <!-- Content Row -->
@@ -147,5 +155,14 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <app-modal></app-modal>
+    <!-- Modales tanto de logout como para visualizar algo -->
+    <app-modal class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" 
+        [tittle]="'Logout'" [action]="'Logout'" [link_action]="'logout.html'">
+        <p>¿Desea retirarse?</p>
+    </app-modal>
+
+    <app-modal class="modal fade" id="furnitureInfModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" 
+        [tittle]="'Información mueble'" [action]="'Listo'" [link_action]="'#'">
+        <app-furniture-information [id]="selectedId"></app-furniture-information>
+    </app-modal>
 </div>
