@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CreateCategoryPieceComponent } from './components/create-category-piece/create-category-piece.component';
 import { FilterListPiecesComponent } from './components/filter-list-pieces/filter-list-pieces.component';
+import { RegisterFornitureComponent } from './pages/register-forniture/register-forniture.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FilterListPiecesComponent } from './components/filter-list-pieces/filte
     ListFurnitureComponent,
     CreateCategoryPieceComponent,
     FilterListPiecesComponent,
+    RegisterFornitureComponent,
   ],
   imports: [
     CommonModule,
