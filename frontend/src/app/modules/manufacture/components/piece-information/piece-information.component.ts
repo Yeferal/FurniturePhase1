@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-piece-information',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./piece-information.component.scss']
 })
 export class PieceInformationComponent implements OnInit {
+
+  @Input() id: number;
 
   constructor() { }
 

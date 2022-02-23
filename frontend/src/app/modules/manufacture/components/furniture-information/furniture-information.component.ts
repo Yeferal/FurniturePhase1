@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-furniture-information',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FurnitureInformationComponent implements OnInit {
 
+  @Input() id: number;
+  
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
+  
 }

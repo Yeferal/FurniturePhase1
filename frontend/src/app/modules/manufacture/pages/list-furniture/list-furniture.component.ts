@@ -10,6 +10,9 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./list-furniture.component.scss']
 })
 export class ListFurnitureComponent implements OnInit {
+
+  selectedId: any = 1;
+
   constructor(private furnitureService : FurnitureService
     ) { }
   public furnitures : Array<Furniture> = []
@@ -37,6 +40,11 @@ export class ListFurnitureComponent implements OnInit {
   public filterFurnitures(){
     console.log(this.formFilter);
     
+  }
+
+  changeSelectedId(event: any){
+    console.log(event);
+    this.selectedId = event;
   }
 
 }

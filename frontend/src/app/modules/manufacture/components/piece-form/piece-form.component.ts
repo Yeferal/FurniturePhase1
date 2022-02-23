@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-piece-form',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PieceFormComponent implements OnInit {
 
+  @Input() isEdit: boolean;
+  @Input() selectedId: number;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
 }
