@@ -8,6 +8,9 @@ import { ListFurnitureComponent } from './pages/list-furniture/list-furniture.co
 import { ListPiecesComponent } from './components/list-pieces/list-pieces.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PieceInformationComponent } from './components/piece-information/piece-information.component';
+import { PieceFormComponent } from './components/piece-form/piece-form.component';
+import { FurnitureInformationComponent } from './components/furniture-information/furniture-information.component';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ListPiecesComponent,
     ListCategoryComponent,
     AppSearchComponent,
-    ListFurnitureComponent
+    ListFurnitureComponent,
+    PieceInformationComponent,
+    PieceFormComponent,
+    FurnitureInformationComponent
   ],
   imports: [
     CommonModule,
