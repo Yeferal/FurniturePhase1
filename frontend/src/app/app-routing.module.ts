@@ -26,8 +26,8 @@ const routes: Routes = [ //TODO: router-outlet (Padre)
   //   canActivate: [SessionGuard]
   // }
   {
-    path: 'pi', //http://localhost:4200/fabricate
-    loadChildren: () => import(`./modules/pieces/pieces.module`).then(m => m.PiecesModule)
+    path: 'sales', //http://localhost:4200/fabricate
+    loadChildren: () => import(`./modules/sales/sales.module`).then(m => m.SalesModule)
   },
 ];
 
