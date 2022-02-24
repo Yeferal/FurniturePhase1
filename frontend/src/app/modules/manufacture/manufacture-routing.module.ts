@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListPiecesComponent } from './components/list-pieces/list-pieces.component';
 import { ListCategoryComponent } from './pages/list-category/list-category.component';
 import { ListFurnitureComponent } from './pages/list-furniture/list-furniture.component';
 import { RegisterFornitureComponent } from './pages/register-forniture/register-forniture.component';
+import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-pieces.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,9 @@ const routes: Routes = [
   {
     path: 'register-forniture',
     component: RegisterFornitureComponent
+  },{
+    path: 'list-pieces',
+    component: PageListPiecesComponent
   }
   
 ];

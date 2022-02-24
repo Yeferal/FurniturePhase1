@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import {NgxPaginationModule} from 'ngx-pagination';
 import { Piece } from 'src/app/core/models/piece';
@@ -9,6 +9,9 @@ import { Piece } from 'src/app/core/models/piece';
   styleUrls: ['./list-pieces.component.scss']
 })
 export class ListPiecesComponent implements OnInit {
+
+  @Output() messageEvent = new EventEmitter<number>();
+  @Output() isEditEvent = new EventEmitter<boolean>();
 
   searchValue: string = '';
   maxSizeRows: number = 10;
@@ -116,6 +119,10 @@ export class ListPiecesComponent implements OnInit {
 
   constructor() { }
 
+  updateIsEdit(event: any){
+    this.isEditEvent.emit(event);
+  }
+
   ngOnInit(): void {
     this.setNumRows();
   }
@@ -179,5 +186,9 @@ export class ListPiecesComponent implements OnInit {
 
   providePieces(){
     console.log(this.idPiece)
+  }
+
+  changeSelectedId(event: any){
+    this.messageEvent.emit(event);
   }
 }
