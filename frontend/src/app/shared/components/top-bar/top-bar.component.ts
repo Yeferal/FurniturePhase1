@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-top-bar',
@@ -10,6 +10,8 @@ export class TopBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.appSearch=true
   }
 
+  @Input() appSearch:boolean
 }

@@ -1,0 +1,73 @@
+<app-container>
+    
+    <!-- Page Heading -->
+    <!-- OPCION 1 Heading-->
+    <h1 class="h3 mb-4 text-gray-800">Ventas del dia</h1>
+    <!-- OPCION 2 Heading-->
+    <!-- CONTENDIDO -->
+    <!-- Content Row -->
+    <div class="row">
+        <br><br>
+        <div class="col-lg-12">
+            <!-- Dropdown Card Example -->
+            <div class="card shadow mb-auto">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Ventas</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Costo de produccion</th>
+                                    <th>Total</th>
+                                    <th>Cliente</th>
+                                    <th>Cantidad de muebles</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Costo de produccion</th>
+                                    <th>Total</th>
+                                    <th>Cliente</th>
+                                    <th>Cantidad de muebles</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr *ngFor="let item of ventasList ">
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.total}}</td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-sm-12 col-md-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button page-item active">
+                                    
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-container>
+
+
+                
