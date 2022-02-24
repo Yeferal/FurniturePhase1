@@ -6,7 +6,7 @@ import { TemplateHomeComponent } from './pages/template-home/template-home.compo
 
 const routes: Routes = [
   {
-    path: '1',
+    path: '',
     component: WhitePageComponent
   },
   {

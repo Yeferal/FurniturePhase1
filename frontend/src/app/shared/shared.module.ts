@@ -5,7 +5,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { SearchPiecePipe } from './pipes/search-piece.pipe';
-// import { SidebarModule } from 'ng-sidebar';
+import { RouterModule } from '@angular/router';
+import { ContainerComponent } from './components/container/container.component';
 
 @NgModule({
   declarations: [
@@ -13,18 +14,20 @@ import { SearchPiecePipe } from './pipes/search-piece.pipe';
     ModalComponent,
     SideBarComponent,
     TopBarComponent,
-    SearchPiecePipe
+    SearchPiecePipe,
+    ContainerComponent
   ],
   imports: [
     CommonModule,
-    // SidebarModule.forRoot()
+    RouterModule
   ],
   exports: [
     FooterComponent,
     ModalComponent,
     SideBarComponent,
     TopBarComponent,
-    SearchPiecePipe
+    SearchPiecePipe,
+    ContainerComponent
   ]
 })
 export class SharedModule { }
