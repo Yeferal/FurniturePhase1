@@ -12,6 +12,7 @@ export class ListPiecesComponent implements OnInit {
 
   @Output() messageEvent = new EventEmitter<number>();
   @Output() isEditEvent = new EventEmitter<boolean>();
+  @Output() feedbackEvent = new EventEmitter<string>();
 
   searchValue: string = '';
   maxSizeRows: number = 10;
@@ -190,5 +191,9 @@ export class ListPiecesComponent implements OnInit {
 
   changeSelectedId(event: any){
     this.messageEvent.emit(event);
+  }
+
+  sendFeedback(event: any){
+    this.feedbackEvent.emit(event);
   }
 }

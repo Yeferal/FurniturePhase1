@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageListPiecesComponent implements OnInit {
 
+  isPieceFormModalHidden: boolean;
   isEdit: boolean;
   selectedId: number;
   
   constructor() { }
 
   ngOnInit(): void {
+    this.isPieceFormModalHidden = true;
   }
 
   changeSelectedId(event: any){
@@ -22,4 +24,9 @@ export class PageListPiecesComponent implements OnInit {
   changeIsEdit(event: any){
     this.isEdit = event;
   }
+
+  showMessage(event: any){
+    alert(event);
+  }
+  
 }

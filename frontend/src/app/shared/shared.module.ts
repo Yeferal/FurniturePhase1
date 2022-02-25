@@ -7,6 +7,7 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { SearchPiecePipe } from './pipes/search-piece.pipe';
 import { RouterModule } from '@angular/router';
 import { ContainerComponent } from './components/container/container.component';
+import { AlertComponent } from './components/alert/alert.component';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -15,6 +16,7 @@ import { ContainerComponent } from './components/container/container.component';
     TopBarComponent,
     SearchPiecePipe,
     ContainerComponent,
+    AlertComponent,
     
   ],
   imports: [
