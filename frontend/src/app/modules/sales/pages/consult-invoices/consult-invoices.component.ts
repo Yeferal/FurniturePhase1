@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { InvoicesService } from '../../services/invoices.service';
 
 @Component({
   selector: 'app-consult-invoices',
@@ -15,7 +16,7 @@ export class ConsultInvoicesComponent implements OnInit {
   noInvoicesError = false;
 
   openContent = false;
-  constructor() { }
+  constructor(private invoicesService: InvoicesService) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +31,16 @@ export class ConsultInvoicesComponent implements OnInit {
       return ;
     }
     console.log(this.formInvoices.value);
+    this.invoicesService.getOneInvoice(this.formInvoices.get('noInvoices')?.value).subscribe(
+      res => {
+        console.log(res);
+        
+      },
+      error => {
+        console.log(error);
+        
+      }
+    );
     
   }
 
