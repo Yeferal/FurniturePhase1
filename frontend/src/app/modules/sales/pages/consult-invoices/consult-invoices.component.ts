@@ -15,6 +15,7 @@ export class ConsultInvoicesComponent implements OnInit {
   
   noInvoicesError = false;
   isExistInvoices = false;
+  msjError = 'La Factura no existe';
 
   openContent = false;
   constructor(private invoicesService: InvoicesService) { }
