@@ -12,6 +12,38 @@ export class SalesOfDayComponent implements OnInit {
   constructor(private salesService: SalesService) { }
   ventasList: Array<ventas> = []
   ngOnInit(): void {
+    this.ventasList.push(
+      {
+        client:"Cliente1",
+        cost:10,
+        furnitureCount:1000,
+        id:1,
+        total:1000
+      },
+      {
+        client:"Cliente1",
+        cost:10,
+        furnitureCount:1000,
+        id:1,
+        total:1000
+      },
+      {
+        client:"Cliente1",
+        cost:10,
+        furnitureCount:1000,
+        id:1,
+        total:1000
+      },
+      {
+        client:"Cliente1",
+        cost:10,
+        furnitureCount:1000,
+        id:1,
+        total:1000
+      }
+    )
+    
+    /*
     this.salesService.getSalesOfNow().subscribe(
       res => {
         this.ventasList= res
@@ -20,6 +52,7 @@ export class SalesOfDayComponent implements OnInit {
       },
       err => console.log(err)
     )
+    */
   }
  
 }
