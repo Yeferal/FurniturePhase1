@@ -37,7 +37,6 @@ import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-piec
     ManufactureRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule,
     NgxPaginationModule,
   ]
 })

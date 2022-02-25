@@ -14,6 +14,7 @@ export class ConsultInvoicesComponent implements OnInit {
   });
   
   noInvoicesError = false;
+  isExistInvoices = false;
 
   openContent = false;
   constructor(private invoicesService: InvoicesService) { }

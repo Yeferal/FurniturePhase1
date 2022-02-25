@@ -29,10 +29,11 @@
                         </div>
                     </div>
                 </form>
+                <label *ngIf="isExistInvoices" style="text-align: center; color: red; margin-bottom: 10px;">La Factura no existe</label>
             </div>
         </div>
     </div>
-
+    
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a (click)="openCont()" class="d-block card-header py-3"
