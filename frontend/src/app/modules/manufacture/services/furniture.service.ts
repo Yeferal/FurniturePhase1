@@ -13,4 +13,9 @@ export class FurnitureService {
   public getAllFurnitures():Observable<Array<Furniture>>{
     return this.http.get<Array<Furniture>>(this.url);
   }
+
+  public getAvailableFurniture(filter=""):Observable<Array<Furniture>>{
+    const x=this.url+"?filtro="+filter;
+    return this.http.get<Array<Furniture>>(this.url);
+  }
 }
