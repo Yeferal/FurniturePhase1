@@ -10,6 +10,7 @@ export class ActionsComponent implements OnInit {
   @Input() infModalId: string;
   @Input() formModalId: string;
   @Input() deleteModalId: string;
+  @Input() addButton: boolean;
   @Input() model: string;
   @Input() id: number;
   @Output() messageEvent = new EventEmitter<number>();
