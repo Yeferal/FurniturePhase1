@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="row">
                             <!-- Comentario nomás para dividir el formulario de arriba -->
-                            <div class="col-lg-4" style="margin-bottom: 25px;">
+                            <div class="col-lg-12" style="margin-bottom: 25px;">
                                 <div class="card shadow mb-lg-auto">
                                     <div class="card-body">
                                         <app-client-form></app-client-form>
@@ -17,19 +17,30 @@
                                 </div>
                             </div>
                             <!-- Comentario nomás para dividir el formulario x2 -->
-                            <div class="col-lg-8" style="margin-bottom: 25px;">
+                            <div class="col-lg-5" style="margin-bottom: 25px;">
                                 <div class="card shadow mb-lg-auto">
                                     <div class="card-body">
                                         <div class="p-1" >
                                             <div class="text-center">
-                                                <h1 class="h4 text-gray-900 mb-4">tabla de muebles</h1>
+                                                <h1 class="h4 text-gray-900 mb-4">Muebles en venta</h1>
                                             </div>
+                                            <!-- Tabla de muebles en venta-->
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <th>Nombre</th>
+                                                        <th>Precio unitario</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Comentario nomás para dividir el formulario x3 -->
-                            <div class="col-lg-6">
+                            <div class="col-lg-7">
                                 <div class="card shadow mb-auto">
                                     <div class="card-body">
                                         <app-invoice></app-invoice>

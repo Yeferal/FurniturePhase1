@@ -13,8 +13,8 @@ export class ClientFormComponent implements OnInit {
 
   clientForm: FormGroup = new FormGroup({
     clientNit: new FormControl('',[Validators.required,Validators.pattern('[0-9]+]')]),
-    clientName: new FormControl('',[Validators.required]),
-    clientSurname: new FormControl('',[Validators.required])
+    clientFullName: new FormControl('',[Validators.required]),
+    clientAddress: new FormControl('',[Validators.required])
   });
 
   constructor() { }
