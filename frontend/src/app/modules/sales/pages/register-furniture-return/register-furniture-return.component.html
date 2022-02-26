@@ -1,6 +1,6 @@
 <app-container>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Consultar Devolucion</h1>
+        <h1 class="h3 mb-0 text-gray-800">Registrar Devolucion</h1>
         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
     </div>
@@ -8,53 +8,40 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
-                <form [formGroup]="returnCustomerForm" class="user">
+                <form [formGroup]="invoiceForm" class="user">
                     <div class="card-body">
                         <div class="form-group row">
-                            <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                <label class="form-check-label">Nit Cliente</label>
-                                <input 
-                                formControlName="nitCliente" 
-                                [class.inp-invalid]="returnCustomerForm.get('nitCliente')?.errors && returnCustomerForm.get('nitCliente')?.touched || nitClienteError" 
-                                type="text" class="form-control form-control-user" id="exampleFirstName"
-                                placeholder="NIT">
-                            </div>
-                            <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                <label class="form-check-label">Fecha Inicio</label>
-                                <input 
-                                formControlName="date1" 
-                                [class.inp-invalid]="returnCustomerForm.get('date1')?.errors && returnCustomerForm.get('date1')?.touched || date1Error" 
-                                type="date" class="form-control form-control-user" id="exampleFirstName"
-                                placeholder="Fecha Inicial">
-                            </div>
-                            <div class="col-sm-3 mb-3 mb-sm-0" style="text-align: center;">
-                                <label class="form-check-label">Fecha Final</label>
-                                <input 
-                                formControlName="date2" 
-                                [class.inp-invalid]="returnCustomerForm.get('date2')?.errors && returnCustomerForm.get('date2')?.touched || date2Error" 
-                                type="date" class="form-control form-control-user" id="exampleFirstName"
-                                placeholder="Fecha Final">
+                            <div class="col-sm-9 mb-3 mb-sm-0" style="text-align: center;">
+                                <label class="form-check-label">Factura del Cliente</label>
+                                <input  
+                                type="text" 
+                                formControlName="noInvoice" 
+                                [class.inp-invalid]="invoiceForm.get('noInvoice')?.errors && invoiceForm.get('noInvoice')?.touched" 
+                                class="form-control form-control-user" id="exampleFirstName"
+                                placeholder="Factura">
                             </div>
                             <div class="col-sm-3 mb-3 mb-sm-0">
                                 <label class="form-check-label"></label>
-                                <input type="submit" (click)="serchReturns()" class="btn btn-primary btn-user btn-block" value="Buscar">
+                                <input type="submit" (click)="buscarFactura()" class="btn btn-primary btn-user btn-block" value="Buscar">
                             </div>
                         </div>
                     </div>
                 </form>
-                <label *ngIf="this.errorForm" style="text-align: center; color: red; margin-bottom: 10px;">{{msjError}}</label>
+                <label *ngIf="this.isExistInvoice" style="text-align: center; color: red; margin-bottom: 10px;">La Factura no existe</label>
+                <label *ngIf="this.aprovedReturn" style="text-align: center; color: green; margin-bottom: 10px;">Devolucion Aprobada</label>
+                <label *ngIf="this.desaprovedReturn" style="text-align: center; color: red; margin-bottom: 10px;">Devolucion Desaprobada F#000000: A pasado mas de una Semana</label>
             </div>
         </div>
     </div>
     
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4" *ngIf="this.aprovedReturn">
         <!-- Card Header - Accordion -->
         
-        <a (click)="openCont()" class="d-block card-header py-3"
-         [class.collapsed]="!openContent" 
+        <a (click)="openCont()" class="d-block card-header py-3" 
+        [class.collapsed]="!openContent" 
         data-toggle="collapse"
             role="button" aria-controls="collapseCardExample">
-            <h6 class="m-0 font-weight-bold text-primary">Datos de la Obenidos Nit #0000000</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Datos de la Factura #0000000</h6>
         </a>
         <!-- Card Content - Collapse -->
         <div class="collapse" [class.show]="openContent" id="collapseCardExample">
@@ -85,6 +72,7 @@
                                                 <th>Cantidad</th>
                                                 <th>Precio</th>
                                                 <th>SubTotal</th>
+                                                <th>Retornar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -94,6 +82,7 @@
                                                 <td>Edinburgh</td>
                                                 <td>61</td>
                                                 <td>$320,800</td>
+                                                <td><input type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td>
                                             </tr>
                                             <tr>
                                                 <td>Garrett Winters</td>
@@ -101,6 +90,7 @@
                                                 <td>Tokyo</td>
                                                 <td>63</td>
                                                 <td>$170,750</td>
+                                                <td><input type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td>
                                             </tr>
                                             <tr>
                                                 <td>Ashton Cox</td>
@@ -108,6 +98,7 @@
                                                 <td>San Francisco</td>
                                                 <td>66</td>
                                                 <td>$86,000</td>
+                                                <td><input type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td>
                                             </tr>
                                             <tr>
                                                 <td>Cedric Kelly</td>
@@ -115,6 +106,7 @@
                                                 <td>Edinburgh</td>
                                                 <td>22</td>
                                                 <td>$433,060</td>
+                                                <td><input type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td>
                                             </tr>
                                             <tr>
                                                 <td>Airi Satou</td>
@@ -122,6 +114,7 @@
                                                 <td>Tokyo</td>
                                                 <td>33</td>
                                                 <td>$162,700</td>
+                                                <td><input type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td>
                                             </tr>
                                             <tr>
                                                 <td>Brielle Williamson</td>
@@ -129,6 +122,7 @@
                                                 <td>New York</td>
                                                 <td>61</td>
                                                 <td>$372,000</td>
+                                                <td><input type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td>
                                             </tr>
                                             <tr>
                                                 <td>Herrod Chandler</td>
@@ -136,6 +130,7 @@
                                                 <td>San Francisco</td>
                                                 <td>59</td>
                                                 <td>$137,500</td>
+                                                <td><input type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -156,13 +151,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- <label style="width: 45%;"> </label> -->
-                                <!-- <label style="width: 80%; text-align: right;">Total: </label>
-                                <label style="width: 2%; text-align: right;"></label>
-                                <label style="width: 17%; text-align: left;">13242314</label> -->
-                                <!-- <label style="width: 45%;">Nombre: </label>
-                                <label style="width: 45%;">Apellidos: </label> -->
-                                <!-- <label style="width: 45%;">Amount: </label> -->
                             </div>
                         </div>
                     </div>
@@ -170,5 +158,10 @@
             </div>
         </div>
     </div>
+
+    <!-- <app-modal class="modal fade" id="furnitureInfModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" 
+        [tittle]="'Información mueble'" [action]="'Listo'" [link_action]="'#'">
+        <app-furniture-information [id]="selectedId"></app-furniture-information>
+    </app-modal> -->
 
 </app-container>

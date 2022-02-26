@@ -4,6 +4,7 @@ import { FurnitureAvailableComponent } from './components/furniture-available/fu
 import { SalesOfDayComponent } from './components/sales-of-day/sales-of-day.component';
 import { CheckCustomerReturnsComponent } from './pages/check-customer-returns/check-customer-returns.component';
 import { ConsultInvoicesComponent } from './pages/consult-invoices/consult-invoices.component';
+import { RegisterFurnitureReturnComponent } from './pages/register-furniture-return/register-furniture-return.component';
 
 const routes: Routes = [
 
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path:'check-costumer-returns',
     component: CheckCustomerReturnsComponent
+  },
+  {
+    path:'register-furniture-return',
+    component: RegisterFurnitureReturnComponent
   }
 ];
 
