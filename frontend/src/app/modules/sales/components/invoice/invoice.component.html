@@ -1,0 +1,27 @@
+<div class="table-responsive">
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">Factura</h1>
+    </div>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio unitario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let furniture of furnitures ">
+                <td>{{furniture.id}}</td>
+                <td>{{furniture.description}}</td>
+                <td><app-actions 
+                    (messageEvent)="removeFurniture($event)" 
+                    [model]="'furniture'" 
+                    [id]="furniture.id"
+                    [removeButton]="true"></app-actions></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -10,9 +10,12 @@
         <div class="modal-body">
             <ng-content></ng-content>
         </div>
-        <div class="modal-footer">
+        
+        <!--<div class="modal-footer"> Habrá que agregarlo en todos los modales para modificar
+            los botones de accion
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="{{link_action}}">{{action}}</a>
-        </div>
+            <button *ngIf="isEdit==true" type="submit" [disabled]="formGroup.invalid" class="btn btn-warning">Modificar</button>
+            <button *ngIf="isEdit!=true" type="submit" [disabled]="formGroup.invalid" class="btn btn-success">Guardar</button>
+        </div>-->
     </div>
 </div>

@@ -13,7 +13,6 @@ import { FurnitureInformationComponent } from './components/furniture-informatio
 import { CreateCategoryPieceComponent } from './components/create-category-piece/create-category-piece.component';
 import { FilterListPiecesComponent } from './components/filter-list-pieces/filter-list-pieces.component';
 import { RegisterFornitureComponent } from './pages/register-forniture/register-forniture.component';
-import { ActionsComponent } from './components/actions/actions.component';
 import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-pieces.component';
 
 
@@ -28,8 +27,7 @@ import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-piec
     CreateCategoryPieceComponent,
     FilterListPiecesComponent,
     RegisterFornitureComponent,
-    ActionsComponent,
-    PageListPiecesComponent,
+    PageListPiecesComponent
   ],
   imports: [
     CommonModule,

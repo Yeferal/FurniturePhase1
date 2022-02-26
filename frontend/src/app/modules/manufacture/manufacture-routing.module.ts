@@ -22,7 +22,6 @@ const routes: Routes = [
     path: 'list-pieces',
     component: PageListPiecesComponent
   }
-  
 ];
 
 @NgModule({

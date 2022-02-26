@@ -8,6 +8,9 @@ import { ConsultInvoicesComponent } from './pages/consult-invoices/consult-invoi
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CheckCustomerReturnsComponent } from './pages/check-customer-returns/check-customer-returns.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { ClientFormComponent } from './components/client-form/client-form.component';
+import { PageGenerateInvoiceComponent } from './pages/page-generate-invoice/page-generate-invoice.component';
 
 
 
@@ -17,6 +20,11 @@ import { CheckCustomerReturnsComponent } from './pages/check-customer-returns/ch
     FurnitureAvailableComponent,
     ConsultInvoicesComponent,
     CheckCustomerReturnsComponent,
+    InvoiceComponent,
+    ClientFormComponent,
+    ClientFormComponent,
+    InvoiceComponent,
+    PageGenerateInvoiceComponent
   ],
   imports: [
     CommonModule,

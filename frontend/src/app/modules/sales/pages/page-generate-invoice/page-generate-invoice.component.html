@@ -1,0 +1,56 @@
+<app-container>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Forniture</h1>
+    </div>  
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card shadow mb-4">
+                <form>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Comentario nomás para dividir el formulario de arriba -->
+                            <div class="col-lg-12" style="margin-bottom: 25px;">
+                                <div class="card shadow mb-lg-auto">
+                                    <div class="card-body">
+                                        <app-client-form></app-client-form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Comentario nomás para dividir el formulario x2 -->
+                            <div class="col-lg-5" style="margin-bottom: 25px;">
+                                <div class="card shadow mb-lg-auto">
+                                    <div class="card-body">
+                                        <div class="p-1" >
+                                            <div class="text-center">
+                                                <h1 class="h4 text-gray-900 mb-4">Muebles en venta</h1>
+                                            </div>
+                                            <!-- Tabla de muebles en venta-->
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <th>Nombre</th>
+                                                        <th>Precio unitario</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Comentario nomás para dividir el formulario x3 -->
+                            <div class="col-lg-7">
+                                <div class="card shadow mb-auto">
+                                    <div class="card-body">
+                                        <app-invoice></app-invoice>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</app-container>
