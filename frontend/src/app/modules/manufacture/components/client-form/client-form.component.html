@@ -1,1 +1,16 @@
-<p>client-form works!</p>
+<form [formGroup]="clientForm">
+    <div class="form-group">
+        <label for="clientNit">Nit</label>
+        <input formControlName="clientNit" type="number" class="form-control" id="clientNit"><br>
+        <label for="clientName">Nombre del cliente</label>
+        <input formControlName="clientName" type="text" class="form-control" id="clientName"><br>
+        <label for="clientSurname">Apellido(s) del cliente</label>
+        <input formControlName="clientSurname" type="text" class="form-control" id="clientSurname"><br>
+    </div>
+    <br>
+    <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+        <button *ngIf="isEdit" type="submit" [disabled]="clientForm.invalid" class="btn btn-warning">Modificar</button>
+        <button *ngIf="!isEdit" type="submit" [disabled]="clientForm.invalid" class="btn btn-success">Guardar</button>
+    </div>
+</form>

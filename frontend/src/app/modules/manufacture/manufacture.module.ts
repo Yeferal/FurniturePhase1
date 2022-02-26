@@ -15,6 +15,8 @@ import { FilterListPiecesComponent } from './components/filter-list-pieces/filte
 import { RegisterFornitureComponent } from './pages/register-forniture/register-forniture.component';
 import { ActionsComponent } from './components/actions/actions.component';
 import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-pieces.component';
+import { ClientFormComponent } from './components/client-form/client-form.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-piec
     RegisterFornitureComponent,
     ActionsComponent,
     PageListPiecesComponent,
+    ClientFormComponent,
+    InvoiceComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +41,6 @@ import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-piec
     ManufactureRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule,
     NgxPaginationModule,
   ]
 })
