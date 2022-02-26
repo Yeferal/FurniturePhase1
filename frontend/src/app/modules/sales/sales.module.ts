@@ -7,6 +7,7 @@ import { FurnitureAvailableComponent } from './components/furniture-available/fu
 import { ConsultInvoicesComponent } from './pages/consult-invoices/consult-invoices.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CheckCustomerReturnsComponent } from './pages/check-customer-returns/check-customer-returns.component';
 
 
 
@@ -15,6 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SalesOfDayComponent,
     FurnitureAvailableComponent,
     ConsultInvoicesComponent,
+    CheckCustomerReturnsComponent,
   ],
   imports: [
     CommonModule,
