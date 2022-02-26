@@ -8,6 +8,8 @@ import { SearchPiecePipe } from './pipes/search-piece.pipe';
 import { RouterModule } from '@angular/router';
 import { ContainerComponent } from './components/container/container.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { AppSearchComponent } from './components/app-search/app-search.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -17,12 +19,12 @@ import { AlertComponent } from './components/alert/alert.component';
     SearchPiecePipe,
     ContainerComponent,
     AlertComponent,
-    
+    AppSearchComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-   
+    ReactiveFormsModule
   ],
   exports: [
     FooterComponent,
@@ -30,7 +32,8 @@ import { AlertComponent } from './components/alert/alert.component';
     SideBarComponent,
     TopBarComponent,
     SearchPiecePipe,
-    ContainerComponent
+    ContainerComponent,
+    AppSearchComponent
   ]
 })
 export class SharedModule { }

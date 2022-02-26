@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ManufactureRoutingModule } from './manufacture-routing.module';
 import { ListCategoryComponent } from './components/list-category/list-category.component';
-import { AppSearchComponent } from './components/app-search/app-search.component';
 import { ListFurnitureComponent } from './components/list-furniture/list-furniture.component';
 import { ListPiecesComponent } from './components/list-pieces/list-pieces.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,7 +21,6 @@ import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-piec
   declarations: [
     ListPiecesComponent,
     ListCategoryComponent,
-    AppSearchComponent,
     ListFurnitureComponent,
     PieceInformationComponent,
     PieceFormComponent,
