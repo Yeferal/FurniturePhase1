@@ -7,8 +7,10 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { SearchPiecePipe } from './pipes/search-piece.pipe';
 import { RouterModule } from '@angular/router';
 import { ContainerComponent } from './components/container/container.component';
+import { AlertComponent } from './components/alert/alert.component';
 import { AppSearchComponent } from './components/app-search/app-search.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ActionsComponent } from './components/actions/actions.component';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -17,13 +19,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     TopBarComponent,
     SearchPiecePipe,
     ContainerComponent,
-    AppSearchComponent
+    AlertComponent,
+    AppSearchComponent,
+    ActionsComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule,
-   
+    ReactiveFormsModule
   ],
   exports: [
     FooterComponent,
@@ -32,7 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TopBarComponent,
     SearchPiecePipe,
     ContainerComponent,
-    AppSearchComponent
+    AppSearchComponent,
+    ActionsComponent
   ]
 })
 export class SharedModule { }

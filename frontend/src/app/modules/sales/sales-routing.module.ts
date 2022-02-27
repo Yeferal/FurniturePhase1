@@ -5,28 +5,27 @@ import { SalesOfDayComponent } from './components/sales-of-day/sales-of-day.comp
 import { CheckCustomerReturnsComponent } from './pages/check-customer-returns/check-customer-returns.component';
 import { ConsultInvoicesComponent } from './pages/consult-invoices/consult-invoices.component';
 import { RegisterFurnitureReturnComponent } from './pages/register-furniture-return/register-furniture-return.component';
+import { PageGenerateInvoiceComponent } from './pages/page-generate-invoice/page-generate-invoice.component';
 
-const routes: Routes = [
-
-  {
+const routes: Routes = [{
     path:'sales-of-day',
     component: SalesOfDayComponent
-  },
-  {
+  },{
     path:'available-furnitures',
     component: FurnitureAvailableComponent
-  },
-  {
+  },{
     path:'consult-invoices',
     component: ConsultInvoicesComponent
-  },
-  {
+  },{
     path:'check-costumer-returns',
     component: CheckCustomerReturnsComponent
   },
   {
     path:'register-furniture-return',
     component: RegisterFurnitureReturnComponent
+  },{
+    path: 'do-sale',
+    component: PageGenerateInvoiceComponent
   }
 ];
 

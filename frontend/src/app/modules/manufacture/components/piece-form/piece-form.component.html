@@ -1,8 +1,28 @@
-<p>
-    Aqui se muestra el formulario de una pieza si editar es verdadero entonces
-    se muestra el formulario, valores actuales: 
+<form [formGroup]="pieceForm" (ngSubmit)="doChanges()">
+    <p>
+        Id: {{selectedId}}
+        <br>
+        Editar: {{isEdit}}
+    </p>
+    <div class="form-group">
+        <label for="pieceName">Nombre de la pieza</label>
+        <input formControlName="pieceName" type="text" class="form-control" id="pieceName"><br>
+        <label for="piecePrice">Categoria</label>
+        <select formControlName="pieceCategory" id="pieceCategory" class="form-control">
+            <option value="1">Roble</option>
+            <option value="2">Abeto</option>
+            <option value="3">Tronco</option>
+            <option value="4">Besubio</option>
+        </select><br>
+        <label for="piecePrice">Precio de venta</label>
+        <input formControlName="piecePrice" type="number" class="form-control" id="piecePrice"><br>
+        <label for="pieceCost">Costo</label>
+        <input formControlName="pieceCost" type="number" class="form-control" id="pieceCost">
+    </div>
     <br>
-    Id: {{selectedId}}
-    <br>
-    Editar: {{isEdit}}
-</p>
+    <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+        <button *ngIf="isEdit" type="submit" [disabled]="pieceForm.invalid" class="btn btn-warning">Modificar</button>
+        <button *ngIf="!isEdit" type="submit" [disabled]="pieceForm.invalid" class="btn btn-success">Guardar</button>
+    </div>
+</form>

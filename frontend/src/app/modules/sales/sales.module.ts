@@ -10,6 +10,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CheckCustomerReturnsComponent } from './pages/check-customer-returns/check-customer-returns.component';
 import { RegisterFurnitureReturnComponent } from './pages/register-furniture-return/register-furniture-return.component';
 import { RegisterLostComponent } from './components/register-lost/register-lost.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { ClientFormComponent } from './components/client-form/client-form.component';
+import { PageGenerateInvoiceComponent } from './pages/page-generate-invoice/page-generate-invoice.component';
 
 
 
@@ -21,6 +24,11 @@ import { RegisterLostComponent } from './components/register-lost/register-lost.
     CheckCustomerReturnsComponent,
     RegisterFurnitureReturnComponent,
     RegisterLostComponent,
+    InvoiceComponent,
+    ClientFormComponent,
+    ClientFormComponent,
+    InvoiceComponent,
+    PageGenerateInvoiceComponent
   ],
   imports: [
     CommonModule,

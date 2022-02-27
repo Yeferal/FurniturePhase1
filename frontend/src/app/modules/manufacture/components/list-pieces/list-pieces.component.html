@@ -92,7 +92,8 @@
                                     [model]="'piece'" [id]="item.id" 
                                     [infModalId]="'pieceInfModal'"
                                     [formModalId]="'pieceFormModal'"
-                                    [deleteModalId]="'undefined'">                                    
+                                    [deleteModalId]="'undefined'"
+                                    [addButton]="false">
                                     <button type="button" class="btn btn-outline-success" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#provideModal">Abastecer</button>
                                     <button type="button" class="btn btn-outline-primary" data-toggle="modal" (click)="setIdPieceAndCost(item.id,item.precio)" data-target="#exampleModal">Remover</button>
                                     <button type="button" class="btn btn-outline-danger" data-toggle="modal" (click)="setIdPiece(item.id)" data-target="#confirmModal">Eliminar</button>
@@ -202,3 +203,4 @@
       </div>
     </div>
 </div>
+<div (feedbackEvent)="sendFeedback($event)"></div>
