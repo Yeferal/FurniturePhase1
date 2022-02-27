@@ -16,6 +16,7 @@ export class ActionsComponent implements OnInit {
   @Input() id: number;
   @Output() messageEvent = new EventEmitter<number>(); //Para enviar el id que se seleccionó
   @Output() isEditEvent = new EventEmitter<boolean>(); //Para enviar si es edición o creación
+  @Output() pressedButtonTypeEvent = new EventEmitter<string>();
 
   constructor() {}
 
@@ -31,4 +32,7 @@ export class ActionsComponent implements OnInit {
     this.isEditEvent.emit(value);
   }
 
+  updatePressedButton(value: string){
+    this.pressedButtonTypeEvent.emit(value);
+  }
 }

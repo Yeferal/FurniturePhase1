@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Client } from 'src/app/core/models/client';
 import { ClientService } from 'src/app/modules/sales/services/client/client.service';
@@ -13,6 +13,7 @@ import { ClientService } from 'src/app/modules/sales/services/client/client.serv
 export class ClientFormComponent implements OnInit {
 
   @Input() isEdit: boolean;
+  @Output() foundClientEvent = new EventEmitter<Client>();
   client: Client;
 
   clientForm: FormGroup = new FormGroup({
@@ -36,10 +37,25 @@ export class ClientFormComponent implements OnInit {
         } else {
           this.client = response;
         }
+        this.sendClientUpdate();
       },
       (error: HttpErrorResponse) => {
         console.log(error);
       }
     );
+  }
+
+  updateClientFullName(event: any){
+    this.client.name = event.target.value;
+    this.sendClientUpdate();
+  }
+
+  updateClientAddress(event: any){
+    this.client.address = event.target.value;
+    this.sendClientUpdate();
+  }
+
+  sendClientUpdate(){
+    this.foundClientEvent.emit(this.client);
   }
 }

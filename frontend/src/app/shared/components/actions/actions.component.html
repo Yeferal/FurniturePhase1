@@ -1,8 +1,8 @@
-<div class="btn-group btn-online">
+<div class="btn-group btn-online btn-group-sm">
     <ng-content></ng-content>
-    <button *ngIf="infModalId!='undefined'" class="btn btn-outline-dark" (click)="updateOutputId(); updateIsEdit(false)" href="#" data-toggle="modal" [attr.data-target]="'#' + infModalId">Visualizar</button>
-    <button *ngIf="formModalId!='undefined'" class="btn btn-outline-warning" (click)="updateOutputId(); updateIsEdit(true);" href="#" data-toggle="modal" [attr.data-target]="'#' + formModalId">Editar</button>
-    <button *ngIf="deleteModalId!='undefined'" class="btn btn-outline-danger" (click)="updateOutputId()" href="#" data-toggle="modal" [attr.data-target]="'#' + deleteModalId">Eliminar</button>
-    <button *ngIf="addButton" class="btn btn-success" (click)="updateOutputId()" href="#">Agregar</button>
-    <button *ngIf="removeButton" class="btn btn-danger" (click)="updateOutputId()" href="#">Remover</button>
+    <button *ngIf="infModalId!='undefined'" class="btn btn-outline-dark" (click)="updateOutputId(); updateIsEdit(false); updatePressedButton('view');" href="#" data-toggle="modal" [attr.data-target]="'#' + infModalId">Visualizar</button>
+    <button *ngIf="formModalId!='undefined'" class="btn btn-outline-warning" (click)="updateOutputId(); updateIsEdit(true);; updatePressedButton('edit');" href="#" data-toggle="modal" [attr.data-target]="'#' + formModalId">Editar</button>
+    <button *ngIf="deleteModalId!='undefined'" class="btn btn-outline-danger" (click)="updateOutputId(); updatePressedButton('delete');" href="#" data-toggle="modal" [attr.data-target]="'#' + deleteModalId">Eliminar</button>
+    <button *ngIf="addButton" class="btn btn-outline-success" type="button" (click)="updateOutputId(); updatePressedButton('add');" >Agregar</button>
+    <button *ngIf="removeButton" class="btn btn-outline-danger" (click)="updateOutputId(); updatePressedButton('remove');" href="#">Remover</button>
 </div>
