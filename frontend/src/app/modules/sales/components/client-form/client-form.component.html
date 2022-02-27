@@ -3,15 +3,17 @@
         <div class="row">
             <div class="col-lg-2">
                 <label for="clientNit">Nit</label>
-                <input formControlName="clientNit" type="number" class="form-control" id="clientNit">
+                <input (keyup)="searchClient($event)" formControlName="clientNit" type="number" class="form-control" id="clientNit">
             </div>
             <div class="col-lg-4">
                 <label for="clientFullName">Nombre completo del cliente</label>
-                <input formControlName="clientName" type="text" class="form-control" id="clientName">
+                <input formControlName="clientFullName" type="text" class="form-control" id="clientFullName"
+                value="{{client!=undefined? client.name:''}}">
             </div>
             <div class="col-lg-6">
                 <label for="clientAddress">Direccion</label>
-                <input formControlName="clientAddress" type="text" class="form-control" id="clientAddress">
+                <input formControlName="clientAddress" type="text" class="form-control" id="clientAddress"
+                value="{{client!=undefined? client.address:''}}">
             </div>
         </div>
     </div>
