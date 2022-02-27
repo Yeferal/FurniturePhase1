@@ -1,1 +1,5 @@
-<p>Mostrar información del mueble con id: {{id}}</p>
+<p *ngIf="piece!=undefined"><strong>Identificador: </strong>{{piece.id}}</p>
+<p *ngIf="piece!=undefined"><strong>Nombre: </strong>{{piece.name}}</p>
+<p *ngIf="piece!=undefined"><strong>Costo: </strong>{{piece.cost}}</p>
+<p *ngIf="piece!=undefined"><strong>Categoria: </strong>{{piece.category}}</p>
+<p *ngIf="piece!=undefined"><strong>Cantidad: </strong>{{piece.amount}}</p>

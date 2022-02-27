@@ -1,10 +1,10 @@
 export class Piece {
 
-    id: number;
-    name: string;
-    cost: number;
-    category: string;
-    amount: number;
+    public id: number;
+    public name: string;
+    public cost: number;
+    public category: string;
+    public amount: number;
 
     /* constructor(id: number, name: string, cost: number, category: string, amount: number){
         this.id = id;
@@ -13,8 +13,6 @@ export class Piece {
         this.category = category;
         this.amount = amount;
     }
-
-    
     public getId() : number { return this.id }
     public getName() : string { return this.name }
     public getCost() : number { return this.cost }
