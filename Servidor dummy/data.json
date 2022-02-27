@@ -1,0 +1,153 @@
+{
+  "piece": [
+    {
+      "id": 1,
+      "name": "Pata",
+      "cost": 5,
+      "category": "Abeto",
+      "amount": 11
+    },
+    {
+      "id": 2,
+      "name": "Brazal",
+      "cost": 5,
+      "category": "Abeto",
+      "amount": 13
+    },
+    {
+      "id": 3,
+      "name": "Tablón",
+      "cost": 5,
+      "category": "Abeto",
+      "amount": 16
+    },
+    {
+      "id": 4,
+      "name": "Estatua",
+      "cost": 5,
+      "category": "Abeto",
+      "amount": 1
+    },
+    {
+      "id": 5,
+      "name": "Barandilla",
+      "cost": 5,
+      "category": "Abeto",
+      "amount": 16
+    },
+    {
+      "id": 6,
+      "name": "Palo",
+      "cost": 5,
+      "category": "Abeto",
+      "amount": 12
+    },
+    {
+      "id": 7,
+      "name": "Cruceta",
+      "cost": 5,
+      "category": "Abeto",
+      "amount": 17
+    },
+    {
+      "id": 8,
+      "name": "Rueda",
+      "cost": 5,
+      "category": "Abeto",
+      "amount": 16
+    },
+    {
+      "id": 9,
+      "name": "Rueda",
+      "cost": 5,
+      "category": "Roble",
+      "amount": 15
+    },
+    {
+      "id": 10,
+      "name": "Pata",
+      "cost": 5,
+      "category": "Roble",
+      "amount": 10
+    }
+  ],
+  "furniture":[
+    {
+      "id": 1,
+      "title": "Mesa rustica",
+      "description": "Descripcion cualquiera -> ABCDEFGH",
+      "price": 150,
+      "cost": 125,
+      "inSale": 1
+    },
+    {
+      "id": 2,
+      "title": "Mesa plastica",
+      "description": "Descripcion cualquiera -> ABCDEFGH",
+      "price": 170,
+      "cost": 130,
+      "inSale": 0
+    },
+    {
+      "id": 3,
+      "title": "Mesa aturdidora",
+      "description": "Descripcion cualquiera -> ABCDEFGH",
+      "price": 200,
+      "cost": 154,
+      "inSale": 0
+    },
+    {
+      "id": 4,
+      "title": "Mesa sábatica",
+      "description": "Descripcion cualquiera -> ABCDEFGH",
+      "price": 100,
+      "cost": 105,
+      "inSale": 0
+    },
+    {
+      "id": 5,
+      "title": "Mesaita que aplaude",
+      "description": "Descripcion cualquiera -> ABCDEFGH",
+      "price": 170,
+      "cost": 125,
+      "inSale": 0
+    }
+  ],
+  "client":[
+    {
+      "nit": 1,
+      "name": "José Soberanis",
+      "address": "Colonia los almendros"
+    },
+    {
+      "nit": 2,
+      "name": "Carlos Ramirez",
+      "address": "Colonia los cerezos"
+    },
+    {
+      "nit": 3,
+      "name": "Daniel Gonzalez",
+      "address": "Colonia los aceitunos"
+    },
+    {
+      "nit": 4,
+      "name": "Josue Lopez",
+      "address": "Colonia los saltos"
+    },
+    {
+      "nit": 5,
+      "name": "Jhonny Garcia",
+      "address": "Colonia los buenos dias"
+    },
+    {
+      "nit": 6,
+      "name": "Yefer Alvarado",
+      "address": "Colonia los salvadoreñso"
+    },
+    {
+      "nit": 7,
+      "name": "Mario Ramirez",
+      "address": "Colonia los salvajes"
+    }
+  ]
+}
