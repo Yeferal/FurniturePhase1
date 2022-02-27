@@ -1,21 +1,27 @@
 <div class="table-responsive">
-    <div class="text-center">
-        <h1 class="h4 text-gray-900 mb-4">Factura</h1>
+    <div class="container">
+        <div class="row">
+            <h1 class="h4 text-gray-900 col-lg-8">Factura</h1>
+            <button class="btn btn-secondary btn-sm" href="#" data-toggle="modal" [attr.data-target]="'#'+furnituresOnSaleModalId">Agregar mueble</button>
+            <div class="col-lg-1"></div>
+            <button class="btn btn-primary btn-sm" href="#" (click)="doInvoice()">Registrar venta</button>
+        </div>
     </div>
+    <br>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Cantidad</th>
-                <th>Precio unitario</th>
+                <th>Precio</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let furniture of furnitures ">
                 <td>{{furniture.id}}</td>
-                <td>{{furniture.description}}</td>
+                <td>{{furniture.title}}</td>
+                <td>{{furniture.price}}</td>
                 <td><app-actions 
                     (messageEvent)="removeFurniture($event)" 
                     [model]="'furniture'" 

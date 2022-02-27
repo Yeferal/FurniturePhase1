@@ -23,4 +23,8 @@ export class FurnitureService {
   public getFurniture(id: number): Observable<Furniture>{
     return this.http.get<Furniture>(this.urlSoberanis+'/'+id);
   }
+
+  public getFurnituresOnSale(): Observable<Array<Furniture>>{
+    return this.http.get<Array<Furniture>>(this.urlSoberanis+'?onSale=1');
+  }
 }

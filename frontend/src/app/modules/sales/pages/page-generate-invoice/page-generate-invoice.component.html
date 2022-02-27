@@ -1,6 +1,6 @@
 <app-container>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Forniture</h1>
+        <h1 class="h3 mb-0 text-gray-800">Realizar venta</h1>
     </div>  
     <div class="row">
         <div class="col-lg-12">
@@ -12,44 +12,75 @@
                             <div class="col-lg-12" style="margin-bottom: 25px;">
                                 <div class="card shadow mb-lg-auto">
                                     <div class="card-body">
-                                        <app-client-form></app-client-form>
+                                        <app-client-form
+                                            (foundClientEvent)="updateClient($event)"
+                                        ></app-client-form>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Comentario nomás para dividir el formulario x2 -->
-                            <div class="col-lg-5" style="margin-bottom: 25px;">
-                                <div class="card shadow mb-lg-auto">
-                                    <div class="card-body">
-                                        <div class="p-1" >
-                                            <div class="text-center">
-                                                <h1 class="h4 text-gray-900 mb-4">Muebles en venta</h1>
-                                            </div>
-                                            <!-- Tabla de muebles en venta-->
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Id</th>
-                                                        <th>Nombre</th>
-                                                        <th>Precio unitario</th>
-                                                        <th>Acciones</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Comentario nomás para dividir el formulario x3 -->
-                            <div class="col-lg-7">
+                            <div class="col-lg-12">
                                 <div class="card shadow mb-auto">
                                     <div class="card-body">
-                                        <app-invoice></app-invoice>
+                                        <app-invoice 
+                                            [furnituresOnSaleModalId]="'furnituresOnSaleModal'"
+                                            [lastAddedFurniture]="lastAddedFurniture"
+                                            [client]="client"
+                                            (removeFurnitureEvent)="addFurnitureOnSale($event)"
+                                        ></app-invoice>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade bd-example-modal-lg" id="furnituresOnSaleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Muebles en venta</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="p-1" >
+                        <!-- Tabla de muebles en venta-->
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio unitario</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of furnituresOnSale">
+                                        <td>{{item.id}}</td>
+                                        <td>{{item.title}}</td>
+                                        <td>{{item.description}}</td>
+                                        <td>{{item.price}}</td>
+                                        <td>
+                                            <app-actions
+                                                (messageEvent)="addFurnitureToInvoice($event)"
+                                                [addButton]="true"
+                                                [id]="item.id"
+                                                [model]="'furniture'"
+                                            ></app-actions>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
