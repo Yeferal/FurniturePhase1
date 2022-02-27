@@ -6,6 +6,8 @@ import { CheckCustomerReturnsComponent } from './pages/check-customer-returns/ch
 import { ConsultInvoicesComponent } from './pages/consult-invoices/consult-invoices.component';
 import { RegisterFurnitureReturnComponent } from './pages/register-furniture-return/register-furniture-return.component';
 import { PageGenerateInvoiceComponent } from './pages/page-generate-invoice/page-generate-invoice.component';
+import { SalesByClientComponent } from './components/sales-by-client/sales-by-client.component';
+import { EarningsComponent } from './components/earnings/earnings.component';
 
 const routes: Routes = [{
     path:'sales-of-day',
@@ -26,6 +28,14 @@ const routes: Routes = [{
   },{
     path: 'do-sale',
     component: PageGenerateInvoiceComponent
+  },
+  {
+    path: 'sales-by-client',
+    component: SalesByClientComponent
+  },
+  {
+    path: 'earnings',
+    component: EarningsComponent
   }
 ];
 

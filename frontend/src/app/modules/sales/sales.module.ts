@@ -13,6 +13,8 @@ import { RegisterLostComponent } from './components/register-lost/register-lost.
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
 import { PageGenerateInvoiceComponent } from './pages/page-generate-invoice/page-generate-invoice.component';
+import { SalesByClientComponent } from './components/sales-by-client/sales-by-client.component';
+import { EarningsComponent } from './components/earnings/earnings.component';
 
 
 
@@ -28,7 +30,9 @@ import { PageGenerateInvoiceComponent } from './pages/page-generate-invoice/page
     ClientFormComponent,
     ClientFormComponent,
     InvoiceComponent,
-    PageGenerateInvoiceComponent
+    PageGenerateInvoiceComponent,
+    SalesByClientComponent,
+    EarningsComponent
   ],
   imports: [
     CommonModule,

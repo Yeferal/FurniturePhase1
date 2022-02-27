@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ventas } from '../../models/ventas';
+import { Sales } from '../../../../core/models/sales';
 import { SalesService } from '../../services/sales-service.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { SalesService } from '../../services/sales-service.service';
 export class SalesOfDayComponent implements OnInit {
 
   constructor(private salesService: SalesService) { }
-  ventasList: Array<ventas> = []
+  ventasList: Array<Sales> = []
   ngOnInit(): void {
     this.ventasList.push(
       {
@@ -18,28 +18,32 @@ export class SalesOfDayComponent implements OnInit {
         cost:10,
         furnitureCount:1000,
         id:1,
-        total:1000
+        total:1000,
+        date:"01-01-2001"
       },
       {
         client:"Cliente1",
         cost:10,
         furnitureCount:1000,
         id:1,
-        total:1000
+        total:1000,
+        date:"01-01-2001"
       },
       {
         client:"Cliente1",
         cost:10,
         furnitureCount:1000,
         id:1,
-        total:1000
+        total:1000,
+        date:"01-01-2001"
       },
       {
         client:"Cliente1",
         cost:10,
         furnitureCount:1000,
         id:1,
-        total:1000
+        total:1000,
+        date:"01-01-2001"
       }
     )
     

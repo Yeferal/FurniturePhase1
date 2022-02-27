@@ -1,0 +1,122 @@
+<app-container>
+    
+    <!-- Page Heading -->
+    <!-- OPCION 1 Heading-->
+    <h1 class="h3 mb-4 text-gray-800">Listado de ventas</h1>
+    <!-- OPCION 2 Heading-->
+    <!-- CONTENDIDO -->
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <form [formGroup]="formFilter" (ngSubmit)="getSalesByClient()" class="container">
+                <div class="row">
+                  <div class="col-lg-3">
+                    <label for="staticEmail" >Fecha inicio</label>
+                    <input class="form-control" type="date" [ngModel]='date| date:"yyyy-MM-dd" ' formControlName="dateStart" id="">
+                  </div>
+                  <div class="col-lg-3">
+                      <label for="staticEmail" >Fecha fin</label>
+                    <input type="date" class="form-control" [ngModel]='date| date:"yyyy-MM-dd" ' formControlName="dateEnd" name="dateEnd" id="">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <input  type="text" class="form-control bg-light small" placeholder="Nombre"
+                        aria-label="Search" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="submit" class="btn btn-primary" value="Buscar">
+                    </div>
+                </div>
+                <br>
+            </form >
+       
+            <br>
+        </div>
+        <div class="col-lg-12">
+            <!-- Dropdown Card Example -->
+            <div class="card shadow mb-auto">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Ventas</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Fecha</th>
+                                    <th>total</th>
+                                    <th>Cantidad de muebles adquiridos</th>
+                                    <th>Detalle</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Fecha</th>
+                                    <th>total</th>
+                                    <th>Cantidad de muebles adquiridos</th>
+                                    <th>Detalle</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr *ngFor="let item of sales ">
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.date}}</td>
+                                    <td>{{item.total}}</td>
+                                    <td>{{item.furnitureCount}}</td>
+                                    <th>
+                                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" (click)="getDetail(item.id)"  data-target="#confirmModal">Detalle</button>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-sm-12 col-md-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button page-item active">
+                                    
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
+        <app-modal>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Mueble</th>
+                            <th>total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of detailSale ">
+                            <td>{{item.id}}</td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.price}}</td>
+                    </tbody>
+                </table>
+            </div>
+        </app-modal>
+    </div>
+    
+</app-container>

@@ -81,7 +81,7 @@
                                 <td>{{item.id}}</td>
                                 <td>{{item.name}}</td>
                                 <td>{{item.cost}}</td>
-                                <td>{{item.category}</td>
+                                <td>{{item.category}}</td>
                                 <td>{{item.amount}}</td>
                                 <td>
                                   <app-actions 
@@ -144,7 +144,7 @@
                   <label for="numpieces">Numero de piezas</label>
                   <input formControlName="totalRemove" type="number" class="form-control" id="numpieces" aria-describedby="emailHelp" >
                 </div>
-                <button type="submit" [disabled]="formRemove.invalid" class="btn btn-danger">Eliminar</button>
+                <button type="submit" aria-hidden="true" [disabled]="formRemove.invalid" class="btn btn-danger">Eliminar</button>
               </form>
         </div>
         <div class="modal-footer">
