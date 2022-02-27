@@ -36,7 +36,8 @@ import { ActionsComponent } from './components/actions/actions.component';
     SearchPiecePipe,
     ContainerComponent,
     AppSearchComponent,
-    ActionsComponent
+    ActionsComponent,
+    AlertComponent,
   ]
 })
 export class SharedModule { }
