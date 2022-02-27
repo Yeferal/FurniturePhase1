@@ -147,9 +147,9 @@
                                                         <tr *ngFor="let item of listPieces | paginate: { itemsPerPage: 4, currentPage: p } ;let i = index">
                                                             <td>{{item.id}}</td>
                                                             <td>{{item.name}}</td>
-                                                            <td>{{item.precio}}</td>
-                                                            <td>{{item.tipo}}</td>
-                                                            <td>{{item.cantidad}}</td>
+                                                            <td>{{item.cost}}</td>
+                                                            <td>{{item.category}}</td>
+                                                            <td>{{item.amount}}</td>
                                                             <td>
                                                                 <a (click)="deletePiece(i)" class="btn btn-danger btn-circle btn-sm">
                                                                     <i class="fas fa-trash"></i>
@@ -216,9 +216,9 @@
                                                         <tr *ngFor="let item of listPieces | paginate: { itemsPerPage: 4, currentPage: p } ;let i = index">
                                                             <td>{{item.id}}</td>
                                                             <td>{{item.name}}</td>
-                                                            <td>{{item.precio}}</td>
-                                                            <td>{{item.tipo}}</td>
-                                                            <td>{{item.cantidad}}</td>
+                                                            <td>{{item.cost}}</td>
+                                                            <td>{{item.category}}</td>
+                                                            <td>{{item.amount}}</td>
                                                             <td>
                                                                 <a (click)="deletePiece(i)" class="btn btn-danger btn-circle btn-sm">
                                                                     <i class="fas fa-trash"></i>

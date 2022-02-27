@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Piece } from '../../models/piece';
+import { Piece } from '../../../../core/models/piece';
 import { PieceServiceService } from '../../services/pieces/piece-service.service';
 
 @Component({

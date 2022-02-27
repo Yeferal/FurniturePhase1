@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { Piece } from '../../models/piece';
+import { Piece } from '../../../../core/models/piece';
 import { PieceServiceService } from '../../services/pieces/piece-service.service';
 
 @Component({

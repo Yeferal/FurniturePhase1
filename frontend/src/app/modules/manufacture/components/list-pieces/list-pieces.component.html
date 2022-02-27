@@ -63,18 +63,16 @@
                                 <th>precio</th>
                                 <th>tipo</th>
                                 <th>cantidad</th>
-                                <th>precio venta</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>id</th>
-                                <th>Name</th>
-                                <th>precio</th>
-                                <th>tipo</th>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Costo</th>
+                                <th>Categoria</th>
                                 <th>cantidad</th>
-                                <th>precio venta</th>
                                 <th>Acciones</th>
                             </tr>
                         </tfoot>
@@ -82,10 +80,9 @@
                             <tr *ngFor="let item of list | searchPiece: searchValue | paginate: { itemsPerPage: maxSizeRows, currentPage: p }">
                                 <td>{{item.id}}</td>
                                 <td>{{item.name}}</td>
-                                <td>{{item.precio}}</td>
-                                <td>{{item.tipo}}</td>
-                                <td>{{item.cantidad}}</td>
-                                <td>{{item.precio_venta}}</td>
+                                <td>{{item.cost}}</td>
+                                <td>{{item.category}</td>
+                                <td>{{item.amount}}</td>
                                 <td>
                                   <app-actions 
                                     (isEditEvent)="updateIsEdit($event)" (messageEvent)="changeSelectedId($event)" 

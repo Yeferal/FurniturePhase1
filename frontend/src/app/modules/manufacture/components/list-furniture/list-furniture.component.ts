@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Furniture } from '../../models/furniture';
+import { Furniture } from '../../../../core/models/furniture';
 import { FurnitureService } from '../../services/furniture.service';
 import { DatePipe } from '@angular/common';
 
