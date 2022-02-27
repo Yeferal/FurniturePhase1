@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+interface DataReturn {
+  min: any;
+  max: any;
+  amount: any;
+  codeFurniture: any;
+  nitClient: any;
+  nameProduct: any;
+}
+
 @Component({
   selector: 'app-register-furniture-return',
   templateUrl: './register-furniture-return.component.html',
@@ -17,6 +26,8 @@ export class RegisterFurnitureReturnComponent implements OnInit {
   aprovedReturn = false;
   desaprovedReturn = false;
 
+  auxReturn: DataReturn;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -32,6 +43,20 @@ export class RegisterFurnitureReturnComponent implements OnInit {
     }
     this.aprovedReturn = true;
 
+  }
+
+  setData(min: any, max: any, amount: any, codeFurniture: any, nitClient: any, nameProduct: any):DataReturn {
+    let  dataN = {
+      min,
+      max,
+      amount,
+      codeFurniture,
+      nitClient,
+      nameProduct
+    }
+
+    return dataN;
+    
   }
 
 }

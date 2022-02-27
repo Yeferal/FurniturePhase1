@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CheckCustomerReturnsComponent } from './pages/check-customer-returns/check-customer-returns.component';
 import { RegisterFurnitureReturnComponent } from './pages/register-furniture-return/register-furniture-return.component';
+import { RegisterLostComponent } from './components/register-lost/register-lost.component';
 
 
 
@@ -19,6 +20,7 @@ import { RegisterFurnitureReturnComponent } from './pages/register-furniture-ret
     ConsultInvoicesComponent,
     CheckCustomerReturnsComponent,
     RegisterFurnitureReturnComponent,
+    RegisterLostComponent,
   ],
   imports: [
     CommonModule,
