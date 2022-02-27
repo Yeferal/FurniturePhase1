@@ -3,5 +3,6 @@ export interface Furniture{
     title:string,
     description: string,
     price:number,
-    cost: number
+    cost: number,
+    inSale: boolean
 }

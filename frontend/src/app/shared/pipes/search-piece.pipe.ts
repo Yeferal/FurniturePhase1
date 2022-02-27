@@ -12,7 +12,7 @@ export class SearchPiecePipe implements PipeTransform {
     }
     return pieces.filter(listPieces =>
       listPieces.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) || 
-      listPieces.tipo.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+      listPieces.category.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
     );
   }
 

@@ -1,17 +1,21 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Piece } from '../../../../core/models/piece';
+import { PieceServiceService } from '../../services/pieces/piece-service.service';
 
 @Component({
   selector: 'app-piece-form',
   templateUrl: './piece-form.component.html',
   styleUrls: ['./piece-form.component.scss']
 })
-export class PieceFormComponent implements OnInit {
+export class PieceFormComponent implements OnInit, OnChanges {
 
-  @Input() isEdit: boolean;
-  @Input() selectedId: number;
+  piece: Piece;
   @Output() feedbackEvent = new EventEmitter<string>();
   @Output() closePieceFormModalEvent = new EventEmitter<boolean>();
+  @Input() selectedId: number;
+  @Input() isEdit: boolean;
 
   pieceForm = new FormGroup({
     pieceName: new FormControl('',[
@@ -20,10 +24,10 @@ export class PieceFormComponent implements OnInit {
     pieceCategory: new FormControl('',[
       Validators.required
     ]),
-    piecePrice: new FormControl('',[
+    pieceAmount: new FormControl('',[
       Validators.required,
       Validators.min(0),
-      Validators.pattern('[0-9]+($|.[0-9]+)')
+      Validators.pattern('[0-9]+')
     ]),
     pieceCost:new FormControl('',[
       Validators.min(0),
@@ -32,9 +36,24 @@ export class PieceFormComponent implements OnInit {
     ])
   });
 
-  constructor() { }
+  constructor(private pieceService: PieceServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(!this.isEdit){
+      this.pieceForm.reset(); 
+    }else{
+      this.pieceService.getPiece(this.selectedId).subscribe(
+        (response)=>{
+          this.piece = response;
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   doChanges() {

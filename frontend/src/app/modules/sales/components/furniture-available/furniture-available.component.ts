@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Furniture } from 'src/app/modules/manufacture/models/furniture';
+import { Furniture } from 'src/app/core/models/furniture';
 import { FurnitureService } from 'src/app/modules/manufacture/services/furniture.service';
 
 @Component({

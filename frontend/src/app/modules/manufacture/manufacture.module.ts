@@ -14,6 +14,7 @@ import { CreateCategoryPieceComponent } from './components/create-category-piece
 import { FilterListPiecesComponent } from './components/filter-list-pieces/filter-list-pieces.component';
 import { RegisterFornitureComponent } from './pages/register-forniture/register-forniture.component';
 import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-pieces.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-piec
     ReactiveFormsModule,
     FormsModule,
     NgxPaginationModule,
+    HttpClientModule
   ]
 })
 export class ManufactureModule { }

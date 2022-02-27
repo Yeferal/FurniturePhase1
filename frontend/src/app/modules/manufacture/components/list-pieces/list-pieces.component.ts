@@ -23,98 +23,86 @@ export class ListPiecesComponent implements OnInit {
     {
       id: 1,
       name: 'pieza1',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 2,
       name: 'pieza2',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 3,
       name: 'pieza3',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 4,
       name: 'pieza4',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 5,
       name: 'pieza5',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 6,
       name: 'pieza6',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 7,
       name: 'pieza7',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 8,
       name: 'pieza8',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 9,
       name: 'pieza9',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 10,
       name: 'pieza10',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 11,
       name: 'pieza11',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
     {
       id: 12,
       name: 'pieza12',
-      precio: 100.25,
-      tipo: 'plancha',
-      cantidad: 50,
-      precio_venta: 50.25
+      cost: 100.25,
+      category: 'plancha',
+      amount: 50
     },
   ];
 

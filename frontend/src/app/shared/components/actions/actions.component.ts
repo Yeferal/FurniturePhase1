@@ -27,8 +27,8 @@ export class ActionsComponent implements OnInit {
     this.messageEvent.emit(this.id);
   }
 
-  updateIsEdit(){
-    this.isEditEvent.emit(true);
+  updateIsEdit(value: boolean){
+    this.isEditEvent.emit(value);
   }
 
 }

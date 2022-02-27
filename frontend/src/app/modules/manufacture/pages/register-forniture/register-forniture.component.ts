@@ -103,10 +103,10 @@ export class RegisterFornitureComponent implements OnInit {
     let p: Piece = {
       id: Math.floor(Math.random() * 100) + 1,
       name: this.pieceForm.get('namePiece')?.value,
-      precio: Math.floor(Math.random() * 1000) + 1,
-      tipo: 'Madera',
-      cantidad: this.pieceForm.get('amount')?.value,
-      precio_venta: Math.floor(Math.random() * 1000.00) + 1.00
+      cost: Math.floor(Math.random() * 1000) + 1,
+      category: 'Madera',
+      amount: this.pieceForm.get('amount')?.value
+      //precio_venta: Math.floor(Math.random() * 1000.00) + 1.00
     }
 
     this.listPieces.push(p);
