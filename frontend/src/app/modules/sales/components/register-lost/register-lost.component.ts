@@ -17,31 +17,43 @@ interface DataReturn {
 })
 export class RegisterLostComponent implements OnInit {
 
+  @Input() dataReturn: DataReturn = {
+    min: '',
+    max: '',
+    amount: '',
+    codeFurniture: '',
+    nitClient: '',
+    nameProduct: '',
+  };
+  
   returnForm: FormGroup = new FormGroup({
-    nitClient: new FormControl(null, Validators.required),
+    nitClient: new FormControl(this.dataReturn.nitClient, Validators.required),
     date1: new FormControl(null, Validators.required),
-    codeProduct: new FormControl(null, Validators.required),
-    amount: new FormControl(null, Validators.required)  
+    codeProduct: new FormControl(this.dataReturn.codeFurniture, Validators.required),
+    amount: new FormControl(this.dataReturn.amount, Validators.required)  
   });
 
   // @Output() dataReturn = new EventEmitter<DataReturn>();
-  @Input() dataReturn: DataReturn;
+  
+
   dataR: DataReturn;
 
   constructor() { }
 
   ngOnInit(): void {
-    
+    this.returnForm.get('nitClient')?.setValue(this.dataReturn.nitClient);
+    this.returnForm.get('codeProduct')?.setValue(this.dataReturn.codeFurniture);
+    this.returnForm.get('amount')?.setValue(this.dataReturn.amount);
   }
 
   registerLost(){
     console.log(this.dataReturn);
     
-    console.log(this.returnForm.value);
+    // console.log(this.returnForm.value);
     
-    if (this.returnForm.invalid) {
-      return;
-    }
+    // if (this.returnForm.invalid) {
+    //   return;
+    // }
   }
 
 
