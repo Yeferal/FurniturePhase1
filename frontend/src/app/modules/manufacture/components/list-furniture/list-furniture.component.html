@@ -84,10 +84,11 @@
                                                     <td>{{item.title}}</td>
                                                     <td><app-actions 
                                                         (messageEvent)="changeSelectedId($event)" [model]="'furniture'" [id]="item.id" 
+                                                        (pressedButtonTypeEvent)="updateLastActionUsed($event)"
                                                         [infModalId]="'furnitureInfModal'"
                                                         [formModalId]="'furnitureFormModal'"
                                                         [deleteModalId]="'furnitureDeleteModal'"
-                                                        [addButton]="false"></app-actions></td>
+                                                        [addButton]="true"></app-actions></td>
                                                 </tr>
                                             </tbody>
                                         </table>

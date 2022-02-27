@@ -11,7 +11,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ListFurnitureComponent implements OnInit {
 
-  selectedId: any = 1;
+  selectedId: any = 0;
 
   constructor(private furnitureService : FurnitureService
     ) { }
@@ -45,6 +45,16 @@ export class ListFurnitureComponent implements OnInit {
   changeSelectedId(event: any){
     console.log(event);
     this.selectedId = event;
+  }
+
+  updateLastActionUsed(event: any){
+    switch (event) {
+      case 'add':
+        console.log('Se ha actualizado el mueble con id: '+this.selectedId+' ahora está en venta');
+        break;
+      default:
+        break;
+    }
   }
 
 }
