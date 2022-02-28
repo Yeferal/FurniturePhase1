@@ -1,4 +1,10 @@
-<app-filter-list-pieces></app-filter-list-pieces>
+
+<div class="row">
+  <div class="col-lg-3">
+  <app-filter-list-pieces></app-filter-list-pieces>
+  <br>
+</div>
+</div>
 
 <!-- Content Row -->
 <div class="row">
@@ -28,9 +34,9 @@
             <!-- Card Body -->
             <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-0">
                             <div class="dataTables_length" id="dataTable_length">
-                                <label>Show 
+                                <!-- <label>Show 
                                     <select [formControl]="rowsNumForm" (click)="setNumRows()" name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
                                         <option value="10">10</option>
                                         <option value="25">25</option>
@@ -38,7 +44,7 @@
                                         <option value="100">100</option>
                                         <option value="all">All</option>
                                     </select> entries
-                                </label>
+                                </label> -->
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-3">
@@ -48,7 +54,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-sm-6 col-md-0" style="text-align: right;">
                           <br>
                           <button class="btn btn-success" (click)="updateIsEdit(false)" data-toggle="modal" data-target="#pieceFormModal">Crear pieza</button>
                         </div>
