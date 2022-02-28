@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'pieces',
-  //   component: PiecesComponent
-  // },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   // {
   //   // path: '**',//TODO 404 cuando no existe la ruta
   //   // redirectTo: '/3'
@@ -16,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class SessionRoutingModule { }

@@ -9,6 +9,11 @@ const routes: Routes = [ //TODO: router-outlet (Padre)
     // pathMatch: 'full',
     loadChildren: () => import(`./modules/home/home.module`).then(m => m.HomeModule)
   },
+  {
+    path: '', //TODO (Public) Login, Register, Forgot...
+    // pathMatch: 'full',
+    loadChildren: () => import(`./modules/session/session.module`).then(m => m.SessionModule)
+  },
   // {
   //   path: 'sales', //http://localhost:4200/sales
   //   loadChildren: () => import(`./modules/sales/sales.module`).then(m => m.SalesModule)
