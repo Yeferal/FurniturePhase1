@@ -5,13 +5,16 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { CreationFurniturePlansComponent } from './pages/creation-furniture-plans/creation-furniture-plans.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
 @NgModule({
   declarations: [
     RegisterUserComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    CreationFurniturePlansComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +22,9 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxPaginationModule,
   ]
 })
 export class AdminModule { }
