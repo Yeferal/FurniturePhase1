@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 const routes: Routes = [
   // {
@@ -7,8 +9,12 @@ const routes: Routes = [
   //   component: PiecesComponent
   // },
   {
-    // path: '**',//TODO 404 cuando no existe la ruta
-    // redirectTo: '/3'
+    path: 'register-user',
+    component: RegisterUserComponent
+  },
+  {
+    path: 'list-user',
+    component: ListUsersComponent
   }
 ];
 

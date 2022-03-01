@@ -91,6 +91,21 @@
             </div>
         </div>
     </li>
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdmin"
+            aria-expanded="true" aria-controls="collapseAdmin">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Admin</span>
+        </a>
+        <div id="collapseAdmin" class="collapse" aria-labelledby="headingAdmin" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Admin</h6>
+                <a class="collapse-item" [routerLink]="['/admin/register-user']">Registrar usuario</a>
+                <a class="collapse-item" [routerLink]="['/admin/list-user']">Ver usuarios</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">

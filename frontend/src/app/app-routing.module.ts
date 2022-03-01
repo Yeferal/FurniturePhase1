@@ -31,6 +31,10 @@ const routes: Routes = [ //TODO: router-outlet (Padre)
     path: 'sales', //http://localhost:4200/fabricate
     loadChildren: () => import(`./modules/sales/sales.module`).then(m => m.SalesModule)
   },
+  {
+    path: 'admin', //http://localhost:4200/fabricate
+    loadChildren: () => import(`./modules/admin/admin.module`).then(m => m.AdminModule)
+  },
 ];
 
 @NgModule({

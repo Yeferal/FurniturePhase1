@@ -166,7 +166,6 @@ export class ListPiecesComponent implements OnInit {
   }
   deletePiece(){
     console.log(this.idPiece);
-    
   }
 
   removePieces(){
