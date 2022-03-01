@@ -1,0 +1,133 @@
+<app-container>
+    
+    <!-- Page Heading -->
+
+    <!-- OPCION 1 Heading-->
+    <h1 class="h3 mb-4 text-gray-800">Listado de usuarios</h1>
+    <!-- OPCION 2 Heading-->
+    <!-- CONTENDIDO -->
+    <!-- Content Row -->
+    
+    <div class="row">
+        
+            <form [formGroup]="formFilter" (ngSubmit)="filterUsers()" class="container">
+                <div class="row">
+                  <div class="col-lg-3">
+                    <label for="staticEmail" >Fecha inicio</label>
+                    <input class="form-control" type="date" [ngModel]='date| date:"yyyy-MM-dd" ' formControlName="dateStart" id="">
+                  </div>
+                  <div class="col-lg-3">
+                      <label for="staticEmail" >Fecha fin</label>
+                    <input type="date" class="form-control" [ngModel]='date| date:"yyyy-MM-dd" ' formControlName="dateEnd" name="dateEnd" id="">
+                  </div>
+                  <div class="col-lg-3">
+                    <label for="staticEmail" >Usuario</label>
+                  <input type="text" class="form-control" formControlName="username" name="username" id="">
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <select formControlName="role"  class="form-control">
+                             <option value="-1" selected >Todos</option>
+                            <option value="2" >Administrador</option>
+                            <option value="1">Vendedor</option>
+                            <option value="0">Fabricante</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="submit" class="btn btn-primary" value="Buscar">
+                    </div>
+                </div>
+                <br>
+            </form >
+        
+        <br><br>
+        <div class="col-lg-12">
+            <!-- Dropdown Card Example -->
+            <div class="card shadow mb-auto">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Usuarios</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                        <div class="row">
+                            
+                        </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Usuario</th>
+                                    <th>Rol</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Usuario</th>
+                                    <th>Rol</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr *ngFor="let item of users ">
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.username}}</td>
+                                    <td>Administrador</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal"  data-target="#confirmModal">Eliminar usuario</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="col-sm-12 col-md-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button page-item active">
+                                    
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</app-container>
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmModal">Remover piezas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <h4>¿Desea eliminar el usuario?</h4>
+              <input type="password" name="" [(ngModel)]="password" class="form-control" placeholder="Escriba su contraseña"id="">
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="removeUser()" data-dismiss="modal">Si</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+</div>
