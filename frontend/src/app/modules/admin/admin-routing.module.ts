@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreationFurniturePlansComponent } from './pages/creation-furniture-plans/creation-furniture-plans.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'pieces',
-  //   component: PiecesComponent
-  // },
+  {
+    path: 'creation-furniture-plans',
+    component: CreationFurniturePlansComponent
+  },
   // {
   //   // path: '**',//TODO 404 cuando no existe la ruta
   //   // redirectTo: '/3'

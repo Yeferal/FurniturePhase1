@@ -4,6 +4,8 @@ export class Piece {
     name: String;
     cost: number;
     category: string;
-    amount: number;
-    
+    amount?: number;
+    precio?: number;
+    tipo?: string;
+    cost_venta?: number;
 }
