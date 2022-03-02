@@ -49,7 +49,6 @@
                             <ng-template #fifth>
                               <tr>
                                   <th>Any report selected, no tittles</th>
-                                  <th>Any report selected, no tittles</th>
                               </tr>
                             </ng-template>
                           </ng-template>
@@ -58,15 +57,15 @@
                   </thead>
                   <tbody>
                     
-                    <ng-container *ngIf="_reportType==1; else second">
+                    <ng-container *ngIf="_reportType==1; else secondContent">
                       <tr *ngFor="let item of items">
                           <td>{{item.value1}}</td>
                           <td>{{item.value2}}</td>
                           <td>{{item.value3}}</td>
                       </tr>
                     </ng-container>
-                    <ng-template #second>
-                      <ng-container *ngIf="_reportType==2; else third">
+                    <ng-template #secondContent>
+                      <ng-container *ngIf="_reportType==2; else thirdContent">
                         <tr *ngFor="let item of items">
                             <td>{{item.value1}}</td>
                             <td>{{item.value2}}</td>
@@ -74,8 +73,8 @@
                             <td>{{item.value4}}</td>
                         </tr>
                       </ng-container>
-                      <ng-template #third>
-                        <ng-container *ngIf="_reportType==3; else fourth">
+                      <ng-template #thirdContent>
+                        <ng-container *ngIf="_reportType==3; else fourthContent">
                           <tr *ngFor="let item of items">
                               <td>{{item.value1}}</td>
                               <td>{{item.value2}}</td>
@@ -84,8 +83,8 @@
                               <td>{{item.value5}}</td>
                           </tr>
                         </ng-container>
-                        <ng-template #fourth>
-                          <ng-container *ngIf="_reportType==4; else fifth">
+                        <ng-template #fourthContent>
+                          <ng-container *ngIf="_reportType==4; else fifthContent">
                             <tr *ngFor="let item of items">
                                 <td>{{item.value1}}</td>
                                 <td>{{item.value2}}</td>
@@ -95,7 +94,7 @@
                                 <td>{{item.value6}}</td>
                             </tr>
                           </ng-container>
-                          <ng-template #fifth>
+                          <ng-template #fifthContent>
                             <tr *ngFor="let item of items">
                                 <td>NO HAY DATA PARA UN REPORTE QUE NO EXISTE</td>
                             </tr>
