@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { CreationFurniturePlansComponent } from './pages/creation-furniture-plans/creation-furniture-plans.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ReportsComponent } from './components/reports/reports.component';
+import { ReportsPageComponent } from './pages/reports-page/reports-page.component';
+import { ReportTableComponent } from './components/report-table/report-table.component';
 
 
 
@@ -14,7 +17,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
   declarations: [
     RegisterUserComponent,
     ListUsersComponent,
-    CreationFurniturePlansComponent
+    CreationFurniturePlansComponent,
+    ReportsComponent,
+    ReportsPageComponent,
+    ReportTableComponent
   ],
   imports: [
     CommonModule,

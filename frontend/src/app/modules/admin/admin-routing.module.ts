@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { CreationFurniturePlansComponent } from './pages/creation-furniture-plans/creation-furniture-plans.component';
+import { ReportsPageComponent } from './pages/reports-page/reports-page.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,10 @@ const routes: Routes = [
   },{
     path: 'creation-furniture-plans',
     component: CreationFurniturePlansComponent
-  },
+  },{
+    path: 'reports',
+    component: ReportsPageComponent
+  }
   // {
   //   // path: '**',//TODO 404 cuando no existe la ruta
   //   // redirectTo: '/3'
