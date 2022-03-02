@@ -8,6 +8,8 @@ import { Piece } from '../../../../core/models/piece';
 })
 export class PieceServiceService {
   private url = "http://localhost:3000/piece";
+  
+
   constructor(private http:HttpClient) { }
 
   public getAllPieces(): Observable<Array<Piece>>{

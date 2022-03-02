@@ -14,7 +14,7 @@ export class FurnitureAvailableComponent implements OnInit {
   ngOnInit(): void {
     this.furnitureService.getAvailableFurniture('').subscribe(
       res => {
-        this.furnitureList= res
+        this.furnitureList = res
       },
       err => console.log(err)
     )
