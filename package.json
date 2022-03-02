@@ -1,0 +1,23 @@
+{
+  "name": "furniturephase1",
+  "version": "1.0.0",
+  "description": "puerto por defecto 4200\r     ng sever\r     ng sever -o\r     ng sever -o --port <no_puerto>",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yeferal/FurniturePhase1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yeferal/FurniturePhase1/issues"
+  },
+  "homepage": "https://github.com/Yeferal/FurniturePhase1#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "path": "^0.12.7"
+  }
+}
