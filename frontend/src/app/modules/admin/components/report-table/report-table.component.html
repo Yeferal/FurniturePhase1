@@ -9,7 +9,7 @@
               <div class="table-responsive">
                   <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
-                      <ng-container *ngIf="reportType==1;else second">
+                      <ng-container *ngIf="reportType==1; else second">
                         <tr>
                             <th>Id report 1</th>
                             <th>title report 1</th>
@@ -58,7 +58,7 @@
                   </thead>
                   <tbody>
                     
-                    <ng-container *ngIf="reportType==1;else second">
+                    <ng-container *ngIf="reportType==1; else second">
                       <tr *ngFor="let item of items">
                           <td>{{item.value1}}</td>
                           <td>{{item.value2}}</td>

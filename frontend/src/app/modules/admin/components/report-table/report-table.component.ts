@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ReportTableComponent implements OnInit {
 
-  _reportType: number;
+  @Input() _reportType: number;
   p: number = 1;
   items: Array<any> = [
     {
@@ -49,6 +49,7 @@ export class ReportTableComponent implements OnInit {
   ];
   @Input() set reportType(value: number){ //Cada vez que se setee el reportType
     if(value != undefined){
+      console.log("Se ha recibido el valor:" + value);
       this._reportType = value;
     }
   }

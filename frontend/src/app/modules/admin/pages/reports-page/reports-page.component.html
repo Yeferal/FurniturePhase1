@@ -10,33 +10,24 @@
                   class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Reportes</h6>
                   <div class="dropdown no-arrow">
-                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                      <a class="dropdown-toggle" role="button" id="dropdownMenuLink"
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                           aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Dropdown Header:</div>
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
+                          <div class="dropdown-header">Tipos de reportes:</div>
+                          <a class="dropdown-item" (click)="setSelected($event, 0)">Ningún reporte</a>
+                          <a class="dropdown-item" (click)="setSelected($event, 1)">Reporte 1</a>
+                          <a class="dropdown-item" (click)="setSelected($event, 2)">Reporte 2</a>
+                          <a class="dropdown-item" (click)="setSelected($event, 3)">Reporte 3</a>
+                          <a class="dropdown-item" (click)="setSelected($event, 4)">Reporte 4</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#">Something else here</a>
                       </div>
                   </div>
               </div>
-              <div>
-                  <br>
-                  <select (change)="setSelected($event);">
-                      <option value="0" selected>Seleccione una opcion</option>
-                      <option value="1">Reporte 1</option>
-                      <option value="2">Reporte 2</option>
-                      <option value="3">Reporte 3</option>
-                      <option value="4">Reporte 4</option>
-                      <option value="5">Reporte 5</option>
-                  </select>
-                  <br><br>
-              </div>
-              <app-report-table [reportType]="typeReportSelected"></app-report-table>
+              <app-report-table (reportType)="typeReportSelected" [reportType]="typeReportSelected"></app-report-table>
           </div>
       </div>
   </div>
