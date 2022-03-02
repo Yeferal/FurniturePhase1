@@ -9,7 +9,7 @@
               <div class="table-responsive">
                   <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
-                      <ng-container *ngIf="reportType==1; else second">
+                      <ng-container *ngIf="_reportType==1; else second">
                         <tr>
                             <th>Id report 1</th>
                             <th>title report 1</th>
@@ -17,7 +17,7 @@
                         </tr>
                       </ng-container>
                       <ng-template #second>
-                        <ng-container *ngIf="reportType==2; else third">
+                        <ng-container *ngIf="_reportType==2; else third">
                           <tr>
                               <th>Id report 2</th>
                               <th>title report 2</th>
@@ -26,7 +26,7 @@
                           </tr>
                         </ng-container>
                         <ng-template #third>
-                          <ng-container *ngIf="reportType==3; else fourth">
+                          <ng-container *ngIf="_reportType==3; else fourth">
                             <tr>
                                 <th>Id report 3</th>
                                 <th>title report 3</th>
@@ -36,7 +36,7 @@
                             </tr>
                           </ng-container>
                           <ng-template #fourth>
-                            <ng-container *ngIf="reportType==4; else fifth">
+                            <ng-container *ngIf="_reportType==4; else fifth">
                               <tr>
                                   <th>Id report 4</th>
                                   <th>title report 4</th>
@@ -58,7 +58,7 @@
                   </thead>
                   <tbody>
                     
-                    <ng-container *ngIf="reportType==1; else second">
+                    <ng-container *ngIf="_reportType==1; else second">
                       <tr *ngFor="let item of items">
                           <td>{{item.value1}}</td>
                           <td>{{item.value2}}</td>
@@ -66,7 +66,7 @@
                       </tr>
                     </ng-container>
                     <ng-template #second>
-                      <ng-container *ngIf="reportType==2; else third">
+                      <ng-container *ngIf="_reportType==2; else third">
                         <tr *ngFor="let item of items">
                             <td>{{item.value1}}</td>
                             <td>{{item.value2}}</td>
@@ -75,7 +75,7 @@
                         </tr>
                       </ng-container>
                       <ng-template #third>
-                        <ng-container *ngIf="reportType==3; else fourth">
+                        <ng-container *ngIf="_reportType==3; else fourth">
                           <tr *ngFor="let item of items">
                               <td>{{item.value1}}</td>
                               <td>{{item.value2}}</td>
@@ -85,7 +85,7 @@
                           </tr>
                         </ng-container>
                         <ng-template #fourth>
-                          <ng-container *ngIf="reportType==4; else fifth">
+                          <ng-container *ngIf="_reportType==4; else fifth">
                             <tr *ngFor="let item of items">
                                 <td>{{item.value1}}</td>
                                 <td>{{item.value2}}</td>

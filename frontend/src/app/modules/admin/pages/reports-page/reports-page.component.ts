@@ -13,7 +13,7 @@ export class ReportsPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  setSelected(event: any, value: number){
-    this.typeReportSelected = value;
+  setSelected(event: any){
+    this.typeReportSelected = event.target.value;
   }
 }

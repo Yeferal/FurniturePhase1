@@ -17,16 +17,40 @@
                       <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                           aria-labelledby="dropdownMenuLink">
                           <div class="dropdown-header">Tipos de reportes:</div>
-                          <a class="dropdown-item" (click)="setSelected($event, 0)">Ningún reporte</a>
-                          <a class="dropdown-item" (click)="setSelected($event, 1)">Reporte 1</a>
-                          <a class="dropdown-item" (click)="setSelected($event, 2)">Reporte 2</a>
-                          <a class="dropdown-item" (click)="setSelected($event, 3)">Reporte 3</a>
-                          <a class="dropdown-item" (click)="setSelected($event, 4)">Reporte 4</a>
+                          <a class="dropdown-item" >Ningún reporte</a>
+                          <a class="dropdown-item" >Reporte 1</a>
+                          <a class="dropdown-item" >Reporte 2</a>
+                          <a class="dropdown-item" >Reporte 3</a>
+                          <a class="dropdown-item" >Reporte 4</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#">Something else here</a>
                       </div>
                   </div>
               </div>
+              <br>
+              <form>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-2">
+                      <select (change)="setSelected($event)" class="form-control">
+                          <option value="0" selected>Ningún reporte</option>
+                          <option value="1">Reporte 1</option>
+                          <option value="2">Reporte 2</option>
+                          <option value="3">Reporte 3</option>
+                          <option value="4">Reporte 4</option>
+                      </select>
+                    </div>
+                    <button class="btn btn-primary">Realizar reporte</button>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <input class="form-control" type="date">
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" type="date">
+                    </div>
+                </div>
+            </form>
+              <br>
               <app-report-table (reportType)="typeReportSelected" [reportType]="typeReportSelected"></app-report-table>
           </div>
       </div>

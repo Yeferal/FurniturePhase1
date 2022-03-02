@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ReportTableComponent implements OnInit {
 
-  @Input() _reportType: number;
+  _reportType: number;
   p: number = 1;
   items: Array<any> = [
     {
