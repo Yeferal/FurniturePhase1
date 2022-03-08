@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [ //TODO: router-outlet (Padre)
-  {path:'', redirectTo:'home', pathMatch:'full'},
+  {path:'', redirectTo:'login', pathMatch:'full'},
 
   {
     path: 'home', //TODO (Public) Login, Register, Forgot...
