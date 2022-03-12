@@ -67,22 +67,22 @@ export class SalesByClientComponent implements OnInit {
 
   getDetail(id:number){
     this.detailSale.push(
-      {
-        id:1,
-        cost:10,
-        description:"s",
-        inSale:false,
-        price:10,
-        title:"mueble 1"
-      },
-      {
-        id:1,
-        cost:10,
-        description:"s",
-        inSale:false,
-        price:10,
-        title:"mueble 2"
-      }
+      // {
+      //   id:1,
+      //   cost:10,
+      //   description:"s",
+      //   inSale:false,
+      //   price:10,
+      //   title:"mueble 1"
+      // },
+      // {
+      //   id:1,
+      //   cost:10,
+      //   description:"s",
+      //   inSale:false,
+      //   price:10,
+      //   title:"mueble 2"
+      // }
     )
   }
 }

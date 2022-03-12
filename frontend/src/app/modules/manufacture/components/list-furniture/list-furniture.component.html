@@ -80,10 +80,10 @@
                                             </tfoot>
                                             <tbody>
                                                 <tr *ngFor="let item of furnitures ">
-                                                    <td>{{item.id}}</td>
-                                                    <td>{{item.title}}</td>
+                                                    <td>{{item.code}}</td>
+                                                    <td>{{item.name}}</td>
                                                     <td><app-actions 
-                                                        (messageEvent)="changeSelectedId($event)" [model]="'furniture'" [id]="item.id" 
+                                                        (messageEvent)="changeSelectedId($event)" [model]="'furniture'" [id]="item.code" 
                                                         (pressedButtonTypeEvent)="updateLastActionUsed($event)"
                                                         [infModalId]="'furnitureInfModal'"
                                                         [formModalId]="'furnitureFormModal'"

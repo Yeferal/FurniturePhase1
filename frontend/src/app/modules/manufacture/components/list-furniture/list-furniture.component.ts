@@ -12,6 +12,7 @@ import { DatePipe } from '@angular/common';
 export class ListFurnitureComponent implements OnInit {
 
   selectedId: any = 0;
+  page = 0;
 
   constructor(private furnitureService : FurnitureService
     ) { }
@@ -28,9 +29,10 @@ export class ListFurnitureComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.furnitureService.getAllFurnitures().subscribe(
+    this.furnitureService.getAllFurnitureList(this.page).subscribe(
       res => {
-        this.furnitures=res
+        this.furnitures=res.content;
+        console.log(res.content);
         
       },
       err => console.log(err)

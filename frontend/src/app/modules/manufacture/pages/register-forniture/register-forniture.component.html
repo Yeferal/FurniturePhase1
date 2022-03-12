@@ -42,25 +42,27 @@
                                             <div class="p-1" >
                                                 <div class="text-center">
                                                     <h1 class="h4 text-gray-900 mb-4">Create a Forniture!</h1>
+                                                    <span style="color: rgb(252, 48, 48);">{{msg}}</span>
                                                 </div>
                                                 <!-- <form class="user"> -->
                                                     <div class="form-group">
                                                         <input 
                                                         formControlName="name" 
+                                                        [class.inp-invalid]="fornitureForm.get('name')?.errors && fornitureForm.get('name')?.touched" 
                                                         type="text" class="form-control form-control-user" id="exampleFirstName"
                                                             placeholder="Name Forniture">
                                                     </div>
                                                     <div class="form-group row">
                                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                                             <input type="text" 
-                                                            
+                                                            [class.inp-invalid]="fornitureForm.get('assemblyUser')?.errors && fornitureForm.get('assemblyUser')?.touched" 
                                                             formControlName="assemblyUser" class="form-control form-control-user" id="exampleFirstName"
                                                                 placeholder="Assembly User*" [required]="true">
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <input type="number" 
-                                                            
-                                                            formControlName="salePrice" 
+                                                            [class.inp-invalid]="fornitureForm.get('price')?.errors && fornitureForm.get('price')?.touched" 
+                                                            formControlName="price" 
                                                             class="form-control form-control-user" id="exampleLastName"
                                                                 placeholder="Sale Price" [required]="true" min="0" step=".01">
                                                         </div>
@@ -68,21 +70,21 @@
                                                     <div class="form-group row">
                                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                                             <input type="date" 
-                                                            
-                                                            formControlName="assemblyDate" class="form-control form-control-user" id="exampleFirstName"
+                                                            [class.inp-invalid]="fornitureForm.get('creationDate')?.errors && fornitureForm.get('creationDate')?.touched" 
+                                                            formControlName="creationDate" class="form-control form-control-user" id="exampleFirstName"
                                                                 placeholder="Assembly Date*" [required]="true">
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <input type="text" 
-                                                            
-                                                            formControlName="idUnique*" 
+                                                            [class.inp-invalid]="fornitureForm.get('code')?.errors && fornitureForm.get('code')?.touched" 
+                                                            formControlName="code" 
                                                             class="form-control form-control-user" id="exampleLastName"
                                                                 placeholder="ID Forniture" [required]="true">
                                                         </div>
                                                     </div>
                                                     
                                                     <div class="form-group">
-                                                        <textarea formControlName="descripcion" class="form-control form-control-user" placeholder="Description..." style="resize: none; border-radius: 10px;" rows="5"></textarea>
+                                                        <textarea formControlName="description" class="form-control form-control-user" placeholder="Description..." style="resize: none; border-radius: 10px;" rows="5"></textarea>
                                                     </div>
                                                     <input type="submit" (click)="addForniture()" class="btn btn-primary btn-user btn-block" value="Add">
                                                 <!-- </form> -->

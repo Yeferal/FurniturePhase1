@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Furniture } from 'src/app/core/models/furniture';
 import { Piece } from 'src/app/core/models/piece';
+import { FurnitureService } from '../../services/furniture.service';
 
 @Component({
   selector: 'app-register-forniture',
@@ -12,11 +14,11 @@ export class RegisterFornitureComponent implements OnInit {
 
   fornitureForm: FormGroup = new FormGroup({
     name: new FormControl(null, Validators.required),
-    salePrice: new FormControl(null, [Validators.required, Validators.pattern('[0-9]+(.[0-9]+)*')]),
+    price: new FormControl(null, [Validators.required, Validators.pattern('[0-9]+(.[0-9]+)*')]),
     // pieces: new FormControl(null, null),
     // cost: new FormControl(null,  [Validators.required, Validators.pattern('[0-9]+(.[0-9]+)*')]),
-    assemblyDate: new FormControl(null, Validators.required),
-    idUnique: new FormControl(null, Validators.required),
+    creationDate: new FormControl(null, Validators.required),
+    code: new FormControl(null, Validators.required),
     assemblyUser: new FormControl(null, Validators.required),
     description: new FormControl(null, null),
   });
@@ -32,12 +34,14 @@ export class RegisterFornitureComponent implements OnInit {
   public files: any [] = [];
   public fileCapture: any;
   public preview: any;
+  msg = "";
+  furnitureS: Furniture = new Furniture();
 
   navbarAutocomplete = document.querySelector('#navbar-search-autocomplete');
   navbarData = ['One', 'Two', 'Three', 'Four', 'Five'];
   lis = ['One','Two','Thre','Four','Five',];
 
-  constructor(private sanitizer: DomSanitizer, ) { }
+  constructor(private sanitizer: DomSanitizer, private furnitureService: FurnitureService) { }
 
   ngOnInit(): void {
     
@@ -47,14 +51,10 @@ export class RegisterFornitureComponent implements OnInit {
     this.fileCapture = event.target.files[0];
     this.extraerBase64(this.fileCapture).then((imagen: any) => {
       this.preview = imagen.base;
-      // console.log(imagen);
-      
     });
-    // this.files.cl
+
     this.files.splice(0, this.files.length);
     this.files.push(this.fileCapture);
-      // console.log(this.files);
-    // console.log(event.target.files);
   }
 
   extraerBase64 = async ($event: any) => new Promise((resolve, reject):any => {
@@ -83,11 +83,64 @@ export class RegisterFornitureComponent implements OnInit {
   });
 
   addForniture(){
-    if (this.fornitureForm.invalid) {
-      
+    console.log(this.files.length);
+    
+    if (this.fornitureForm.invalid || this.files.length==0) {
+      this.msg = "Debe de llenar todos los campos"
       return;
     }
     
+    const formFile = new FormData();
+      // console.log(this.files);
+      formFile.append('file',"");
+      this.files.forEach( archivo => {
+        formFile.append('file',archivo);
+      });
+
+      formFile.append('name',this.fornitureForm.get('name')?.value);
+      formFile.append('price',this.fornitureForm.get('price')?.value);
+      formFile.append('creationDate',this.fornitureForm.get('creationDate')?.value);
+      formFile.append('code',this.fornitureForm.get('code')?.value);
+      formFile.append('profile',this.fornitureForm.get('assemblyUser')?.value);
+      formFile.append('description',this.fornitureForm.get('description')?.value);
+      formFile.append('cost','500');
+      formFile.append('path',"");
+      formFile.append('plan',"1");
+      
+      let data = {
+        name: this.fornitureForm.get('name')?.value,
+        price: this.fornitureForm.get('salePrice')?.value,
+        creationDate: this.fornitureForm.get('creationDate')?.value,
+        code: this.fornitureForm.get('code')?.value,
+        cost: 0,
+        description: this.fornitureForm.get('description')?.value,
+        path: '',
+        profile: {
+          id: 1
+        },
+        plan: {
+          id: 1
+        },
+        status: 1
+      }
+
+      this.furnitureService.postFurniture(data, formFile).subscribe(
+        res => {
+          this.furnitureS = res;
+          if(this.furnitureS.msj){
+            this.msg = this.furnitureS.msj;
+          }else{
+            this.msg = "";
+            this.fornitureForm.reset();
+            this.files.splice(0, this.files.length);
+            this.preview = null;
+          }
+        },
+        error => {
+          console.log(error);
+          
+        }
+      );
     
   }
 

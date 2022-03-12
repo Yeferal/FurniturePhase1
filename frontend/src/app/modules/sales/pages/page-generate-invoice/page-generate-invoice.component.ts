@@ -12,46 +12,46 @@ import { FurnitureService } from 'src/app/modules/manufacture/services/furniture
 export class PageGenerateInvoiceComponent implements OnInit {
 
   furnituresOnSale: Array<Furniture> = [
-    {
-      "id": 1,
-      "title": "Mesa rustica",
-      "description": "Descripcion cualquiera -> ABCDEFGH",
-      "price": 150,
-      "cost": 125,
-      "inSale": true
-    },
-    {
-      "id": 2,
-      "title": "Mesa plastica",
-      "description": "Descripcion cualquiera -> ABCDEFGH",
-      "price": 170,
-      "cost": 130,
-      "inSale": true
-    },
-    {
-      "id": 3,
-      "title": "Mesa aturdidora",
-      "description": "Descripcion cualquiera -> ABCDEFGH",
-      "price": 200,
-      "cost": 154,
-      "inSale": true
-    },
-    {
-      "id": 4,
-      "title": "Mesa sábatica",
-      "description": "Descripcion cualquiera -> ABCDEFGH",
-      "price": 100,
-      "cost": 105,
-      "inSale": true
-    },
-    {
-      "id": 5,
-      "title": "Mesaita que aplaude",
-      "description": "Descripcion cualquiera -> ABCDEFGH",
-      "price": 170,
-      "cost": 125,
-      "inSale": true
-    }
+    // {
+    //   "id": 1,
+    //   "title": "Mesa rustica",
+    //   "description": "Descripcion cualquiera -> ABCDEFGH",
+    //   "price": 150,
+    //   "cost": 125,
+    //   "inSale": true
+    // },
+    // {
+    //   "id": 2,
+    //   "title": "Mesa plastica",
+    //   "description": "Descripcion cualquiera -> ABCDEFGH",
+    //   "price": 170,
+    //   "cost": 130,
+    //   "inSale": true
+    // },
+    // {
+    //   "id": 3,
+    //   "title": "Mesa aturdidora",
+    //   "description": "Descripcion cualquiera -> ABCDEFGH",
+    //   "price": 200,
+    //   "cost": 154,
+    //   "inSale": true
+    // },
+    // {
+    //   "id": 4,
+    //   "title": "Mesa sábatica",
+    //   "description": "Descripcion cualquiera -> ABCDEFGH",
+    //   "price": 100,
+    //   "cost": 105,
+    //   "inSale": true
+    // },
+    // {
+    //   "id": 5,
+    //   "title": "Mesaita que aplaude",
+    //   "description": "Descripcion cualquiera -> ABCDEFGH",
+    //   "price": 170,
+    //   "cost": 125,
+    //   "inSale": true
+    // }
   ];
   lastAddedFurniture: Furniture;
   client: Client;
