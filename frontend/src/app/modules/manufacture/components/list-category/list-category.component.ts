@@ -21,15 +21,18 @@ export class ListCategoryComponent implements OnInit {
     this.categoryService.getAllCategories().subscribe(
       res => {
         this.categories = res
-        console.log(res);
-        
       },
       err => console.log(err)
     );
   }
 
   getCategoriesByName(name:string){
-    console.log(name);
+    this.categoryService.getAllCategories(name).subscribe(
+      res => {
+        this.categories = res
+      },
+      err => console.log(err)
+    );
   }
 
   deleteCategory(id: any){

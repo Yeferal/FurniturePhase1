@@ -15,7 +15,7 @@ export class AppSearchComponent implements OnInit {
   ngOnInit(): void {
     this.search.valueChanges
     .pipe(
-      debounceTime(300)
+      debounceTime(600)
     ).subscribe(value => this.searchEmmiter.emit(value));
   }
 

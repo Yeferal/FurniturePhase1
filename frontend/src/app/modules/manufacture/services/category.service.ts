@@ -9,10 +9,17 @@ import { Observable } from 'rxjs';
 export class CategoryService {
   //url service
   private url = "https://jsonplaceholder.typicode.com/todos/";
+  private URL = "http://localhost:8080/fabricate/category/";
   constructor(private http:HttpClient) { }
   
   //Get all categories thrown an api
-  public getAllCategories(): Observable<Array<Category>>{
-    return this.http.get<Array<Category>>(this.url);
+  public getAllCategories(filter:string=""): Observable<Array<Category>>{
+    return this.http.get<Array<Category>>(this.URL+"get-all-categories?filter="+filter);
+  }
+
+  public saveCategory(category:any):Observable<Category> {
+    return this.http.post<any>(this.URL+'create-category',category,{
+      withCredentials: true,
+    });
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-create-category-piece',
@@ -17,7 +18,7 @@ export class CreateCategoryPieceComponent implements OnInit {
   txtAlertName = "Category is Exist";
   errorMsj = false;
 
-  constructor() { }
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
   }
@@ -27,9 +28,17 @@ export class CreateCategoryPieceComponent implements OnInit {
       this.txtAlert = "Debe de completar los campos obligatorios"
       this.errorMsj = true;
       return ;
+    }else{
+      this.categoryService.saveCategory(
+        {
+          name:this.categoryForm.value.name
+        }
+      ).subscribe(res=>{
+        console.log(res);
+      },err=>{
+        console.warn(err);
+      })
     }
-    
-    
   }
 
 }

@@ -5,6 +5,7 @@ import { ListCategoryComponent } from './components/list-category/list-category.
 import { ListFurnitureComponent } from './components/list-furniture/list-furniture.component';
 import { RegisterFornitureComponent } from './pages/register-forniture/register-forniture.component';
 import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-pieces.component';
+import { CreateCategoryPieceComponent } from './components/create-category-piece/create-category-piece.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   },{
     path: 'list-pieces',
     component: PageListPiecesComponent
+  },
+  {
+    path: 'register-category',
+    component: CreateCategoryPieceComponent
   }
 ];
 
