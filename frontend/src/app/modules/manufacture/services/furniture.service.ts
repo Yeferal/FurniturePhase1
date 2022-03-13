@@ -50,4 +50,10 @@ export class FurnitureService {
     });
   }
 
+  public updateStatus(id: number):Observable<any>{
+    return this.http.put<any>(this.URL+'/furniture/put-furniture-on-sale/'+id,{
+      withCredentials: true
+    });
+  }
+
 }

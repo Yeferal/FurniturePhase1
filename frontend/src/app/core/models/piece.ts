@@ -12,4 +12,5 @@ export class Piece {
     price?: number;
     stock?: number;
     category?:any;
+    msj?: string;
 }
