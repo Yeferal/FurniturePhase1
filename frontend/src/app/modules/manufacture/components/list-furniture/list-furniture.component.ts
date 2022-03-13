@@ -52,7 +52,16 @@ export class ListFurnitureComponent implements OnInit {
   updateLastActionUsed(event: any){
     switch (event) {
       case 'add':
-        console.log('Se ha actualizado el mueble con id: '+this.selectedId+' ahora está en venta');
+        console.log("SSSSSSSSS");
+        this.furnitureService.updateStatus(this.selectedId).subscribe(
+          result => {
+            console.log(result);
+          },
+          error => {
+            console.warn(error);
+            
+          }
+        )
         break;
       default:
         break;

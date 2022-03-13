@@ -105,12 +105,16 @@ export class PieceInformationComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges(): void{
-    for(let i = 0; i < this.pieces.length; i++){
-      if(this.pieces[i].id == this.id){
-        this.piece = this.pieces[i];
-        break;
+    this.pieceService.getPieceById(this.id).subscribe(
+      res => {
+        console.log(res);
+        
+        this.piece = res
+      },
+      err => {
+
       }
-    }
+    )
     /*this.pieceService.getPiece(this.id).subscribe(
       (response)=>{
         this.piece = response;

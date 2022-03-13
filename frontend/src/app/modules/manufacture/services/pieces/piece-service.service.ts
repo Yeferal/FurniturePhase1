@@ -8,7 +8,7 @@ import { Piece } from '../../../../core/models/piece';
 })
 export class PieceServiceService {
   private url = "http://localhost:3000/piece";
-  
+  private URL = "http://localhost:8080/fabricate/piece/";
 
   constructor(private http:HttpClient) { }
 
@@ -18,5 +18,17 @@ export class PieceServiceService {
 
   public getPiece(id: number): Observable<Piece>{
     return this.http.get<Piece>(this.url+'/'+id);
+  }
+
+  public savePiece(piece: any): Observable<Piece>{
+    return this.http.post<Piece>(this.URL+'register-piece',piece);
+  }
+
+  public saveUpdate(piece: any): Observable<Piece>{
+    return this.http.post<Piece>(this.URL+'update-piece',piece);
+  }
+
+  public getPieceById(id: number): Observable<Piece>{
+    return this.http.get<Piece>(this.URL+'get-piece/'+id);
   }
 }

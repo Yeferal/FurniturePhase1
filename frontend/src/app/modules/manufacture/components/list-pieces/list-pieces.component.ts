@@ -20,6 +20,13 @@ export class ListPiecesComponent implements OnInit {
   rowsNumForm = new FormControl(10,Validators.required);
 
   list: Piece [] = [
+    {
+      id:1,
+      name: "Piezas1",
+      price: 5,
+      amount: 5,
+      cost:2
+    }
   ];
 
   constructor() { }

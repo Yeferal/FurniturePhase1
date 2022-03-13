@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Category } from 'src/app/core/models/category';
 import { Piece } from '../../../../core/models/piece';
+import { CategoryService } from '../../services/category.service';
 import { PieceServiceService } from '../../services/pieces/piece-service.service';
 
 @Component({
@@ -115,6 +117,11 @@ export class PieceFormComponent implements OnInit, OnChanges {
       Validators.min(0),
       Validators.pattern('[0-9]+')
     ]),
+    piecePrice:new FormControl('',[
+      Validators.min(0),
+      Validators.pattern('[0-9]+($|.[0-9]+)'),
+      Validators.required,
+    ]),
     pieceCost:new FormControl('',[
       Validators.min(0),
       Validators.pattern('[0-9]+($|.[0-9]+)'),
@@ -122,9 +129,15 @@ export class PieceFormComponent implements OnInit, OnChanges {
     ])
   });
 
-  constructor(private pieceService: PieceServiceService) { }
+  constructor(private pieceService: PieceServiceService,private categoryService: CategoryService) { }
 
   ngOnInit(): void {
+    this.categoryService.getAllCategories().subscribe(
+      res => {
+        this.categories = res
+      },
+      err => console.log(err)
+    );
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -150,13 +163,49 @@ export class PieceFormComponent implements OnInit, OnChanges {
 
   doChanges() {
     if(this.isEdit){
-      console.log('Se edito');
-      this.sendFeedback('Se ha modificado con éxito');
+      this.pieceService.saveUpdate({
+        id: this.selectedId,
+        name: this.pieceForm.value.pieceName,
+        price: this.pieceForm.value.piecePrice,
+        cost: this.pieceForm.value.pieceCost,
+        stock: this.pieceForm.value.pieceAmount,
+        category:{
+          id:this.pieceForm.value.pieceCategory
+        }
+      }).subscribe(
+        res =>{
+          console.log(res);
+          this.sendFeedback(res.msj?res.msj:'');
+        },
+        err =>{
+          console.log(err);
+          this.sendFeedback('Error al registrar pieza, intente de nuevo');
+        }
+      );
     }else{
-      console.log("Se guardo");
-      this.sendFeedback('Se ha agregado con éxito');
+      this.pieceService.savePiece({
+        name: this.pieceForm.value.pieceName,
+        price: this.pieceForm.value.piecePrice,
+        cost: this.pieceForm.value.pieceCost,
+        stock: this.pieceForm.value.pieceAmount,
+        category:{
+          id:this.pieceForm.value.pieceCategory
+        }
+      }).subscribe(
+        res =>{
+          console.log(res);
+          this.sendFeedback(res.msj?res.msj:'');
+        },
+        err =>{
+          console.log(err);
+          this.sendFeedback('Error al registrar pieza, intente de nuevo');
+        }
+      );
+      
     }
   }
+
+  public categories: Array<Category> = [];
 
   sendFeedback(msg: string): void {
     this.feedbackEvent.emit(msg);
