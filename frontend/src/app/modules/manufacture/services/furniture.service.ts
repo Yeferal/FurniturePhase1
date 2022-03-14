@@ -23,7 +23,8 @@ export class FurnitureService {
 
   public getFurniture(id: number): Observable<Furniture>{
     return this.http.get<Furniture>(this.URL+'/furniture/get-furniture',{
-      withCredentials: true
+      withCredentials: true,
+      params: {code: id}
     });
   }
 
@@ -39,13 +40,14 @@ export class FurnitureService {
   }
 
   public getAllFurnitureListFilter(page: any, filter: any){
-    return this.http.get<any>(this.URL+'/furniture//get-allFurniture?page='+page+'&filter='+filter,{
-      withCredentials: true
+    return this.http.get<any>(this.URL+'/furniture/get-allFurniture-filter?page='+page,{
+      withCredentials: true,
+      params: filter
     });
   }
 
   public getAllFurnitureList(page: any){
-    return this.http.get<any>(this.URL+'/furniture//get-allFurniture?page='+page,{
+    return this.http.get<any>(this.URL+'/furniture/get-allFurniture?page='+page,{
       withCredentials: true
     });
   }

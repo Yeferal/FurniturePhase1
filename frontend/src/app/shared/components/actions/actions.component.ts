@@ -21,7 +21,7 @@ export class ActionsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.id);
+    // console.log(this.id);
   }
 
   updateOutputId(){

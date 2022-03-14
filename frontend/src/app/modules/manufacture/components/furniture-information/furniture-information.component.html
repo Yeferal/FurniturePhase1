@@ -1,6 +1,6 @@
-<p *ngIf="furniture!=undefined"><strong>Identificador: </strong>{{furniture.id}}</p>
-<p *ngIf="furniture!=undefined"><strong>Nombre: </strong>{{furniture.title}}</p>
+<p *ngIf="furniture!=undefined"><strong>Identificador: </strong>{{furniture.code}}</p>
+<p *ngIf="furniture!=undefined"><strong>Nombre: </strong>{{furniture.name}}</p>
 <p *ngIf="furniture!=undefined"><strong>Descripcion: </strong>{{furniture.description}}</p>
 <p *ngIf="furniture!=undefined"><strong>Precio: </strong>{{furniture.price}}</p>
 <p *ngIf="furniture!=undefined"><strong>Costo: </strong>{{furniture.cost}}</p>
-<p *ngIf="furniture!=undefined"><strong>En venta: </strong>{{(furniture.inSale)? 'Si': 'No'}}</p>
+<p *ngIf="furniture!=undefined"><strong>En venta: </strong>{{ (furniture.status == 1)? 'Si': 'No'}}</p>

@@ -11,7 +11,7 @@ export class Furniture{
     // description: string;
     // price:number;
     // cost: number;
-    status: boolean;
+    status: any;
     creationDate: any;
     msj?: any;
     path: any;

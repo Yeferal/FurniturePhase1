@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Furniture } from '../../../../core/models/furniture';
 import { FurnitureService } from '../../services/furniture.service';
 import { DatePipe } from '@angular/common';
+import { Page } from 'src/app/core/models/page';
 
 @Component({
   selector: 'app-list-furniture',
@@ -13,6 +14,8 @@ export class ListFurnitureComponent implements OnInit {
 
   selectedId: any = 0;
   page = 0;
+  paginate: Page;
+  typeSearch:number = 0;
 
   constructor(private furnitureService : FurnitureService
     ) { }
@@ -28,10 +31,15 @@ export class ListFurnitureComponent implements OnInit {
   date = new Date().toISOString() ;  
 
   ngOnInit(): void {
+    this.getListFurniture();
     
+  }
+
+  public getListFurniture(){
     this.furnitureService.getAllFurnitureList(this.page).subscribe(
       res => {
-        this.furnitures=res.content;
+        this.furnitures = res.content;
+        this.paginate = res;
         console.log(res.content);
         
       },
@@ -40,12 +48,57 @@ export class ListFurnitureComponent implements OnInit {
   }
 
   public filterFurnitures(){
-    console.log(this.formFilter);
+    this.page = 0;
+    let filter = {
+      date1: this.formFilter.get("dateStart")?.value,
+      date2: this.formFilter.get("dateEnd")?.value,
+      sort: this.formFilter.get("order")?.value,
+    }
+    this.furnitureService.getAllFurnitureListFilter(this.page,filter).subscribe(
+      res => {
+        // console.log(res.content);
+        this.paginate = res;
+        console.log(this.paginate);
+        
+        this.furnitures = res.content;
+      },
+      error => {
+        console.log(error);
+        
+      }
+    );
     
   }
 
+  nextPage(){
+    this.page = this.page + 1;
+    if (this.typeSearch == 0) {
+      this.getListFurniture();
+    } else {
+      this.filterFurnitures();
+    }
+  }
+
+  prevPage(){
+    this.page = this.page - 1;
+    if (this.typeSearch == 0) {
+      this.getListFurniture();
+    } else {
+      this.filterFurnitures();
+    }
+  }
+
+  setPage(i: number){
+    this.page = i;
+    if (this.typeSearch == 0) {
+      this.getListFurniture();
+    } else {
+      this.filterFurnitures();
+    }
+  }
+
   changeSelectedId(event: any){
-    console.log(event);
+    // console.log(event);
     this.selectedId = event;
   }
 
@@ -67,5 +120,9 @@ export class ListFurnitureComponent implements OnInit {
         break;
     }
   }
+
+  counter(i: number) {
+    return new Array(i);
+}
 
 }
