@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Piece } from '../../../../core/models/piece';
+import { Piece } from '../../../core/models/piece';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,10 @@ export class PieceServiceService {
 
   constructor(private http:HttpClient) { }
 
-  public getAllPieces(): Observable<Array<Piece>>{
-    return this.http.get<Array<Piece>>(this.url);
+  //Get all categories thrown an api
+  public getAllPieces(pageNumber: number, name: string): Observable<any>{
+    const final_url = this.URL+'get-all'+((pageNumber!=0)? '?page='+pageNumber+((name!='')?'&name='+name:''):((name!='')? '?name='+name:''));
+    return this.http.get<Array<Piece>>(final_url);
   }
 
   public getPiece(id: number): Observable<Piece>{
@@ -30,5 +32,9 @@ export class PieceServiceService {
 
   public getPieceById(id: number): Observable<Piece>{
     return this.http.get<Piece>(this.URL+'get-piece/'+id);
+  }
+
+  public deletePiece(id: number): Observable<any>{
+    return this.http.delete<any>(this.URL+'delete/'+id);
   }
 }

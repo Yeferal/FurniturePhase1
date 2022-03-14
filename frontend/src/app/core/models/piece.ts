@@ -1,10 +1,10 @@
 import { Category } from "./category";
 
 export class Piece {
-    
+
     id: any;
     name: String;
-    cost: number;
+    cost?: number;
     amount?: number;
     precio?: number;
     tipo?: string;

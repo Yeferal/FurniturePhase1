@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/core/models/category';
 import { Piece } from '../../../../core/models/piece';
 import { CategoryService } from '../../services/category.service';
-import { PieceServiceService } from '../../services/pieces/piece-service.service';
+import { PieceServiceService } from '../../services/piece-service.service';
 
 @Component({
   selector: 'app-piece-form',
@@ -142,7 +142,7 @@ export class PieceFormComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(!this.isEdit){
-      this.pieceForm.reset(); 
+      this.pieceForm.reset();
     }else{
       for(let i = 0; i < this.pieces.length; i++){
         if(this.pieces[i].id == this.selectedId){
@@ -201,7 +201,7 @@ export class PieceFormComponent implements OnInit, OnChanges {
           this.sendFeedback('Error al registrar pieza, intente de nuevo');
         }
       );
-      
+
     }
   }
 

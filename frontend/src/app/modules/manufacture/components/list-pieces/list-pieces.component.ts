@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-// import {NgxPaginationModule} from 'ngx-pagination';
 import { Piece } from 'src/app/core/models/piece';
+import {PieceServiceService} from "../../services/piece-service.service";
 
 @Component({
   selector: 'app-list-pieces',
@@ -14,42 +14,34 @@ export class ListPiecesComponent implements OnInit {
   @Output() isEditEvent = new EventEmitter<boolean>();
   @Output() feedbackEvent = new EventEmitter<string>();
 
+  //variables for actions
+  idPiece: number;
+  costPieces: number;
   searchValue: string = '';
-  maxSizeRows: number = 10;
-  p: number = 1;
-  rowsNumForm = new FormControl(10,Validators.required);
+  maxSizeRows: number = 5;
+  pageNumber: number = 1;
+  totalItems: number = 0;
 
-  list: Piece [] = [
-    {
-      id:1,
-      name: "Piezas1",
-      price: 5,
-      amount: 5,
-      cost:2
-    }
-  ];
+  list: Piece [] = [];
 
-  constructor() { }
+  constructor(private pieceService: PieceServiceService) { }
 
   updateIsEdit(event: any){
     this.isEditEvent.emit(event);
   }
 
   ngOnInit(): void {
-    this.setNumRows();
-  }
-
-  setNumRows(){
-    if(this.rowsNumForm.value == 'all'){
-      this.maxSizeRows = this.list.length;
-    }else {
-      this.maxSizeRows = this.rowsNumForm.value;
-    }
-    
+    this.searchPieces();
   }
 
   pageChanged(event: any){
+    this.pageNumber = event;
+    this.searchPieces();
+  }
 
+  setNameToSearch(event: any){
+    this.searchValue = event.target.value;
+    this.searchPieces();
   }
 
   //declarations of forms and the validators which are used
@@ -76,9 +68,6 @@ export class ListPiecesComponent implements OnInit {
     }
   )
 
-  //variables for actions
-  idPiece: number;
-  costPieces: number
   setIdPiece(id: number){
     this.idPiece = id;
   }
@@ -88,7 +77,14 @@ export class ListPiecesComponent implements OnInit {
     this.costPieces=cost;
   }
   deletePiece(){
-    console.log(this.idPiece);
+    this.pieceService.deletePiece(this.idPiece).subscribe(
+      res => {
+        alert(res.msj);
+      },
+      err => {
+        alert('Ha ocurrido un error al eliminar la pieza.');
+      }
+    );
   }
 
   removePieces(){
@@ -96,7 +92,7 @@ export class ListPiecesComponent implements OnInit {
   }
 
   providePieces(){
-    
+
   }
 
   changeSelectedId(event: any){
@@ -105,5 +101,17 @@ export class ListPiecesComponent implements OnInit {
 
   sendFeedback(event: any){
     this.feedbackEvent.emit(event);
+  }
+
+  searchPieces(){
+    this.pieceService.getAllPieces(this.pageNumber-1,this.searchValue).subscribe(
+      res => {
+        this.list = res.content;
+        this.totalItems = res.totalElements;
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 }

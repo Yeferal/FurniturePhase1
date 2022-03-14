@@ -13,7 +13,7 @@ export class ActionsComponent implements OnInit {
   @Input() addButton: boolean = false;
   @Input() removeButton: boolean = false;
   @Input() model: string;
-  @Input() id: number;
+  @Input() id?: number;
   @Output() messageEvent = new EventEmitter<number>(); //Para enviar el id que se seleccionó
   @Output() isEditEvent = new EventEmitter<boolean>(); //Para enviar si es edición o creación
   @Output() pressedButtonTypeEvent = new EventEmitter<string>();
@@ -25,6 +25,7 @@ export class ActionsComponent implements OnInit {
   }
 
   updateOutputId(){
+    if(this.id==undefined)this.id=0;
     this.messageEvent.emit(this.id);
   }
 

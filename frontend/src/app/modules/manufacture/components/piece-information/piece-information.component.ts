@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Piece } from '../../../../core/models/piece';
-import { PieceServiceService } from '../../services/pieces/piece-service.service';
+import { PieceServiceService } from '../../services/piece-service.service';
 
 @Component({
   selector: 'app-piece-information',
@@ -108,7 +108,7 @@ export class PieceInformationComponent implements OnInit, OnChanges{
     this.pieceService.getPieceById(this.id).subscribe(
       res => {
         console.log(res);
-        
+
         this.piece = res
       },
       err => {
