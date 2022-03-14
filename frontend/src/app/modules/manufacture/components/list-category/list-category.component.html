@@ -26,7 +26,7 @@
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                             aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Settings</div>
-                            <a class="dropdown-item" href="">Add new category</a>
+                            <a class="dropdown-item" data-toggle="modal" [attr.data-target]="'#categoryCreateModal'" style="cursor: pointer;">Add new category</a>
                         </div>
                     </div>
                 </div>
@@ -91,6 +91,12 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
+    </app-modal>
+
+
+    <app-modal class="modal fade" id="categoryCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" 
+        [tittle]="''">
+        <app-create-category-piece></app-create-category-piece>
     </app-modal>
 
 </app-container>

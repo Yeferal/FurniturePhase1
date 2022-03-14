@@ -10,8 +10,7 @@ import { CategoryService } from '../../services/category.service';
 export class CreateCategoryPieceComponent implements OnInit {
 
   categoryForm: FormGroup = new FormGroup({
-    name: new FormControl(null, Validators.required),
-    description: new FormControl(null, null),
+    name: new FormControl(null, Validators.required)
   });
 
   txtAlert = "";
@@ -34,6 +33,7 @@ export class CreateCategoryPieceComponent implements OnInit {
           name:this.categoryForm.value.name
         }
       ).subscribe(res=>{
+        this.categoryForm.reset();
         console.log(res);
       },err=>{
         console.warn(err);
