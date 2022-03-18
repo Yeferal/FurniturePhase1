@@ -51,9 +51,9 @@
                     <div class="collapse show" id="collapseCardExample">
                         <div class="card-body">
                             <div>
-                                <label style="width: 45%;">Nit: </label>
-                                <label style="width: 45%;">Nombre: </label>
-                                <label style="width: 45%;">Direccion: </label>
+                                <label style="width: 45%;">Nit: {{nitClient}} </label>
+                                <label style="width: 45%;">Nombre: {{nameClient}}</label>
+                                <label style="width: 45%;">Direccion: {{addressClient}}</label>
                             </div>
                         </div>
                     </div>
@@ -69,76 +69,17 @@
                                             <tr>
                                                 <th>Codigo</th>
                                                 <th>Producto</th>
-                                                <th>Cantidad</th>
                                                 <th>Precio</th>
-                                                <th>SubTotal</th>
                                                 <th>Retornar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>$320,800</td>
-                                                <td><app-register-lost [dataReturn]="setData(0,1,59,'5165165','616516','Sales Assistant')"></app-register-lost> </td>
+                                            <tr *ngFor="let item of detailBills">
+                                                <td>{{item[0]}}</td>
+                                                <td>{{item[2]}}</td>
+                                                <td>{{item[1]}}</td>
+                                                <td><app-register-lost (removeIndex)="removeItem($event)" [idBill]="item[3]" [dataReturn]="setData(0,1,item[1],item[0],nitClient,item[2])"></app-register-lost> </td>
                                                 <!-- <td><input (click)="setData(0,1,59,'5165165','616516','Sales Assistant')" type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td> -->
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>$170,750</td>
-                                                <td><app-register-lost [dataReturn]="setData(0,1,59,'5165165','616516','Sales Assistant')"></app-register-lost> </td>
-                                                <!-- <td><input (click)="setData(0,1,59,'5165165','616516','Sales Assistant')" type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td> -->
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>$86,000</td>
-                                                <td><app-register-lost [dataReturn]="setData(0,1,59,'5165165','616516','Sales Assistant')"></app-register-lost> </td>
-                                                <!-- <td><input (click)="setData(0,1,59,'5165165','616516','Sales Assistant')" type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td> -->
-                                            </tr>
-                                            <tr>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>$433,060</td>
-                                                <td><app-register-lost [dataReturn]="setData(0,1,59,'5165165','616516','Sales Assistant')"></app-register-lost> </td>
-                                                <!-- <td><input (click)="setData(0,1,59,'5165165','616516','Sales Assistant')" type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td> -->
-                                            </tr>
-                                            <tr>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                                <td>$162,700</td>
-                                                <td><app-register-lost [dataReturn]="setData(0,1,59,'5165165','616516','Sales Assistant')"></app-register-lost> </td>
-                                                <!-- <td><input (click)="setData(0,1,59,'5165165','616516','Sales Assistant')" type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td> -->
-                                            </tr>
-                                            <tr>
-                                                <td>Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>$372,000</td>
-                                                <td><app-register-lost [dataReturn]="setData(0,1,59,'5165165','616516','Sales Assistant')"></app-register-lost> </td>
-                                                <!-- <td><input (click)="setData(0,1,59,'5165165','616516','Sales Assistant')" type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td> -->
-                                            </tr>
-                                            <tr>
-                                                <td>Herrod Chandler</td>
-                                                <td>Sales Assistant</td>
-                                                <td>San Francisco</td>
-                                                <td>59</td>
-                                                <td>$137,500</td>
-                                                <td><app-register-lost [dataReturn]="setData(0,1,59,'5165165','616516','Sales Assistant')"></app-register-lost> </td>
-                                                <!-- <td><input (click)="setData(0,1,59,'5165165','616516','Sales Assistant')" type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td> -->
-                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -153,8 +94,8 @@
                                                 <td> </td>
                                                 <td> </td>
                                                 <td> </td>
-                                                <td>Total: </td>
-                                                <td>$ 13242314</td>
+                                                <td>Total:  </td>
+                                                <td>$ {{sumTotal}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
