@@ -30,28 +30,31 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Mueble</th>
                                     <th>Costo de produccion</th>
                                     <th>Total</th>
                                     <th>Cliente</th>
-                                    <th>Cantidad de muebles</th>
+                                    <!-- <th>Cantidad de muebles</th> -->
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Mueble</th>
                                     <th>Costo de produccion</th>
                                     <th>Total</th>
                                     <th>Cliente</th>
-                                    <th>Cantidad de muebles</th>
+                                    <!-- <th>Cantidad de muebles</th> -->
                                 </tr>
                             </tfoot>
                             <tbody>
                                 <tr *ngFor="let item of ventasList ">
                                     <td>{{item.id}}</td>
-                                    <td>{{item.cost }}</td>
-                                    <td>{{item.total}}</td>
-                                    <td>{{item.client}}</td>
-                                    <td>{{item.furnitureCount}}</td>
+                                    <td>{{item.furniture?.name}}</td>
+                                    <td>{{item.furniture?.cost}}</td>
+                                    <td>{{item.furniture?.price}}</td>
+                                    <td>{{item.bill?.client?.name}}</td>
+                                    <!-- <td>{{item.furnitureCount}}</td> -->
                                 </tr>
                             </tbody>
                         </table>

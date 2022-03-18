@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { BillDetail } from 'src/app/core/models/bill-detail';
+import { Page } from 'src/app/core/models/page';
 import { Sales } from '../../../../core/models/sales';
 import { SalesService } from '../../services/sales-service.service';
 
@@ -10,42 +12,10 @@ import { SalesService } from '../../services/sales-service.service';
 export class SalesOfDayComponent implements OnInit {
 
   constructor(private salesService: SalesService) { }
-  ventasList: Array<Sales> = []
+  ventasList: Array<BillDetail> = []
+  paginate: Page;
+
   ngOnInit(): void {
-    this.ventasList.push(
-      {
-        client:"Cliente1",
-        cost:10,
-        furnitureCount:1000,
-        id:1,
-        total:1000,
-        date:"01-01-2001"
-      },
-      {
-        client:"Cliente1",
-        cost:10,
-        furnitureCount:1000,
-        id:1,
-        total:1000,
-        date:"01-01-2001"
-      },
-      {
-        client:"Cliente1",
-        cost:10,
-        furnitureCount:1000,
-        id:1,
-        total:1000,
-        date:"01-01-2001"
-      },
-      {
-        client:"Cliente1",
-        cost:10,
-        furnitureCount:1000,
-        id:1,
-        total:1000,
-        date:"01-01-2001"
-      }
-    )
     
     /*
     this.salesService.getSalesOfNow().subscribe(
@@ -57,6 +27,20 @@ export class SalesOfDayComponent implements OnInit {
       err => console.log(err)
     )
     */
+  }
+
+  public getSalesToday(){
+
+    this.salesService.getSalesToday({}).subscribe(
+      res => {
+        this.paginate = res;
+        this.ventasList = this.paginate.content;
+      },
+      error => {
+        console.warn(error);
+        
+      }
+    );
   }
  
 }
