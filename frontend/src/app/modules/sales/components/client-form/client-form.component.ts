@@ -16,41 +16,41 @@ export class ClientFormComponent implements OnInit {
   @Output() foundClientEvent = new EventEmitter<Client>();
   client: Client;
   clients: Array<Client> = [
-    {
-      "nit": 1,
-      "name": "José Soberanis",
-      "address": "Colonia los almendros"
-    },
-    {
-      "nit": 2,
-      "name": "Carlos Ramirez",
-      "address": "Colonia los cerezos"
-    },
-    {
-      "nit": 3,
-      "name": "Daniel Gonzalez",
-      "address": "Colonia los aceitunos"
-    },
-    {
-      "nit": 4,
-      "name": "Josue Lopez",
-      "address": "Colonia los saltos"
-    },
-    {
-      "nit": 5,
-      "name": "Jhonny Garcia",
-      "address": "Colonia los buenos dias"
-    },
-    {
-      "nit": 6,
-      "name": "Yefer Alvarado",
-      "address": "Colonia los salvadoreñso"
-    },
-    {
-      "nit": 7,
-      "name": "Mario Ramirez",
-      "address": "Colonia los salvajes"
-    }
+    // {
+    //   "nit": 1,
+    //   "name": "José Soberanis",
+    //   "address": "Colonia los almendros"
+    // },
+    // {
+    //   "nit": 2,
+    //   "name": "Carlos Ramirez",
+    //   "address": "Colonia los cerezos"
+    // },
+    // {
+    //   "nit": 3,
+    //   "name": "Daniel Gonzalez",
+    //   "address": "Colonia los aceitunos"
+    // },
+    // {
+    //   "nit": 4,
+    //   "name": "Josue Lopez",
+    //   "address": "Colonia los saltos"
+    // },
+    // {
+    //   "nit": 5,
+    //   "name": "Jhonny Garcia",
+    //   "address": "Colonia los buenos dias"
+    // },
+    // {
+    //   "nit": 6,
+    //   "name": "Yefer Alvarado",
+    //   "address": "Colonia los salvadoreñso"
+    // },
+    // {
+    //   "nit": 7,
+    //   "name": "Mario Ramirez",
+    //   "address": "Colonia los salvajes"
+    // }
   ];
 
   clientForm: FormGroup = new FormGroup({
