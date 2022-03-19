@@ -9,35 +9,21 @@
                     <div class="card-body">
                         <label class="form-check-label" style="color: blue;">Producto: {{dataReturn.nameProduct}}</label>
                         <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
                                 <label class="form-check-label">Nit Cliente</label>
                                 <input 
                                 formControlName="nitClient" 
                                 type="text" class="form-control form-control-user" id="exampleFirstName" [value]="dataReturn.nitClient" readonly
                                 placeholder="NIT">
                             </div>
-                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center;">
-                                <label class="form-check-label">Fecha de Devolucion</label>
-                                <input 
-                                formControlName="date1" 
-                                type="date" class="form-control form-control-user" id="exampleFirstName"
-                                placeholder="Fecha Inicial">
-                            </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center;">
+                            <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
                                 <label class="form-check-label">Codigo Producto</label>
                                 <input 
                                 formControlName="codeProduct" 
                                 type="text" class="form-control form-control-user" id="exampleFirstName"
                                 placeholder="Codigo Producto" [value]="dataReturn.codeFurniture" readonly>
-                            </div>
-                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center;">
-                                <label class="form-check-label">Cantidad</label>
-                                <input 
-                                formControlName="amount" 
-                                type="number" class="form-control form-control-user" id="exampleFirstName" [min]="dataReturn.min" [max]="dataReturn.max" [value]="dataReturn.amount"
-                                placeholder="Cantidad">
                             </div>
                         </div>
                         <div class="form-group">
