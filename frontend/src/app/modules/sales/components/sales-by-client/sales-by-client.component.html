@@ -83,7 +83,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <ul class="pagination" style="justify-content: center;">
+                        <ul class="pagination" style="justify-content: center;" *ngIf="paginate">
                             <li class="paginate_button page-item previous" [class.disabled]="(paginate.pageable.pageNumber==0)"
                             style="cursor: pointer;">
                                 <a (click)="prevPage()" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
@@ -128,7 +128,7 @@
                             <td>{{item.furniture?.price}}</td>
                     </tbody>
                 </table>
-                <ul class="pagination" style="justify-content: center;">
+                <ul class="pagination" style="justify-content: center;" *ngIf="paginateD">
                     <li class="paginate_button page-item previous" [class.disabled]="(paginateD.pageable.pageNumber==0)"
                     style="cursor: pointer;">
                         <a (click)="prevPage()" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
