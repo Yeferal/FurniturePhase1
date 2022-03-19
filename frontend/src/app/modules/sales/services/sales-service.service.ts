@@ -27,5 +27,18 @@ export class SalesService{
     });
   }
 
+  public getSalesClient(data: any):Observable<Page> {
+    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-sales-clients',{
+      withCredentials: true,
+      params: data
+    });
+  }
+
+  public getBillDetailsClient(data: any):Observable<Page>{
+    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-bill-cliente',{
+      withCredentials: true,
+      params: data
+    });
+  }
 
 }

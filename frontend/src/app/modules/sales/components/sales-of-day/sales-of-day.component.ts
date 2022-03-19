@@ -13,28 +13,22 @@ export class SalesOfDayComponent implements OnInit {
 
   constructor(private salesService: SalesService) { }
   ventasList: Array<BillDetail> = []
-  paginate: Page;
+  paginate: Page = new Page();
+  page = 0;
 
   ngOnInit(): void {
+    this.getSalesToday();
     
-    /*
-    this.salesService.getSalesOfNow().subscribe(
-      res => {
-        this.ventasList= res
-        console.log(res);
-        
-      },
-      err => console.log(err)
-    )
-    */
   }
 
   public getSalesToday(){
 
-    this.salesService.getSalesToday({}).subscribe(
+    this.salesService.getSalesToday(this.page).subscribe(
       res => {
         this.paginate = res;
         this.ventasList = this.paginate.content;
+        console.log(this.paginate);
+        
       },
       error => {
         console.warn(error);
@@ -43,4 +37,24 @@ export class SalesOfDayComponent implements OnInit {
     );
   }
  
+  nextPage(){
+    this.page = this.page + 1;
+    this.getSalesToday();
+  }
+
+  prevPage(){
+    this.page = this.page - 1;
+    this.getSalesToday();
+  }
+
+  setPage(i: number){
+    this.page = i;
+    this.getSalesToday();
+  }
+  counter(i: number) {
+    return new Array(i);
+  }
+
+
+
 }
