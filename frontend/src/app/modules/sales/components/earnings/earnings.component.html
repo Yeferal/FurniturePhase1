@@ -51,29 +51,29 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Cliente</th>
-                                    <th>Fecha</th>
+                                    <th>Detalle</th>
+                                    <!-- <th>Fecha</th>
                                     <th>Ingreso</th>
                                     <th>Egreso</th>
-                                    <th>Ganancia</th>
+                                    <th>Ganancia</th> -->
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th>{{ingreso}}</th>
-                                    <th>{{egreso}}</th>
-                                    <th>{{earning}}</th>
+                                    <th>Ganancias Totales:</th>
+                                    <th>{{earn[2]}}</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr *ngFor="let item of sales ">
-                                    <td>{{item.client}}</td>
-                                    <td>{{item.date}}</td>
-                                    <td>{{item.total}}</td>
-                                    <td>{{item.cost}}</td>
+                                <tr>
+                                    <td>Ventas</td>
+                                    <td>{{earn[0]}}</td>
                                 </tr>
+                                <tr>
+                                    <td>Perdidas</td>
+                                    <td>{{earn[1]}}</td>
+                                </tr>
+                                
                             </tbody>
                         </table>
                         <div class="col-sm-12 col-md-7">

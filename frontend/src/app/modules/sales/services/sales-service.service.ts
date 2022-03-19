@@ -41,4 +41,11 @@ export class SalesService{
     });
   }
 
+  public getEarningsTotal(data: any){
+    return this.http.get<any>('http://localhost:8080/sales/invoice/get-earnings-total', {
+      withCredentials: true,
+      params: data
+    })
+  }
+
 }
