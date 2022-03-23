@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   messageError = '';
   isError = false;
 
-  constructor() { }
+  constructor(private cookieService: CookieService) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +30,15 @@ export class LoginComponent implements OnInit {
 
     this.messageError = 'Usuario Aceptado';
     this.isError = true;
+  }
+
+
+  createCookie(nameCookie: string, valueCookie: string){
+    this.cookieService.set(nameCookie, valueCookie);
+    //VIEW COOKIE
+    this.cookieService.get(nameCookie);
+    console.log(this.cookieService.get(nameCookie));
+    
   }
 
 }
