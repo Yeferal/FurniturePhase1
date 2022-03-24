@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Page } from 'src/app/core/models/page';
 import { Sales } from '../../../core/models/sales';
 
 
@@ -18,4 +19,33 @@ export class SalesService{
   public getSalesByClient(name:string){
     return this.http.get<Array<Sales>>(this.url)
   }
+
+  public getSalesToday(data: any):Observable<Page> {
+    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-sale-today',{
+      withCredentials: true,
+      params: data
+    });
+  }
+
+  public getSalesClient(data: any):Observable<Page> {
+    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-sales-clients',{
+      withCredentials: true,
+      params: data
+    });
+  }
+
+  public getBillDetailsClient(data: any):Observable<Page>{
+    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-bill-cliente',{
+      withCredentials: true,
+      params: data
+    });
+  }
+
+  public getEarningsTotal(data: any){
+    return this.http.get<any>('http://localhost:8080/sales/invoice/get-earnings-total', {
+      withCredentials: true,
+      params: data
+    })
+  }
+
 }

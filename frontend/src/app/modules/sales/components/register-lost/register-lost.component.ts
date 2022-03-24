@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FurnitureReturnService } from '../../services/furniture-return.service';
 
 interface DataReturn {
   min: any;
@@ -25,6 +26,8 @@ export class RegisterLostComponent implements OnInit {
     nitClient: '',
     nameProduct: '',
   };
+
+  @Input() idBill: number = -1;
   
   returnForm: FormGroup = new FormGroup({
     nitClient: new FormControl(this.dataReturn.nitClient, Validators.required),
@@ -38,7 +41,7 @@ export class RegisterLostComponent implements OnInit {
 
   dataR: DataReturn;
 
-  constructor() { }
+  constructor(private furnitureService: FurnitureReturnService) { }
 
   ngOnInit(): void {
     this.returnForm.get('nitClient')?.setValue(this.dataReturn.nitClient);
@@ -47,14 +50,35 @@ export class RegisterLostComponent implements OnInit {
   }
 
   registerLost(){
-    console.log(this.dataReturn);
-    
-    // console.log(this.returnForm.value);
-    
-    // if (this.returnForm.invalid) {
-    //   return;
-    // }
+     let cod = this.dataReturn.codeFurniture;
+     console.log(this.idBill+" "+cod);
+     if (cod && this.idBill) {
+        this.furnitureService.ReturnFurniture(cod, this.idBill).subscribe(
+          result => {
+            console.log(result);
+            
+            if(result.status_code == 200) {
+              this.removeItem(this.idBill);
+            }
+          },
+          err => {
+            console.warn(err);
+            
+          }
+        )
+     }else{
+       console.log("ERROR");
+       
+     }
   }
+
+  removeItem(index: number){
+
+    
+    this.removeIndex.emit(index);
+  }
+
+  @Output() removeIndex = new EventEmitter<number>();
 
 
 
