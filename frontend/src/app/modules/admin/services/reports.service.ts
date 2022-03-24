@@ -11,29 +11,29 @@ export class ReportsService {
   private url = "https://jsonplaceholder.typicode.com/users";
   constructor(private http: HttpClient) { }
 
-  public getReportSalesXPeriod(data: any):Observable<Page>{
-    return this.http.get<Page>('http://localhost:8080/admin/bill-details/report-sales-x-period', {
+  public getReportSalesXPeriod(data: any):Observable<any>{
+    return this.http.get<any>('http://localhost:8080/admin/bill-details/report-sales-x-period', {
       withCredentials: true,
       params: data
     });
   }
 
-  public getReportEarningsXPeriod(data: any):Observable<Page>{
-    return this.http.get<Page>('http://localhost:8080/admin/report/report-earnings-x-period', {
+  public getReportEarningsXPeriod(data: any):Observable<any>{
+    return this.http.get<any>('http://localhost:8080/admin/report/report-earnings-x-period', {
       withCredentials: true,
       params: data
     });
   }
 
-  public getReportMinFurnitureXPeriod(data: any):Observable<Page>{
-    return this.http.get<Page>('http://localhost:8080/admin/report/report-min-furniture-x-period', {
+  public getReportMinFurnitureXPeriod(data: any):Observable<any>{
+    return this.http.get<any>('http://localhost:8080/admin/report/report-min-furniture-x-period', {
       withCredentials: true,
       params: data
     });
   }
 
-  public getReportMaxFurnitureXPeriod(data: any):Observable<Page>{
-    return this.http.get<Page>('http://localhost:8080/admin/report/report-max-furniture-x-period', {
+  public getReportMaxFurnitureXPeriod(data: any):Observable<any>{
+    return this.http.get<any>('http://localhost:8080/admin/report/report-max-furniture-x-period', {
       withCredentials: true,
       params: data
     });
