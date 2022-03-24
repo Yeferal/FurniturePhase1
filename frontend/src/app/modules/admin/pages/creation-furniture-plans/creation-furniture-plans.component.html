@@ -39,20 +39,9 @@
                                                             <th>Name</th>
                                                             <th>Cost</th>
                                                             <th>Type</th>
-                                                            <!-- <th>Amount</th> -->
                                                             <th>Remover</th>
                                                         </tr>
                                                     </thead>
-                                                    <!-- <tfoot>
-                                                        <tr>
-                                                            <th> </th>
-                                                            <th> </th>
-                                                            <th> </th>
-                                                            <th> </th>
-                                                            <th>Cost:</th>
-                                                            <th>0</th>
-                                                        </tr>
-                                                    </tfoot> -->
                                                     <tbody>
                                                         <tr (dblclick)="selectPiece()" 
                                                         *ngFor="let item of listPieces | searchPiece: searchValue | paginate: { itemsPerPage: 10, currentPage: p } ;let i = index" 
@@ -62,7 +51,6 @@
                                                             <td>{{item.name}}</td>
                                                             <td >{{item.cost}}</td>
                                                             <td>{{item.category}}</td>
-                                                            <!-- <td>{{item.amount}}</td> -->
                                                             <td>
                                                                 <a class="btn btn-success btn-icon-split" data-toggle="modal" [attr.data-target]="'#piece' + item.id">
                                                                     <span class="icon text-white-50">
@@ -154,11 +142,11 @@
                                                 <table class="table table-bordered table-hover" style="word-wrap: break-word;" id="dataTable" width="100%" cellspacing="0" >
                                                     <thead>
                                                         <tr>
-                                                            <th>id</th>
-                                                            <th>Name</th>
-                                                            <th>Cost</th>
-                                                            <th>Type</th>
-                                                            <th>Amount</th>
+                                                            <th>Id</th>
+                                                            <th>Nombre</th>
+                                                            <th>Costo</th>
+                                                            <th>Tipo</th>
+                                                            <th>Cantidad</th>
                                                             <th>Remover</th>
                                                         </tr>
                                                     </thead>

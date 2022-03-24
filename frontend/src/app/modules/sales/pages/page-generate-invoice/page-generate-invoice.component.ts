@@ -87,4 +87,5 @@ export class PageGenerateInvoiceComponent implements OnInit {
   updateClient(event: any){
     this.client = event;
   }
+  
 }

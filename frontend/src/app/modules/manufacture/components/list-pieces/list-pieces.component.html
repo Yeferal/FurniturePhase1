@@ -67,9 +67,9 @@
                             <tr>
                                 <th>id</th>
                                 <th>Name</th>
-                                <th>precio</th>
-                                <th>tipo</th>
-                                <th>cantidad</th>
+                                <th>Costo</th>
+                                <th>Tipo</th>
+                                <th>Cantidad</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -79,7 +79,7 @@
                                 <th>Nombre</th>
                                 <th>Costo</th>
                                 <th>Categoria</th>
-                                <th>cantidad</th>
+                                <th>Cantidad</th>
                                 <th>Acciones</th>
                             </tr>
                         </tfoot>
@@ -89,7 +89,7 @@
                                 <td>{{item.name}}</td>
                                 <td>{{item.cost}}</td>
                                 <td>{{item.category.name}}</td>
-                                <td>{{item.amount}}</td>
+                                <td>{{item.stock}}</td>
                                 <td>
                                   <app-actions
                                     (isEditEvent)="updateIsEdit($event)" (messageEvent)="changeSelectedId($event)"
