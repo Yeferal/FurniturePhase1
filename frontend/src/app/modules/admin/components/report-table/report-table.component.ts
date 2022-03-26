@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ReportsService } from '../../services/reports.service';
 
 @Component({
   selector: 'app-report-table',
@@ -11,7 +12,7 @@ export class ReportTableComponent implements OnInit {
   p: number = 1;
   items: Array<any> = [
     {
-      value1: 'id 1',
+      value1: 'ids 1',
       value2: 'valor 1',
       value3: 'valor 1',
       value4: 'valor 1',
@@ -49,12 +50,18 @@ export class ReportTableComponent implements OnInit {
   ];
   @Input() set reportType(value: number){ //Cada vez que se setee el reportType
     if(value != undefined){
-      console.log("Se ha recibido el valor:" + value);
       this._reportType = value;
+      switch (value) {
+        case 2:
+          this._reportService.getReturnFurnitures()
+          break;
+        default:
+          break;
+      }
     }
   }
 
-  constructor() { }
+  constructor(private _reportService: ReportsService) { }
 
   ngOnInit() {
   }
