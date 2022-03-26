@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { JwtGuard } from 'src/app/core/guards/jwt.guard';
 import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [JwtGuard]
   },
   // {
   //   // path: '**',//TODO 404 cuando no existe la ruta

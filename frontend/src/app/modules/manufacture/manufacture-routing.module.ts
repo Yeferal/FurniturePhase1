@@ -6,26 +6,32 @@ import { ListFurnitureComponent } from './components/list-furniture/list-furnitu
 import { RegisterFornitureComponent } from './pages/register-forniture/register-forniture.component';
 import { PageListPiecesComponent } from './pages/page-list-pieces/page-list-pieces.component';
 import { CreateCategoryPieceComponent } from './components/create-category-piece/create-category-piece.component';
+import { JwtLogoutGuard } from 'src/app/core/guards/jwt-logout.guard';
 
 const routes: Routes = [
   {
     path: 'list-categories',
-    component: ListCategoryComponent
+    component: ListCategoryComponent,
+    canActivate: [JwtLogoutGuard]
   },
   {
     path: 'list-furniture',
-    component: ListFurnitureComponent
+    component: ListFurnitureComponent,
+    canActivate: [JwtLogoutGuard]
   },
   {
     path: 'register-forniture',
-    component: RegisterFornitureComponent
+    component: RegisterFornitureComponent,
+    canActivate: [JwtLogoutGuard]
   },{
     path: 'list-pieces',
-    component: PageListPiecesComponent
+    component: PageListPiecesComponent,
+    canActivate: [JwtLogoutGuard]
   },
   {
     path: 'register-category',
-    component: CreateCategoryPieceComponent
+    component: CreateCategoryPieceComponent,
+    canActivate: [JwtLogoutGuard]
   }
 ];
 

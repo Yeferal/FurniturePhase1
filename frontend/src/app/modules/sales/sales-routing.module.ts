@@ -8,34 +8,43 @@ import { RegisterFurnitureReturnComponent } from './pages/register-furniture-ret
 import { PageGenerateInvoiceComponent } from './pages/page-generate-invoice/page-generate-invoice.component';
 import { SalesByClientComponent } from './components/sales-by-client/sales-by-client.component';
 import { EarningsComponent } from './components/earnings/earnings.component';
+import { JwtLogoutGuard } from 'src/app/core/guards/jwt-logout.guard';
 
 const routes: Routes = [{
     path:'sales-of-day',
-    component: SalesOfDayComponent
+    component: SalesOfDayComponent,
+    canActivate: [JwtLogoutGuard]
   },{
     path:'available-furnitures',
-    component: FurnitureAvailableComponent
+    component: FurnitureAvailableComponent,
+    canActivate: [JwtLogoutGuard]
   },{
     path:'consult-invoices',
-    component: ConsultInvoicesComponent
+    component: ConsultInvoicesComponent,
+    canActivate: [JwtLogoutGuard]
   },{
     path:'check-costumer-returns',
-    component: CheckCustomerReturnsComponent
+    component: CheckCustomerReturnsComponent,
+    canActivate: [JwtLogoutGuard]
   },
   {
     path:'register-furniture-return',
-    component: RegisterFurnitureReturnComponent
+    component: RegisterFurnitureReturnComponent,
+    canActivate: [JwtLogoutGuard]
   },{
     path: 'do-sale',
-    component: PageGenerateInvoiceComponent
+    component: PageGenerateInvoiceComponent,
+    canActivate: [JwtLogoutGuard]
   },
   {
     path: 'sales-by-client',
-    component: SalesByClientComponent
+    component: SalesByClientComponent,
+    canActivate: [JwtLogoutGuard]
   },
   {
     path: 'earnings',
-    component: EarningsComponent
+    component: EarningsComponent,
+    canActivate: [JwtLogoutGuard]
   }
 ];
 
