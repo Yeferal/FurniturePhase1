@@ -18,7 +18,14 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-
+                    <div *ngIf="showMessage == 1" class="alert bg-green alert-primary alert-dismissible" role="alert">
+                        <button type="button" (click)="showMessage=0" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{message}}
+                    </div>
+                    <div *ngIf="showMessage == 2" class="alert bg-green alert-danger alert-dismissible" role="alert">
+                        <button type="button" (click)="showMessage=0" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{message}}
+                    </div>
                         <div class="container" >
                             <form [formGroup]="formRegister" (ngSubmit)="registerUser()" class="user" class="col-sm-6 mb-3 mb-sm-0" style="margin-left: auto; margin-right: auto;" >
                             
@@ -35,12 +42,13 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input formControlName="password" type="password" class="form-control form-control-user" id="exampleFirstName" placeholder="Contraseña">
+                                        <span>Ingrese una contraseña de 8 digitos</span> <br>
+                                        <input formControlName="password"  type="password" class="form-control form-control-user" id="exampleFirstName" placeholder="Contraseña">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input formControlName="passwordConfirm" type="password" class="form-control form-control-user" id="exampleFirstName" placeholder="Confirmar contraseña">
+                                        <input formControlName="passwordConfirm"  type="password" class="form-control form-control-user" id="exampleFirstName" placeholder="Confirmar contraseña">
                                     </div>
                                 </div>
                                 <div class="form-group row">

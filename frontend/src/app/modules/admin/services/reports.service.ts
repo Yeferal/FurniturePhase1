@@ -7,6 +7,9 @@ import { Page } from 'src/app/core/models/page';
   providedIn: 'root'
 })
 export class ReportsService {
+private URL = 'http://localhost:8080'
+
+
 
   private url = "https://jsonplaceholder.typicode.com/users";
   constructor(private http: HttpClient) { }
@@ -39,4 +42,7 @@ export class ReportsService {
     });
   }
 
+  public getReturnFurnitures():Observable<any>{
+    return this.http.get(this.URL+"/admin/furniture")
+  }
 }
