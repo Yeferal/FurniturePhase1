@@ -11,23 +11,27 @@ export class SessionService {
   private url = "https://jsonplaceholder.typicode.com/users";
   constructor(private http: HttpClient) { }
 
-  isAuthenticatedAdmin(cookie: any) {
-    return this.http.post<any>('http://localhost:8080/user/isAdminLoggedIn',{
+  isAuthenticatedAdmin():Observable<boolean> {
+    return this.http.post<boolean>('http://localhost:8080/user/isAdminLoggedIn',{
+      withCredentials: true,
+    });
+  }
+
+  isAuthenticatedSales():Observable<boolean> {
+    return this.http.post<boolean>('http://localhost:8080/user/isSalesmanLoggedIn',{
       withCredentials: true
     });
   }
 
-  isAuthenticatedSales(cookie: any) {
-    return this.http.post<any>('http://localhost:8080/user/isSalesmanLoggedIn',{
-      withCredentials:true,
-      headers: cookie
+  isAuthenticatedFabricate():Observable<boolean> {
+    return this.http.post<boolean>('http://localhost:8080/user/isFabricatemanLoggedIn',{
+      withCredentials:true
     });
   }
 
-  isAuthenticatedFabricate(cookie: any) {
-    return this.http.post<any>('http://localhost:8080/user/isFabricatemanLoggedIn',{
-      withCredentials:true,
-      headers: cookie
+  isAuthenticatedIsLogged():Observable<boolean> {
+    return this.http.post<boolean>('http://localhost:8080/user/isLoggedIn',{
+      withCredentials:true
     });
   }
 
