@@ -27,52 +27,5 @@ export class JwtLogoutGuard implements CanActivate {
     );
     return true;
   }
-
-  isAdmin(): boolean{
-
-    this.auth.isAuthenticatedAdmin().subscribe(
-      res => {
-        console.log('admin',res);
-        return res;
-      },
-      error => {
-        console.log(error);
-        
-        return false;
-      }
-    );
-
-    return false;
-  }
-
-  isSales(): boolean{
-
-    this.auth.isAuthenticatedSales().subscribe(
-      res => {
-        console.log('sales',res);
-        return res;
-      },
-      error => {
-        return false;
-      }
-    );
-
-    return false;
-  }
-
-  isFabricateman(): boolean{
-
-    this.auth.isAuthenticatedFabricate().subscribe(
-      res => {
-        console.log('fabricateman',res);
-        return res;
-      },
-      error => {
-        return false;
-      }
-    );
-
-    return false;
-  }
   
 }

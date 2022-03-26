@@ -27,7 +27,7 @@ export class EarningsComponent implements OnInit {
   earning:number =0;
   msjError = '';
   errorForm = false;
-  earn: any;
+  earn: Array<any> = [0,0,0,0];
 
   constructor(private salesService: SalesService) {}
 
