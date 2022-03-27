@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-reports-page',
@@ -8,6 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class ReportsPageComponent implements OnInit {
 
   typeReportSelected: number;
+
+  formFilter = new FormGroup(
+    {
+      dateStart:new FormControl(''),
+      dateEnd:new FormControl(''),
+      name:new FormControl('')
+    }
+  );
   constructor() { }
 
   ngOnInit() {

@@ -30,7 +30,8 @@ export class RegisterFurnitureReturnComponent implements OnInit {
   addressClient = "";
   nameClient = "";
   auxReturn: DataReturn;
-
+  showMessage=0;
+  message = "";
   constructor(private furnitureRequestService:FurnitureReturnService) { }
 
   ngOnInit(): void {
@@ -87,7 +88,14 @@ export class RegisterFurnitureReturnComponent implements OnInit {
   detailBills:Array<any> = []
 
   removeItem(id:number){
-    console.log("ENTROO");
+    console.log("ENTROOs");
     this.detailBills=this.detailBills.filter(x=>x[3]!=id);
+  }
+
+  setMessage(event:any){
+    this.message=event;
+  }
+  setTypeMessage(event:any){
+    this.showMessage=event;
   }
 }

@@ -96,7 +96,7 @@
 
     <app-modal class="modal fade" id="categoryCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" 
         [tittle]="''">
-        <app-create-category-piece></app-create-category-piece>
+        <app-create-category-piece (Cat)="this.categories.push($event)"></app-create-category-piece>
     </app-modal>
 
 </app-container>

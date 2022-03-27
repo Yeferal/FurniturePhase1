@@ -13,4 +13,5 @@ export class Piece {
     stock?: number;
     category?:any;
     msj?: string;
+    numberCategory?:number;
 }

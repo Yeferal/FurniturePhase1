@@ -48,15 +48,21 @@ export class ReportTableComponent implements OnInit {
       value6: 'valor 5'
     }
   ];
+  @Input() date1: string;
+  @Input() date2: string; 
   @Input() set reportType(value: number){ //Cada vez que se setee el reportType
     if(value != undefined){
       this._reportType = value;
-      switch (value) {
-        case 2:
-          this._reportService.getReturnFurnitures()
-          break;
-        default:
-          break;
+      console.log(this.date1+" "+this.date2);
+      
+      if (value == 2) {
+        this._reportService.getReturnFurnitures().subscribe(
+          res =>{
+            console.log(res);
+            
+          },
+          err => console.log(err)
+        )        
       }
     }
   }

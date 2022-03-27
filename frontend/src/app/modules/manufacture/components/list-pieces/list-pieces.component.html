@@ -50,7 +50,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div id="dataTable_filter" class="dataTables_filter">
                                 <label>Search:
-                                    <input type="search" (change)="setNameToSearch($event)" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
+                                    <input type="search"  (change)="setNameToSearch($event)" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
                                 </label>
                             </div>
                         </div>
@@ -87,9 +87,9 @@
                             <tr *ngFor="let item of list | searchPiece: searchValue | paginate: { itemsPerPage: maxSizeRows, currentPage: pageNumber, totalItems: totalItems }">
                                 <td>{{item.id}}</td>
                                 <td>{{item.name}}</td>
-                                <td>{{item.cost}}</td>
+                                <td>{{item.price}}</td>
                                 <td>{{item.category.name}}</td>
-                                <td>{{item.amount}}</td>
+                                <td>{{item.stock}}</td>
                                 <td>
                                   <app-actions
                                     (isEditEvent)="updateIsEdit($event)" (messageEvent)="changeSelectedId($event)"
@@ -211,4 +211,4 @@
       </div>
     </div>
 </div>
-<div (feedbackEvent)="sendFeedback($event)"></div>
+<div (feedbackEvent)="sendFeedback($event)" ></div>
