@@ -28,7 +28,7 @@
                   </div>
               </div>
               <br>
-              <form>
+              <form [formGroup]="reportForm">
                 <div class="row">
                     <div class="col-sm-1"></div>
                     <div class="col-md-2">
@@ -42,13 +42,13 @@
                           <option value="6">Reporte 4</option>
                       </select>
                     </div>
-                    <button class="btn btn-primary">Realizar reporte</button>
+                    <button (click)="getReport()" class="btn btn-primary">Realizar reporte</button>
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <input class="form-control" type="date">
+                        <input formControlName="date1" class="form-control" type="date">
                     </div>
                     <div class="col-md-3">
-                        <input class="form-control" type="date">
+                        <input formControlName="date2" class="form-control" type="date">
                     </div>
                 </div>
             </form>
