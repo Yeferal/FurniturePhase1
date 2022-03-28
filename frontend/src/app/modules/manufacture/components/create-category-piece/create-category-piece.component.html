@@ -17,6 +17,14 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Category</h1>
                             </div>
+                            <div *ngIf="showMessage == 1" class="alert bg-green alert-primary alert-dismissible" role="alert">
+                                <button type="button" (click)="showMessage=0" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                {{message}}
+                            </div>
+                            <div *ngIf="showMessage == 2" class="alert bg-green alert-warning alert-dismissible" role="alert">
+                                <button type="button" (click)="showMessage=0" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                {{message}}
+                            </div>
                             <form [formGroup]="categoryForm" class="user">
                                 <label *ngIf="errorMsj" class="mb-4" style="color: red; padding-left: 15px;">{{txtAlert}}</label>
                                 <div class="form-group">

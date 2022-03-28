@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Category } from 'src/app/core/models/category';
 import { CategoryService } from '../../services/category.service';
 
 @Component({
@@ -21,6 +22,9 @@ export class CreateCategoryPieceComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  showMessage:number = 0;
+  message:string ="";
+  @Output() Cat = new EventEmitter<Category>();
 
   createCategory(){
     if (this.categoryForm.invalid) {
@@ -34,9 +38,12 @@ export class CreateCategoryPieceComponent implements OnInit {
         }
       ).subscribe(res=>{
         this.categoryForm.reset();
-        console.log(res);
+        this.showMessage=1;
+        this.Cat.emit(res)
+        this.message="Categoria creada correctamente";
       },err=>{
-        console.warn(err);
+        this.showMessage=2;
+        this.message="Error al crear categoria, intente de nuevo";
       })
     }
   }

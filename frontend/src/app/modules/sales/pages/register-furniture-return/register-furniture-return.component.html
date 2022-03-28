@@ -43,6 +43,14 @@
             role="button" aria-controls="collapseCardExample">
             <h6 class="m-0 font-weight-bold text-primary">Datos de la Factura #0000000</h6>
         </a>
+        <div *ngIf="showMessage == 1" class="alert bg-green alert-primary alert-dismissible" role="alert">
+            <button type="button" (click)="showMessage=0" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{message}}
+        </div>
+        <div *ngIf="showMessage == 2" class="alert bg-green alert-warning alert-dismissible" role="alert">
+            <button type="button" (click)="showMessage=0" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{message}}
+        </div>
         <!-- Card Content - Collapse -->
         <div class="collapse" [class.show]="openContent" id="collapseCardExample">
             <div class="card-body">
@@ -78,7 +86,7 @@
                                                 <td>{{item[0]}}</td>
                                                 <td>{{item[2]}}</td>
                                                 <td>{{item[1]}}</td>
-                                                <td><app-register-lost (removeIndex)="removeItem($event)" [idBill]="item[3]" [dataReturn]="setData(0,1,item[1],item[0],nitClient,item[2])"></app-register-lost> </td>
+                                                <td><app-register-lost (emessage)="setMessage($event)" (typeMessage)="setTypeMessage($event)" (removeIndex)="removeItem($event)" [idBill]="item[3]" [dataReturn]="setData(0,1,item[1],item[0],nitClient,item[2])"></app-register-lost> </td>
                                                 <!-- <td><input (click)="setData(0,1,59,'5165165','616516','Sales Assistant')" type="submit" class="btn btn-primary btn-user btn-block" value="Devolver"></td> -->
                                             </tr>
                                         </tbody>

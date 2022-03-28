@@ -18,7 +18,7 @@ export class FurnitureReturnService {
   }
 
   public ReturnFurniture(cod:any,id:any): Observable<any>{
-    return this.http.get<any>(this.URL+"/devolution/"+cod+"/bill/"+id);
+    return this.http.get<any>(this.URL+"devolution/"+cod+"/bill/"+id);
   }
   
 }

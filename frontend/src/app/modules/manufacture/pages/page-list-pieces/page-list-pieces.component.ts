@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Piece } from 'src/app/core/models/piece';
 
 @Component({
   selector: 'app-page-list-pieces',
@@ -10,7 +11,7 @@ export class PageListPiecesComponent implements OnInit {
   isPieceFormModalHidden: boolean;
   isEdit: boolean;
   selectedId: number;
-  
+  PieceTmp: Piece;
   constructor() { }
 
   ngOnInit(): void {

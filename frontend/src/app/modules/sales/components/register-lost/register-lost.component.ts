@@ -40,7 +40,11 @@ export class RegisterLostComponent implements OnInit {
   
 
   dataR: DataReturn;
-
+  showMessage=1;
+  message ="";
+  @Output() typeMessage = new EventEmitter<number>();
+  @Output() emessage = new EventEmitter<string>();
+  
   constructor(private furnitureService: FurnitureReturnService) { }
 
   ngOnInit(): void {
@@ -58,12 +62,24 @@ export class RegisterLostComponent implements OnInit {
             console.log(result);
             
             if(result.status_code == 200) {
+              //this.typeMessage.emit(1)
               this.removeItem(this.idBill);
+              //this.emessage.emit("Mueble devuelto")
+              this.showMessage=1
+              this.message="Mueble devuelto"
+            }else{
+              //this.typeMessage.emit(2)
+              //this.emessage.emit("Error al devolver mueble, intente de nuevo")
+              this.showMessage=2
+              this.message="Error al devolver mueble, intente de nuevo"
             }
           },
           err => {
             console.warn(err);
-            
+            //this.typeMessage.emit(2)
+            //this.emessage.emit("Error al devolver mueble, intente de nuevo")
+            this.showMessage=2
+            this.message="Error al devolver mueble, intente de nuevo"
           }
         )
      }else{
