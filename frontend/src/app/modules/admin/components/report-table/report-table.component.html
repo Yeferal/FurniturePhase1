@@ -19,10 +19,11 @@
                       <ng-template #second>
                         <ng-container *ngIf="_reportType==2; else third">
                           <tr>
-                              <th>Id</th>
-                              <th>title report 2</th>
-                              <th>title report 2</th>
-                              <th>title report 2</th>
+                              <th>Mueble</th>
+                              <th>Precio venta</th>
+                              <th>Costo</th>
+                              <th>Fecha devolucion</th>
+                              <th>Nit cliente</th>
                           </tr>
                         </ng-container>
                         <ng-template #third>
@@ -66,11 +67,12 @@
                     </ng-container>
                     <ng-template #secondContent>
                       <ng-container *ngIf="_reportType==2; else thirdContent">
-                        <tr *ngFor="let item of items">
-                            <td>{{item.value1}}</td>
-                            <td>{{item.value2}}</td>
-                            <td>{{item.value3}}</td>
-                            <td>{{item.value4}}</td>
+                        <tr *ngFor="let item of items2">
+                            <td>{{item[0]}}</td>
+                            <td>{{item[3]}}</td>
+                            <td>{{item[1]}}</td>
+                            <td>{{item[2]}}</td>
+                            <td>{{item[4]}}</td>
                         </tr>
                       </ng-container>
                       <ng-template #thirdContent>
