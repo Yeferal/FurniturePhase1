@@ -16,7 +16,7 @@ export class ListPiecesComponent implements OnInit {
 
   //variables for actions
   idPiece: number;
-  costPieces: number;
+  costPieces?: number;
   searchValue: string = '';
   maxSizeRows: number = 5;
   pageNumber: number = 1;
@@ -72,10 +72,11 @@ export class ListPiecesComponent implements OnInit {
     this.idPiece = id;
   }
 
-  setIdPieceAndCost(id: number, cost: number){
+  setIdPieceAndCost(id: number, cost?: number){
     this.idPiece = id;
     this.costPieces=cost;
   }
+  
   deletePiece(){
     this.pieceService.deletePiece(this.idPiece).subscribe(
       res => {

@@ -15,43 +15,6 @@ export class ClientFormComponent implements OnInit {
   @Input() isEdit: boolean;
   @Output() foundClientEvent = new EventEmitter<Client>();
   client: Client;
-  clients: Array<Client> = [
-    // {
-    //   "nit": 1,
-    //   "name": "José Soberanis",
-    //   "address": "Colonia los almendros"
-    // },
-    // {
-    //   "nit": 2,
-    //   "name": "Carlos Ramirez",
-    //   "address": "Colonia los cerezos"
-    // },
-    // {
-    //   "nit": 3,
-    //   "name": "Daniel Gonzalez",
-    //   "address": "Colonia los aceitunos"
-    // },
-    // {
-    //   "nit": 4,
-    //   "name": "Josue Lopez",
-    //   "address": "Colonia los saltos"
-    // },
-    // {
-    //   "nit": 5,
-    //   "name": "Jhonny Garcia",
-    //   "address": "Colonia los buenos dias"
-    // },
-    // {
-    //   "nit": 6,
-    //   "name": "Yefer Alvarado",
-    //   "address": "Colonia los salvadoreñso"
-    // },
-    // {
-    //   "nit": 7,
-    //   "name": "Mario Ramirez",
-    //   "address": "Colonia los salvajes"
-    // }
-  ];
 
   clientForm: FormGroup = new FormGroup({
     clientNit: new FormControl('',[Validators.required,Validators.pattern('[0-9]+')]),
@@ -67,26 +30,24 @@ export class ClientFormComponent implements OnInit {
   doChanges(){}
 
   searchClient(event: any){
-    for(let i = 0; i < this.clients.length; i++){
-      if(this.clients[i].nit == event.target.value){
-        this.client = this.clients[i];
-        this.sendClientUpdate();
-        break;
-      }
-    }
-    /* this.clientService.getClient(event.target.value).subscribe(
-      (response)=>{
-        if(Array.isArray(response)){
-          this.client = response[0];
-        } else {
-          this.client = response;
+    this.clientService.getClient(event.target.value).subscribe(
+      (response:any)=>{
+        if(response.found){
+          if(Array.isArray(response)){
+            this.client = response[0].client;
+          } else {
+            this.client = response.client;
+          }
+        }else{
+          this.client = new Client();
+          this.client.id = event.target.value;
         }
         this.sendClientUpdate();
       },
       (error: HttpErrorResponse) => {
-        console.log(error);
+        alert("Ocurrio un error en el servidor al buscar al cliente");
       }
-    );*/
+    );
   }
 
   updateClientFullName(event: any){

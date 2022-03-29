@@ -1,8 +1,10 @@
 <div class="table-responsive">
     <div class="container">
         <div class="row">
-            <h1 class="h4 text-gray-900 col-lg-10">Factura</h1>
+            <h1 class="h4 text-gray-900 col-lg-7">Factura</h1>
             <button class="btn btn-primary btn-sm" href="#" (click)="doInvoice()">Registrar venta</button>
+            <div class="col-sm-1"></div>
+            <button class="btn btn-danger btn-sm" href="#" (click)="cancelInvoice()">Cancelar venta</button>
         </div>
     </div>
     <br>
@@ -17,13 +19,13 @@
         </thead>
         <tbody>
             <tr *ngFor="let furniture of furnitures ">
-                <td>{{furniture.id}}</td>
-                <td>{{furniture.title}}</td>
+                <td>{{furniture.code}}</td>
+                <td>{{furniture.name}}</td>
                 <td>{{furniture.price}}</td>
                 <td><app-actions 
                     (messageEvent)="removeFurniture($event)" 
                     [model]="'furniture'" 
-                    [id]="furniture.id"
+                    [id]="furniture.code"
                     [removeButton]="true"></app-actions></td>
             </tr>
         </tbody>

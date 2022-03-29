@@ -25,7 +25,7 @@ export class ActionsComponent implements OnInit {
   }
 
   updateOutputId(){
-    if(this.id==undefined)this.id=0;
+    if(this.id==undefined) this.id=0;
     this.messageEvent.emit(this.id);
   }
 

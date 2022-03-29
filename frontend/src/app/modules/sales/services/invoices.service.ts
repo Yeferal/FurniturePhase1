@@ -8,6 +8,7 @@ import { Page } from 'src/app/core/models/page';
 })
 export class InvoicesService {
 
+  private URL = "http://localhost:8080/sales"
   private url = "https://jsonplaceholder.typicode.com/todos/";
   constructor(private http:HttpClient) { }  
 
@@ -21,6 +22,11 @@ export class InvoicesService {
       withCredentials: true,
       params: data
     });
+  }
+
+  public registerSale(data: any): Observable<any>{
+    console.log(data);
+    return this.http.post<any>(this.URL+"/bill",data);
   }
 
 }

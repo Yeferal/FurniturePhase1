@@ -26,6 +26,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -34,8 +37,7 @@
               "src/styles.scss",
               "src/assets/css/sb-admin-2.css",
               "src/assets/css/sb-admin-2.min.css"
-            ],
-            "scripts": []
+            ]
           },
           "configurations": {
             "production": {

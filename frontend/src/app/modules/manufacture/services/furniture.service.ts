@@ -28,8 +28,25 @@ export class FurnitureService {
     });
   }
 
-  public getFurnituresOnSale(): Observable<Array<Furniture>>{
-    return this.http.get<Array<Furniture>>(this.urlSoberanis+'?onSale=1');
+  public getFurnituresOnSale(name: string, pageNumber: number): Observable<Array<Furniture>>{
+    const final_url = this.URL+'/furniture/on-sale'+((pageNumber!=0)? '?page='+pageNumber+((name!='')?'&name='+name:''):((name!='')? '?name='+name:''));
+    return this.http.get<Array<Furniture>>(final_url);
+  }
+
+  public getFurnituresOnSession(): Observable<Array<Furniture>>{
+    return this.http.get<Array<Furniture>>("http://localhost:8080/sales/furniture-in-bill/on-session");
+  }
+
+  public registerFurnitureOnSession(data: any): Observable<any>{
+    return this.http.post<any>("http://localhost:8080/sales/furniture-in-bill/on-session", data);
+  }
+
+  public deleteFurnitureOnSession(id: number): Observable<any>{
+    return this.http.delete<any>("http://localhost:8080/sales/furniture-in-bill/on-session/"+id);
+  }
+
+  public deleteAllFurnituresOnSession(): Observable<any>{
+    return this.http.delete<any>("http://localhost:8080/sales/furniture-in-bill/on-session");
   }
 
   public postFurniture(data: any, fileData: any){

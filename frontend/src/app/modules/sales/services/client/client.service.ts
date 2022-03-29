@@ -8,10 +8,10 @@ import { Client } from 'src/app/core/models/client';
 })
 export class ClientService {
 
-  url = 'http://localhost:3000/client';
+  url = 'http://localhost:8080/sales/client';
   constructor(private http: HttpClient) { }
 
   getClient(nit: any): Observable<Client>{
-    return this.http.get<Client>(this.url+'?nit='+nit);
+    return this.http.get<Client>(this.url+'/'+nit);
   }
 }
