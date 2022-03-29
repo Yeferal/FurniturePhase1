@@ -15,91 +15,7 @@ export class PieceFormComponent implements OnInit, OnChanges {
 
   piece: Piece;
   pieces: Array<Piece> = [
-    {
-      id: 1,
-      name: 'pieza1',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 2,
-      name: 'pieza2',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 3,
-      name: 'pieza3',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 4,
-      name: 'pieza4',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 5,
-      name: 'pieza5',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 6,
-      name: 'pieza6',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 7,
-      name: 'pieza7',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 8,
-      name: 'pieza8',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 9,
-      name: 'pieza9',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 10,
-      name: 'pieza10',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 11,
-      name: 'pieza11',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-    {
-      id: 12,
-      name: 'pieza12',
-      cost: 100.25,
-      category: 'plancha',
-      amount: 50
-    },
-  ];
+];
   @Output() feedbackEvent = new EventEmitter<string>();
   @Output() closePieceFormModalEvent = new EventEmitter<boolean>();
   @Input() selectedId: number;
@@ -141,44 +57,62 @@ export class PieceFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.selectedId);
+        
     if(!this.isEdit){
       this.pieceForm.reset();
     }else{
+      /*
       for(let i = 0; i < this.pieces.length; i++){
         if(this.pieces[i].id == this.selectedId){
           this.piece = this.pieces[i];
           break;
         }
-      }
-      /* this.pieceService.getPiece(this.selectedId).subscribe(
-        (response)=>{
-          this.piece = response;
+      } */
+      this.pieceService.getPieceById(this.selectedId).subscribe(
+        res=> {
+          this.piece=res
+          this.pieceForm.value.pieceName = this.piece.name
+          this.pieceForm.value.piecePrice = this.piece.price
+          this.pieceForm.value.pieceCost = this.piece.cost
+          this.pieceForm.value.pieceCategory = this.piece.category.id
         },
-        (error: HttpErrorResponse) => {
-          console.log(error);
-        }
-      );*/
+        err=> console.log(err)
+      )
     }
   }
+  showMessage:number = 0;
+  message:string ="";
+  @Output() pieceUpdated = new EventEmitter<Piece>();
 
   doChanges() {
     if(this.isEdit){
+      console.log(this.piece);
+      console.log(this.pieceForm.value);
+
       this.pieceService.saveUpdate({
         id: this.selectedId,
-        name: this.pieceForm.value.pieceName,
-        price: this.pieceForm.value.piecePrice,
-        cost: this.pieceForm.value.pieceCost,
-        stock: this.pieceForm.value.pieceAmount,
+        name: this.pieceForm.value.pieceName?this.pieceForm.value.pieceName:this.piece.name,
+        price: this.pieceForm.value.piecePrice?this.pieceForm.value.piecePrice:this.piece.price,
+        cost: this.pieceForm.value.pieceCost?this.pieceForm.value.pieceCost:this.piece.cost,
+        stock: 0,
         category:{
-          id:this.pieceForm.value.pieceCategory
+          id:this.pieceForm.value.pieceCategory?this.pieceForm.value.pieceCategory:this.piece.category.id,
         }
       }).subscribe(
         res =>{
-          console.log(res);
+          this.showMessage = 1;
+          this.message = "Pieza actualizada correctamente"
           this.sendFeedback(res.msj?res.msj:'');
         },
         err =>{
-          console.log(err);
+          this.showMessage = 2;
+          try {
+            this.message = err.error.msj
+          }catch(e) {
+            this.message = "Error al crear pieza, intente de nuevo";
+          }
+          console.warn(err);
           this.sendFeedback('Error al registrar pieza, intente de nuevo');
         }
       );
@@ -193,11 +127,17 @@ export class PieceFormComponent implements OnInit, OnChanges {
         }
       }).subscribe(
         res =>{
-          console.log(res);
+          this.showMessage = 1;
+          this.message = "Pieza creada correctamente"
           this.sendFeedback(res.msj?res.msj:'');
         },
         err =>{
-          console.log(err);
+          this.showMessage = 2;
+          try {
+            this.message = err.error.msj
+          }catch(e) {
+            this.message = "Error al crear pieza, intente de nuevo";
+          }
           this.sendFeedback('Error al registrar pieza, intente de nuevo');
         }
       );

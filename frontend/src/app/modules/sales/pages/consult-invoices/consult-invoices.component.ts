@@ -88,6 +88,8 @@ export class ConsultInvoicesComponent implements OnInit {
     }
     this.invoicesService.getInvoicesCliente(data).subscribe(
       res => {
+        console.log(res);
+        
         this.paginate = res;
         this.listBillDetail = this.paginate.content;
         console.log(this.listBillDetail);

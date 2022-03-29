@@ -41,7 +41,14 @@ export class ListPiecesComponent implements OnInit {
 
   setNameToSearch(event: any){
     this.searchValue = event.target.value;
+    console.log("SSSSSSSSSS"+event);
+    
     this.searchPieces();
+  }
+
+  searchPieces2(event:any){
+    console.log("SSSSSSa"+event);
+    
   }
 
   //declarations of forms and the validators which are used
@@ -102,6 +109,10 @@ export class ListPiecesComponent implements OnInit {
 
   sendFeedback(event: any){
     this.feedbackEvent.emit(event);
+  }
+
+  updatePiece(piece: any){
+    console.warn(piece);
   }
 
   searchPieces(){

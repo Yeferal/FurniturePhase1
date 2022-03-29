@@ -11,24 +11,20 @@ export class ReportTableComponent implements OnInit {
   _reportType: number;
   p: number = 1;
   items: Array<any> = [];
-
+  @Input() items2 = []
   @Input() set listItems(value: Array<any>){
     if(value != undefined){
       console.log("Se ha recibido el listado:" + value);
       this.items = value;
     }
   }
-
+  @Input() date1: string;
+  @Input() date2: string; 
   @Input() set reportType(value: number){ //Cada vez que se setee el reportType
     if(value != undefined){
       this._reportType = value;
-      switch (value) {
-        case 2:
-          this._reportService.getReturnFurnitures()
-          break;
-        default:
-          break;
-      }
+      console.log(this.date1+" "+this.date2);
+     
     }
   }
 

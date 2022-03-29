@@ -42,7 +42,7 @@ private URL = 'http://localhost:8080'
     });
   }
 
-  public getReturnFurnitures():Observable<any>{
-    return this.http.get(this.URL+"/admin/furniture")
+  public getReturnFurnitures(page:any, date1:any, date2:any):Observable<any>{
+    return this.http.get(this.URL+"/admin/furniture?page="+page+"&date1="+date1+"&date2="+date2)
   }
 }

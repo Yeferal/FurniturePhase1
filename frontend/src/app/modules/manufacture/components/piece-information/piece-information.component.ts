@@ -110,6 +110,8 @@ export class PieceInformationComponent implements OnInit, OnChanges{
         console.log(res);
 
         this.piece = res
+        console.error(this.piece);
+        
       },
       err => {
 

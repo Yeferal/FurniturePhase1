@@ -42,6 +42,7 @@
                           <option value="6">Reporte 4</option>
                       </select>
                     </div>
+                    
                     <button (click)="getReport()" class="btn btn-primary">Realizar reporte</button>
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
@@ -53,7 +54,7 @@
                 </div>
             </form>
               <br>
-              <app-report-table [reportType]="typeReportSelected"></app-report-table>
+              <app-report-table [items2]="this.listDevolutions" [reportType]="typeReportSelected" ></app-report-table>
           </div>
       </div>
   </div>

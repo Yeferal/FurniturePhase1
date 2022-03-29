@@ -1,29 +1,40 @@
 <form [formGroup]="pieceForm" (ngSubmit)="doChanges()">
+    <div *ngIf="showMessage == 1" class="alert bg-green alert-primary alert-dismissible" role="alert">
+        <button type="button" (click)="showMessage=0" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{message}}
+    </div>
+    <div *ngIf="showMessage == 2" class="alert bg-green alert-danger alert-dismissible" role="alert">
+        <button type="button" (click)="showMessage=0" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{message}}
+    </div>
+    <!--
     <p>
         Id: {{selectedId}}
         <br>
         Editar: {{isEdit}}
     </p>
+    -->
     <div class="form-group">
         <label for="pieceName">Nombre de la pieza</label>
         <input formControlName="pieceName" type="text" class="form-control" id="pieceName" value="{{piece!=undefined && isEdit ? piece.name : ''}}"><br>
         <label for="piecePrice">Categoria</label>
         <select formControlName="pieceCategory" id="pieceCategory" class="form-control">
-            <option *ngIf="piece!=undefined && isEdit" value="#" selected>{{piece.category}}</option>
+            <option *ngIf="piece!=undefined && isEdit" value="#" selected>{{piece.category.name}}</option>
             <option *ngFor="let item of categories" [value]="item.id" >{{item.name}}</option>
         </select><br>
-        <label for="piecePrice">Cantidad</label>
-        <input formControlName="pieceAmount" type="number" class="form-control" id="pieceAmount" value="{{piece!=undefined && isEdit? piece.amount : ''}}"><br>
-        <label for="pieceCost">Costo</label>
-        <input formControlName="pieceCost" type="number" class="form-control" id="pieceCost" value="{{piece!=undefined && isEdit? piece.cost :''}}">
+
+        <label *ngIf="piece==undefined && !isEdit" for="piecePrice">Cantidad</label>
+        <input *ngIf="!isEdit" formControlName="pieceAmount" type="number" class="form-control" id="pieceAmount" value="{{piece!=undefined && isEdit? piece.stock : ''}}"><br>
+        <label *ngIf="!isEdit" for="pieceCost">Costo</label>
+        <input *ngIf="!isEdit" formControlName="pieceCost" type="number" class="form-control" id="pieceCost" value="{{piece!=undefined && isEdit? piece.cost :''}}">
         <label for="piecePrice">Precio</label>
-        <input formControlName="piecePrice" type="number" class="form-control" id="pieceCost" value="{{piece!=undefined && isEdit? piece.cost :''}}">
+        <input formControlName="piecePrice" type="number" class="form-control" id="piecePrice" value="{{piece!=undefined && isEdit? piece.price :''}}">
     
     </div>
     <br>
     <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <button *ngIf="isEdit" type="submit" [disabled]="pieceForm.invalid" class="btn btn-warning">Modificar</button>
+        <button *ngIf="isEdit" type="submit"  class="btn btn-warning">Modificar</button>
         <button *ngIf="!isEdit" type="submit" [disabled]="pieceForm.invalid" class="btn btn-success">Guardar</button>
     </div>
 </form>
