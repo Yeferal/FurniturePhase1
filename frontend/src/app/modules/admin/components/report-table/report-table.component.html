@@ -11,9 +11,12 @@
                     <thead>
                       <ng-container *ngIf="_reportType==1; else second">
                         <tr>
-                            <th>Id report 1</th>
-                            <th>title report 1</th>
-                            <th>title report 1</th>
+                            <th>No. </th>
+                            <th>Cliente</th>
+                            <th>Code Mueble</th>
+                            <th>Mueble</th>
+                            <th>Precio</th>
+                            <th>Fecha</th>
                         </tr>
                       </ng-container>
                       <ng-template #second>
@@ -29,40 +32,72 @@
                         <ng-template #third>
                           <ng-container *ngIf="_reportType==3; else fourth">
                             <tr>
-                                <th>Id report 3</th>
-                                <th>title report 3</th>
-                                <th>title report 3</th>
-                                <th>title report 3</th>
-                                <th>title report 3</th>
+                                <th>No. </th>
+                                <th>Factura</th>
+                                <th>Code Mueble</th>
+                                <th>Mueble</th>
+                                <th>Precio Total</th>
+                                <th>Perdida</th>
+                                <th>Costo</th>
+                                <th>Ganancia</th>
                             </tr>
                           </ng-container>
                           <ng-template #fourth>
                             <ng-container *ngIf="_reportType==4; else fifth">
                               <tr>
-                                  <th>Id report 4</th>
-                                  <th>title report 4</th>
-                                  <th>title report 4</th>
-                                  <th>title report 4</th>
-                                  <th>title report 4</th>
-                                  <th>title report 4</th>
+                                  <th>No.</th>
+                                  <th>Code Mueble</th>
+                                  <th>Nombre</th>
+                                  <th>Fecha Creacion</th>
+                                  <th>Precio</th>
+                                  <th>Cantidad</th>
                               </tr>
                             </ng-container>
                             <ng-template #fifth>
-                              <tr>
-                                  <th>Any report selected, no tittles</th>
-                              </tr>
+                              <ng-container *ngIf="_reportType==5; else sixth">
+                                <tr>
+                                  <th>No.dd</th>
+                                  <th>Code Mueble</th>
+                                  <th>Nombre</th>
+                                  <th>Fecha Creacion</th>
+                                  <th>Precio</th>
+                                  <th>Cantidad</th>
+                                </tr>
+                              </ng-container>
+                              <ng-template #sixth>
+                                <ng-container *ngIf="_reportType==6; else seventh">
+                                  <tr>
+                                    <th>No.dd</th>
+                                    <th>Code Mueble</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha Creacion</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                  </tr>
+                                </ng-container>
+                                <ng-template #seventh>
+                                  <tr>
+                                      <th>Any report selected, no tittles</th>
+                                  </tr>
+                                </ng-template>
+                              </ng-template>
                             </ng-template>
                           </ng-template>
+
+                          
                         </ng-template>
                       </ng-template>
                   </thead>
                   <tbody>
                     
                     <ng-container *ngIf="_reportType==1; else secondContent">
-                      <tr *ngFor="let item of items">
-                          <td>{{item.value1}}</td>
-                          <td>{{item.value2}}</td>
-                          <td>{{item.value3}}</td>
+                      <tr *ngFor="let item of items ; let i = index">
+                          <td>{{i+1}}</td>
+                          <td>{{item.bill?.client?.name}}</td>
+                          <td>{{item.furniture?.code}}</td>
+                          <td>{{item.furniture?.name}}</td>
+                          <td>{{item.priceSale}}</td>
+                          <td>{{item.bill?.dateTime}}</td>
                       </tr>
                     </ng-container>
                     <ng-template #secondContent>
@@ -77,29 +112,44 @@
                       </ng-container>
                       <ng-template #thirdContent>
                         <ng-container *ngIf="_reportType==3; else fourthContent">
-                          <tr *ngFor="let item of items">
-                              <td>{{item.value1}}</td>
-                              <td>{{item.value2}}</td>
-                              <td>{{item.value3}}</td>
-                              <td>{{item.value4}}</td>
-                              <td>{{item.value5}}</td>
+                          <tr *ngFor="let item of items; let i = index">
+                            <td>{{i+1}}</td>
+                              <td>{{item.bill?.id}}</td>
+                              <td>{{item.furniture?.code}}</td>
+                              <td>{{item.furniture?.name}}</td>
+                              <td>{{item.priceSale}}</td>
+                              <td>{{item.costLost}}</td>
+                              <td>{{item.furniture?.cost}}</td>
+                              <td>{{item.priceSale - (item.costLost + item.furniture?.cost)}}</td>
                           </tr>
                         </ng-container>
                         <ng-template #fourthContent>
                           <ng-container *ngIf="_reportType==4; else fifthContent">
-                            <tr *ngFor="let item of items">
-                                <td>{{item.value1}}</td>
-                                <td>{{item.value2}}</td>
-                                <td>{{item.value3}}</td>
-                                <td>{{item.value4}}</td>
-                                <td>{{item.value5}}</td>
-                                <td>{{item.value6}}</td>
+                            <tr *ngFor="let item of items ; let i = index">
+                              <td>{{i+1}}</td>
+                              <td>{{item.code}}</td>
+                              <td>{{item.name}}</td>
+                              <td>{{item.creationDate}}</td>
+                              <td>{{item.price}}</td>
+                              <td>{{item.amount}}</td>
                             </tr>
                           </ng-container>
                           <ng-template #fifthContent>
-                            <tr *ngFor="let item of items">
-                                <td>NO HAY DATA PARA UN REPORTE QUE NO EXISTE</td>
-                            </tr>
+                            <ng-container *ngIf="_reportType==5; else sixthContent">
+                              <tr *ngFor="let item of items ; let i = index">
+                                  <td>{{i+1}}</td>
+                                  <td>{{item.code}}</td>
+                                  <td>{{item.name}}</td>
+                                  <td>{{item.creationDate}}</td>
+                                  <td>{{item.price}}</td>
+                                  <td>{{item.amount}}</td>
+                              </tr>
+                            </ng-container>
+                            <ng-template #sixthContent>
+                              <tr *ngFor="let item of items">
+                                  <td>NO HAY DATA PARA UN REPORTE QUE NO EXISTE</td>
+                              </tr>
+                            </ng-template>
                           </ng-template>
                         </ng-template>
                       </ng-template>

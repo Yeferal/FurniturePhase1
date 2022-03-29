@@ -39,7 +39,7 @@
                           <option value="3">Reporte Ganancias</option>
                           <option value="4">Reporte Mueble Mas Vendido</option>
                           <option value="5">Reporte Mueble Menos Vendido</option>
-                          <option value="6">Reporte 4</option>
+                          <!-- <option value="6">Reporte 4</option> -->
                       </select>
                     </div>
                     
@@ -54,7 +54,7 @@
                 </div>
             </form>
               <br>
-              <app-report-table [items2]="this.listDevolutions" [reportType]="typeReportSelected" ></app-report-table>
+              <app-report-table [items2]="this.listDevolutions" [reportType]="typeReportSelected" [listItems]="items"></app-report-table>
           </div>
       </div>
   </div>

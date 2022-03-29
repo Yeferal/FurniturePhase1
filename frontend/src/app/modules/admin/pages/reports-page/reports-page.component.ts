@@ -17,6 +17,7 @@ export class ReportsPageComponent implements OnInit {
   page: number = 0;
 
   typeReportSelected: number;
+  items: Array<any> = [];
 
   formFilter = new FormGroup(
     {
@@ -40,8 +41,6 @@ export class ReportsPageComponent implements OnInit {
         break;
       case '1':
         this.getReportSales();
-        
-        
         break;
       case '2':
         this.getReturnFurnitures()
@@ -55,17 +54,13 @@ export class ReportsPageComponent implements OnInit {
       case '5':
         this.getReportMinFurnitureXPeriod();
         break;
-    
-      // default:
-        
-      //   break;
     }
   }
   listDevolutions = []
   getReturnFurnitures(){
       let   page = this.page
       let date1 = this.reportForm.get('date1')?.value? this.reportForm.get('date1')?.value : '0001-01-01'
-      let date2 =  this.reportForm.get('date2')?.value? this.reportForm.get('date2')?.value : '2100-01-01'
+      let date2 =  this.reportForm.get('date2')?.value? this.reportForm.get('date2')?.value : '9999-01-01'
       this.reportsService.getReturnFurnitures(page,date1,date2).subscribe(
         res => {
           console.log(res);
@@ -74,13 +69,14 @@ export class ReportsPageComponent implements OnInit {
         err => console.log(err)
       )
   }
+
   setSelected(event: any){
     this.typeReportSelected = event.target.value;
+    this.listDevolutions = [];
+    this.items = [];
   }
 
   getReportSales(){
-    console.log("entro", this.reportForm.value);
-
     let data = {
       page: this.page,
       date1: this.reportForm.get('date1')?.value? this.reportForm.get('date1')?.value : '0001-01-01',
@@ -92,6 +88,8 @@ export class ReportsPageComponent implements OnInit {
     this.reportsService.getReportSalesXPeriod(data).subscribe(
       res => {
         console.log(res);
+        this.items = res.content;
+        
         
       },
       error => {
@@ -102,7 +100,6 @@ export class ReportsPageComponent implements OnInit {
   }
 
   getReportEarnings(){
-    
     let data = {
       page: this.page,
       date1: this.reportForm.get('date1')?.value? this.reportForm.get('date1')?.value : '0001-01-01',
@@ -114,7 +111,7 @@ export class ReportsPageComponent implements OnInit {
     this.reportsService.getReportEarningsXPeriod(data).subscribe(
       res => {
         console.log(res);
-        
+        this.items = res.content;
       },
       error => {
         console.log(error);
@@ -124,7 +121,6 @@ export class ReportsPageComponent implements OnInit {
   }
 
   getReportMinFurnitureXPeriod(){
-    console.log("entro ReportMinFurnitureXPeriod", this.reportForm.value);
 
     let data = {
       date1: this.reportForm.get('date1')?.value? this.reportForm.get('date1')?.value : '0001-01-01',
@@ -136,7 +132,7 @@ export class ReportsPageComponent implements OnInit {
     this.reportsService.getReportMinFurnitureXPeriod(data).subscribe(
       res => {
         console.log(res);
-        
+        this.items = res;
       },
       error => {
         console.log(error);
@@ -146,8 +142,6 @@ export class ReportsPageComponent implements OnInit {
   }
 
   getReportMaxFurnitureXPeriod(){
-    console.log("entro getReportMaxFurnitureXPeriod", this.reportForm.value);
-
     let data = {
       date1: this.reportForm.get('date1')?.value? this.reportForm.get('date1')?.value : '0001-01-01',
       date2: this.reportForm.get('date2')?.value? this.reportForm.get('date2')?.value : '9999-01-01'
@@ -158,7 +152,8 @@ export class ReportsPageComponent implements OnInit {
     this.reportsService.getReportMaxFurnitureXPeriod(data).subscribe(
       res => {
         console.log(res);
-        
+        this.items = res;
+        console.log(this.items);
       },
       error => {
         console.log(error);
