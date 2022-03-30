@@ -11,7 +11,7 @@
     <div class="row  justify-content-center">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
-                <form class="user" [formGroup]="planForm">
+                <form class="user">
                     <div class="card-body">
                         <div class="row  justify-content-center">
                             
@@ -26,7 +26,7 @@
                                             <div class="col-sm-12 col-md-6">
                                                 <div id="dataTable_filter" class="dataTables_filter">
                                                     <label>Buscar:
-                                                        <input type="search" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
+                                                        <input type="search" (change)="setNameToSearch($event)" class="form-control form-control-sm" placeholder="" aria-controls="dataTable">
                                                     </label>
                                                 </div>
                                             </div>
@@ -35,22 +35,20 @@
                                                 <table class="table table-bordered table-hover" style="word-wrap: break-word;" id="dataTable" width="100%" cellspacing="0" >
                                                     <thead>
                                                         <tr>
-                                                            <th>id</th>
-                                                            <th>Name</th>
-                                                            <th>Cost</th>
-                                                            <th>Type</th>
-                                                            <th>Remover</th>
+                                                            <th>Id</th>
+                                                            <th>Nombre</th>
+                                                            <th>Costo</th>
+                                                            <th>Categoria</th>
+                                                            <th>Agregar</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr (dblclick)="selectPiece()" 
-                                                        *ngFor="let item of listPieces | searchPiece: searchValue | paginate: { itemsPerPage: 10, currentPage: p } ;let i = index" 
-                                                        style="cursor: pointer;"
-                                                        >
+                                                        *ngFor="let item of listPieces | paginate: { itemsPerPage: 10, currentPage: pageNumber, totalItems: totalItems }" >
                                                             <td>{{item.id}}</td>
                                                             <td>{{item.name}}</td>
-                                                            <td >{{item.cost}}</td>
-                                                            <td>{{item.category}}</td>
+                                                            <td >{{item.price}}</td>
+                                                            <td>{{item.category.name}}</td>
                                                             <td>
                                                                 <a class="btn btn-success btn-icon-split" data-toggle="modal" [attr.data-target]="'#piece' + item.id">
                                                                     <span class="icon text-white-50">
@@ -69,7 +67,7 @@
                                                                         <span class="icon text-white-50">
                                                                             <i class="fas fa-check"></i>
                                                                         </span>
-                                                                        <span class="text">Add Piece</span>
+                                                                        <span class="text">Agregar pieza</span>
                                                                     </a>
                                                                 </form>
                                                                 </app-modal>
@@ -81,17 +79,17 @@
                                                     <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                                                         <ul class="pagination">
                                                             <li class="paginate_button page-item active">
-                                                            <pagination-controls 
-                                                            (pageChange)="p = $event" 
-                                                            [maxSize]="25"
-                                                            [directionLinks]="true"
-                                                            [autoHide]="true"
-                                                            [responsive]="true"
-                                                            previousLabel="Previous"
-                                                            nextLabel="Next"
-                                                            screenReaderPaginationLabel="Pagination"
-                                                            screenReaderPageLabel="page"
-                                                            screenReaderCurrentLabel="You're on page">
+                                                            <pagination-controls
+                                                              (pageChange)="pageChanged($event)"
+                                                              [maxSize]= "5"
+                                                              [directionLinks]="true"
+                                                              [autoHide]="true"
+                                                              [responsive]="true"
+                                                              previousLabel="Previous"
+                                                              nextLabel="Next"
+                                                              screenReaderPaginationLabel="Pagination"
+                                                              screenReaderPageLabel="page"
+                                                              screenReaderCurrentLabel="You're on page">
                                                             </pagination-controls>
                                                             </li>
                                                         </ul>
@@ -112,13 +110,13 @@
                                                 </div>
                                                 
                                                     <div class="form-group">
-                                                        <input 
+                                                        <input (change)="updatePlanName($event)"
                                                         formControlName="name" 
                                                         type="text" class="form-control form-control-user" id="exampleFirstName"
-                                                            placeholder="Name Forniture">
+                                                            placeholder="Name Forniture" value="{{this.plan.name}}">
                                                     </div>
                                                     <div class="form-group">
-                                                        <textarea formControlName="description" class="form-control form-control-user" placeholder="Description..." style="resize: none; border-radius: 10px;" rows="5"></textarea>
+                                                        <textarea (change)="updatePlanDescription($event)" formControlName="description" class="form-control form-control-user" placeholder="Description..." style="resize: none; border-radius: 10px;" rows="5" value="{{this.plan.description}}"></textarea>
                                                     </div>
                                                     
                                                 
@@ -164,8 +162,8 @@
                                                         <tr *ngFor="let item of listPiecesPlan ;let i = index">
                                                             <td>{{item.id}}</td>
                                                             <td>{{item.name}}</td>
-                                                            <td>{{item.cost}}</td>
-                                                            <td>{{item.category}}</td>
+                                                            <td>{{item.price}}</td>
+                                                            <td>{{item.category.name}}</td>
                                                             <td>{{item.amount}}</td>
                                                             <td>
                                                                 <a (click)="deletePiece(i)" class="btn btn-danger btn-circle btn-sm">

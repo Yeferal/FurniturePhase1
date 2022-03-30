@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Piece } from 'src/app/core/models/piece';
-import { lista as listP } from "src/app/global/list-pieces";
+import { PieceServiceService } from 'src/app/modules/manufacture/services/piece-service.service';
+import { PlanService } from 'src/app/modules/sales/services/plan.service';
 @Component({
   selector: 'app-creation-furniture-plans',
   templateUrl: './creation-furniture-plans.component.html',
@@ -11,11 +12,10 @@ import { lista as listP } from "src/app/global/list-pieces";
 export class CreationFurniturePlansComponent implements OnInit {
 
   searchValue: string = '';
-  planForm: FormGroup = new FormGroup({
-    name: new FormControl(null, Validators.required),
-    description: new FormControl(null, null),
-  });
-  
+  plan: any = {
+    name: "",
+    description: ""
+  };
   
   pieceForm: FormGroup = new FormGroup({
     // namePiece: new FormControl(null, Validators.required),
@@ -23,21 +23,24 @@ export class CreationFurniturePlansComponent implements OnInit {
   });
 
   maxSizeRows: number = 10;
-  p: number = 1;
-  p2: number = 1;
-  listPieces: Array<Piece> = listP;
+  pageNumber: number = 1;
+  totalItems: number = 0;
+  actualTotal: number = 0;
+  listPieces: Array<Piece> = [];
   listPiecesPlan: Array<Piece> = [];
 
   navbarAutocomplete = document.querySelector('#navbar-search-autocomplete');
-  navbarData = ['One', 'Two', 'Three', 'Four', 'Five'];
-  lis = ['One','Two','Thre','Four','Five',];
 
-  constructor(private sanitizer: DomSanitizer, ) { }
+  constructor(private sanitizer: DomSanitizer, private pieceService: PieceServiceService, private planService: PlanService) { }
 
   ngOnInit(): void {
-    
+    this.searchPieces();
   }
 
+  pageChanged(event: any){
+    this.pageNumber = event;
+    this.searchPieces();
+  }
 
   deletePiece(id: any){
     this.listPiecesPlan.splice(id,1);
@@ -55,7 +58,7 @@ export class CreationFurniturePlansComponent implements OnInit {
     let p: Piece = {
       id: item.id,
       name: item.name,
-      cost: item.cost,
+      price: item.price,
       category: item.category,
       amount: this.pieceForm.get('amount')?.value
     }
@@ -71,7 +74,7 @@ export class CreationFurniturePlansComponent implements OnInit {
     if (!isExisteElement) {
       this.listPiecesPlan.push(p);
     }
-    
+    this.getTotal();
   }
 
   selectPiece(){
@@ -79,11 +82,72 @@ export class CreationFurniturePlansComponent implements OnInit {
     
   }
 
+  checkIfPlanIsValid(): boolean{
+    console.warn(this.plan);
+    if(this.plan.name==="") return false;
+    if(this.plan.description==="") return false;
+    if(this.listPiecesPlan.length<=0) return false;
+    return true;
+  }
+
   createPlan(){
-    if (this.planForm.invalid) {
-      
-      return;
+    if (this.checkIfPlanIsValid()) {
+      var assignments:any = [];
+      this.listPiecesPlan.forEach(piecePlan=>{
+        assignments.push({
+          piece: { id: piecePlan.id },
+          amount: piecePlan.amount
+        });
+      })
+      const data = {
+        plan: this.plan,
+        assignments: assignments
+      }
+      this.planService.createPlan(data).subscribe(
+        (response:any) =>{
+          alert("Se ha creado el plan con éxito");
+          this.plan.name = ""; this.plan.description="";
+          this.listPiecesPlan = [];
+        },
+        (err:any) =>{
+          alert("Ha ocurrido un error al hacer la solicitud que crea un plan");
+        }
+      );
+    }else{
+      alert("No ha ingresado los datos necesarios");
     }
   }
 
+  setNameToSearch(event: any){
+    this.searchValue = event.target.value;
+    this.searchPieces();
+  }
+
+  searchPieces(){
+    this.pieceService.getAllPieces(this.pageNumber-1,this.searchValue).subscribe(
+      res => {
+        this.listPieces = res.content;
+        this.totalItems = res.totalElements;
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  getTotal() {
+    this.listPieces.forEach(piece => {
+      if(piece.price && piece.amount){
+        this.actualTotal+=(piece.price * piece.amount);
+      }
+    });
+  }
+
+  updatePlanDescription(event:any){
+    this.plan.description = event.target.value;
+  }
+
+  updatePlanName(event:any){
+    this.plan.name = event.target.value;
+  }
 }

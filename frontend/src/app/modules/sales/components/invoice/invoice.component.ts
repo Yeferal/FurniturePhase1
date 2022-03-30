@@ -82,8 +82,10 @@ export class InvoiceComponent implements OnInit {
           alert("Cliente no valido");
         }else{
           const data = {
-            total: this.getTotal(),
-            client: this.client,
+            bill: {
+              total: this.getTotal(),
+              client: this.client
+            },
             details: this.transformFurnitures()
           }
           this.invoiceService.registerSale(data).subscribe(
@@ -101,7 +103,7 @@ export class InvoiceComponent implements OnInit {
         alert("Cliente no valido");
       }
     }else{
-      alert("Cliente indefinido");
+      alert("Cliente no valido (indefinido)");
     }
   }
 

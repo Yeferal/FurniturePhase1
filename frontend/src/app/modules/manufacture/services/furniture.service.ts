@@ -33,6 +33,11 @@ export class FurnitureService {
     return this.http.get<Array<Furniture>>(final_url);
   }
 
+  public getFurnituresOnStorage(name: string, pageNumber: number): Observable<Array<Furniture>>{
+    const final_url = this.URL+'/furniture/on-storage'+((pageNumber!=0)? '?page='+pageNumber+((name!='')?'&name='+name:''):((name!='')? '?name='+name:''));
+    return this.http.get<Array<Furniture>>(final_url);
+  }
+
   public getFurnituresOnSession(): Observable<Array<Furniture>>{
     return this.http.get<Array<Furniture>>("http://localhost:8080/sales/furniture-in-bill/on-session");
   }
@@ -75,4 +80,7 @@ export class FurnitureService {
     });
   }
 
+  public putOnSale(data: any): Observable<any>{
+    return this.http.put<any>(this.URL+"/furniture/put-furniture-on-sale/",data);
+  }
 }

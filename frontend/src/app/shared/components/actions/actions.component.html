@@ -5,4 +5,5 @@
     <button *ngIf="deleteModalId!='undefined'" class="btn btn-outline-danger" (click)="updateOutputId(); updatePressedButton('delete');" href="#" data-toggle="modal" [attr.data-target]="'#' + deleteModalId">Eliminar</button>
     <button *ngIf="addButton" class="btn btn-outline-success" type="button" (click)="updateOutputId(); updatePressedButton('add');" >Agregar</button>
     <button *ngIf="removeButton" class="btn btn-outline-danger" (click)="updateOutputId(); updatePressedButton('remove');" href="#">Remover</button>
+    <button *ngIf="putOnSaleModalId!='undefined'" class="btn btn-outline-dark" (click)="updateOutputId();" href="#" data-toggle="modal" [attr.data-target]="'#' + putOnSaleModalId">Agregar a venta</button>
 </div>

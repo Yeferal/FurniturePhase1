@@ -10,6 +10,7 @@ export class ActionsComponent implements OnInit {
   @Input() infModalId: string = 'undefined';
   @Input() formModalId: string = 'undefined';
   @Input() deleteModalId: string = 'undefined';
+  @Input() putOnSaleModalId: string = 'undefined';
   @Input() addButton: boolean = false;
   @Input() removeButton: boolean = false;
   @Input() model: string;
