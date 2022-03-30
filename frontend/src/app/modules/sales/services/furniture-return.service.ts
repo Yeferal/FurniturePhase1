@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FurnitureReturnService {
-  private URL = "http://localhost:8080/sale/furniture/";
+  private URL = "https://furniture-app-3.herokuapp.com/sale/furniture/";
   constructor(private http:HttpClient) { }
 
   public getDetailBill(cod:string=""): Observable<Array<any>>{
