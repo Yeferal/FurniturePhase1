@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PlanService {
 
-  URL = 'http://localhost:8080';
+  URL = 'https://furniture-app-3.herokuapp.com';
   constructor(private http: HttpClient) { }
 
   createPlan(data: any): Observable<any>{
