@@ -30,8 +30,8 @@
               <br>
               <form [formGroup]="reportForm">
                 <div class="row">
-                    <div class="col-sm-1"></div>
-                    <div class="col-md-2">
+                    <div class="col-sm"></div>
+                    <div class="col-md-3">
                       <select (change)="setSelected($event)" class="form-control">
                           <option value="0" selected>Ningún reporte</option>
                           <option value="1">Reporte de Ventas</option>
@@ -39,11 +39,15 @@
                           <option value="3">Reporte Ganancias</option>
                           <option value="4">Reporte Mueble Mas Vendido</option>
                           <option value="5">Reporte Mueble Menos Vendido</option>
+                          <option value="6">Reporte Mejor vendedor</option>
+                          <option value="7">Reporte Mejor generador de ganancias</option>
                           <!-- <option value="6">Reporte 4</option> -->
                       </select>
                     </div>
-                    
-                    <button (click)="getReport()" class="btn btn-primary">Realizar reporte</button>
+                    <div class="btn-group">
+                        <button (click)="getReport()" class="btn btn-outline-primary">Buscar</button>
+                        <button (click)="export()" class="btn btn-outline-info">Exportar</button>
+                    </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
                         <input formControlName="date1" class="form-control" type="date">

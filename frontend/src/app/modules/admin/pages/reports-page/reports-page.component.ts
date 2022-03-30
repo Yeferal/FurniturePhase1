@@ -34,10 +34,8 @@ export class ReportsPageComponent implements OnInit {
 
   getReport(){
     console.log("entro", this.typeReportSelected);
-
     switch (this.typeReportSelected+"") {
       case '0':
-                
         break;
       case '1':
         this.getReportSales();
@@ -54,8 +52,19 @@ export class ReportsPageComponent implements OnInit {
       case '5':
         this.getReportMinFurnitureXPeriod();
         break;
+      case '6':
+        this.getReportBestSellerXPeriod();
+        break;
+      case '7':
+        this.getReportBestEarnerXPeriod();
+        break;
     }
   }
+
+  export(){
+
+  }
+  
   listDevolutions = []
   getReturnFurnitures(){
       let   page = this.page
@@ -162,4 +171,45 @@ export class ReportsPageComponent implements OnInit {
     );
   }
 
+  getReportBestSellerXPeriod(){
+    let data = {
+      date1: this.reportForm.get('date1')?.value? this.reportForm.get('date1')?.value : '0001-01-01',
+      date2: this.reportForm.get('date2')?.value? this.reportForm.get('date2')?.value : '9999-01-01'
+    }
+    console.log(data);
+    
+    
+    this.reportsService.getReportBestSellerXPeriod(data).subscribe(
+      res => {
+        console.log(res);
+        this.items = res;
+        console.log(this.items);
+      },
+      error => {
+        console.log(error);
+        
+      }
+    );
+  }
+
+  getReportBestEarnerXPeriod(){
+    let data = {
+      date1: this.reportForm.get('date1')?.value? this.reportForm.get('date1')?.value : '0001-01-01',
+      date2: this.reportForm.get('date2')?.value? this.reportForm.get('date2')?.value : '9999-01-01'
+    }
+    console.log(data);
+    
+    
+    this.reportsService.getReportBestEarnerXPeriod(data).subscribe(
+      res => {
+        console.log(res);
+        this.items = res;
+        console.log(this.items);
+      },
+      error => {
+        console.log(error);
+        
+      }
+    );
+  }
 }

@@ -67,24 +67,30 @@
                               <ng-template #sixth>
                                 <ng-container *ngIf="_reportType==6; else seventh">
                                   <tr>
-                                    <th>No.dd</th>
-                                    <th>Code Mueble</th>
+                                    <th>Id usuario</th>
+                                    <th>No. ventas</th>
                                     <th>Nombre</th>
-                                    <th>Fecha Creacion</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
+                                    <th>Apellido</th>
                                   </tr>
                                 </ng-container>
                                 <ng-template #seventh>
-                                  <tr>
-                                      <th>Any report selected, no tittles</th>
-                                  </tr>
+                                  <ng-container *ngIf="_reportType==7; else eigth">
+                                    <tr>
+                                      <th>Id usuario</th>
+                                      <th>Ingresos netos</th>
+                                      <th>Nombre</th>
+                                      <th>Apellido</th>
+                                    </tr>
+                                  </ng-container>
+                                  <ng-template #eigth>
+                                    <tr>
+                                        <th>Any report selected, no tittles</th>
+                                    </tr>
+                                  </ng-template>
                                 </ng-template>
                               </ng-template>
                             </ng-template>
                           </ng-template>
-
-                          
                         </ng-template>
                       </ng-template>
                   </thead>
@@ -146,9 +152,29 @@
                               </tr>
                             </ng-container>
                             <ng-template #sixthContent>
-                              <tr *ngFor="let item of items">
-                                  <td>NO HAY DATA PARA UN REPORTE QUE NO EXISTE</td>
-                              </tr>
+                              <ng-container *ngIf="_reportType==6; else seventhContent">
+                                <tr *ngFor="let item of items ; let i = index">
+                                    <td>{{item[0]}}</td>
+                                    <td>{{item[1]}}</td>
+                                    <td>{{item[2]}}</td>
+                                    <td>{{item[3]}}</td>
+                                </tr>
+                              </ng-container>
+                              <ng-template #seventhContent>
+                                <ng-container *ngIf="_reportType==7; else eightContent">
+                                  <tr *ngFor="let item of items ; let i = index">
+                                      <td>{{item[0]}}</td>
+                                      <td>{{item[1]}}</td>
+                                      <td>{{item[2]}}</td>
+                                      <td>{{item[3]}}</td>
+                                  </tr>
+                                </ng-container>
+                                <ng-template #eightContent>
+                                  <tr *ngFor="let item of items">
+                                      <td>NO HAY DATA PARA UN REPORTE QUE NO EXISTE</td>
+                                  </tr>
+                                </ng-template>
+                              </ng-template>
                             </ng-template>
                           </ng-template>
                         </ng-template>

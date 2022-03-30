@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Piece } from 'src/app/core/models/piece';
 import { PieceServiceService } from 'src/app/modules/manufacture/services/piece-service.service';
-import { PlanService } from 'src/app/modules/sales/services/plan.service';
+import { PlanService } from 'src/app/modules/admin/services/plan.service';
 @Component({
   selector: 'app-creation-furniture-plans',
   templateUrl: './creation-furniture-plans.component.html',
