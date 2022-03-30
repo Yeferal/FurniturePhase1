@@ -15,6 +15,7 @@ export class ClientFormComponent implements OnInit {
   @Input() isEdit: boolean;
   @Output() foundClientEvent = new EventEmitter<Client>();
   client: Client;
+  clients: Array<Client> = [];
 
   clientForm: FormGroup = new FormGroup({
     clientNit: new FormControl('',[Validators.required,Validators.pattern('[0-9]+')]),

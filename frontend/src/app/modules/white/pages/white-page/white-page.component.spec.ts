@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { WhitePageComponent } from './white-page.component';
 
@@ -8,7 +11,12 @@ describe('WhitePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WhitePageComponent ]
+      declarations: [ WhitePageComponent ],
+      imports: [
+        HttpClientTestingModule,
+        SharedModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });

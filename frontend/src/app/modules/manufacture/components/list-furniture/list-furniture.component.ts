@@ -14,7 +14,7 @@ export class ListFurnitureComponent implements OnInit {
 
   selectedId: any = 0;
   page = 0;
-  paginate: Page;
+  paginate: Page  = new Page();
   typeSearch:number = 0;
 
   constructor(private furnitureService : FurnitureService
