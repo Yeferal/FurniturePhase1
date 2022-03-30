@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { FurnitureAvailableComponent } from './furniture-available.component';
 
@@ -8,7 +12,12 @@ describe('FurnitureAvailableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FurnitureAvailableComponent ]
+      declarations: [ FurnitureAvailableComponent ],
+      imports: [
+        HttpClientTestingModule,
+        SharedModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });

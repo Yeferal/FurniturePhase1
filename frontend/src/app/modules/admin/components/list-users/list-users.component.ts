@@ -107,6 +107,6 @@ export class ListUsersComponent implements OnInit {
     }
   }
   page = 0;
-  paginate: Page;
+  paginate: Page = new Page();
   typeSearch:number = 0;
 }

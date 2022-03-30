@@ -1,13 +1,20 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { SalesServiceService } from './sales-service.service';
+import { SalesService } from './sales-service.service';
 
-describe('SalesServiceService', () => {
-  let service: SalesServiceService;
+describe('SalesService', () => {
+  let service: SalesService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(SalesServiceService);
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule
+      ]
+    });
+    service = TestBed.inject(SalesService);
   });
 
   it('should be created', () => {

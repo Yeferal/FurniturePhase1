@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from '../../shared.module';
 
 import { ActionsComponent } from './actions.component';
 
@@ -8,7 +11,12 @@ describe('ActionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ActionsComponent ]
+      declarations: [ ActionsComponent ],
+      imports: [
+        HttpClientTestingModule,
+        SharedModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });

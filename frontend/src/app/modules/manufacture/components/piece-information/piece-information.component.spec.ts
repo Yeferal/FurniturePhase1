@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { PieceInformationComponent } from './piece-information.component';
 
@@ -8,7 +11,12 @@ describe('PieceInformationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PieceInformationComponent ]
+      declarations: [ PieceInformationComponent ],
+      imports: [
+        HttpClientTestingModule,
+        SharedModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });
