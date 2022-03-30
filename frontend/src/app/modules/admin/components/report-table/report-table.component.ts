@@ -16,6 +16,9 @@ export class ReportTableComponent implements OnInit {
     if(value != undefined){
       console.log("Se ha recibido el listado:" + value);
       this.items = value;
+    }else{
+      console.log('Aver: ',this.items);
+      
     }
   }
   @Input() date1: string;
