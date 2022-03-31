@@ -143,7 +143,7 @@ export class RegisterFornitureComponent implements OnInit {
         },
         error => {
           console.log(error);
-          
+          this.msg = error.error.msj;
         }
       );
     

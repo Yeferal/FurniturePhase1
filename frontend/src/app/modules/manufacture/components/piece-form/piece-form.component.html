@@ -27,8 +27,8 @@
         <input *ngIf="!isEdit" formControlName="pieceAmount" type="number" class="form-control" id="pieceAmount" value="{{piece!=undefined && isEdit? piece.stock : ''}}"><br>
         <label *ngIf="!isEdit" for="pieceCost">Costo</label>
         <input *ngIf="!isEdit" formControlName="pieceCost" type="number" class="form-control" id="pieceCost" value="{{piece!=undefined && isEdit? piece.cost :''}}">
-        <label for="piecePrice">Precio</label>
-        <input formControlName="piecePrice" type="number" class="form-control" id="piecePrice" value="{{piece!=undefined && isEdit? piece.price :''}}">
+        <label *ngIf="!isEdit" for="piecePrice">Precio</label>
+        <input *ngIf="!isEdit" formControlName="piecePrice" type="number" class="form-control" id="piecePrice" value="{{piece!=undefined && isEdit? piece.price :''}}">
     
     </div>
     <br>
