@@ -38,9 +38,15 @@ export class PieceServiceService {
     return this.http.delete<any>(this.URL+'delete/'+id);
   }
 
-  postProvidePiece(data: any): Observable<any>{
+  public postProvidePiece(data: any): Observable<any>{
     return this.http.post<any>(`${this.URL}add-in-stock/${data.id}/${data.stock}/${data.cost}`,{}, {
       withCredentials: true
     });
+  }
+
+  public postRemovePiece(data: any): Observable<any>{
+    return this.http.post<any>(`${this.URL}remove-in-stock/${data.id}/${data.amount}`,{},{
+      withCredentials: true
+    })
   }
 }

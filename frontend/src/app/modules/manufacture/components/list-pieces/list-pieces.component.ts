@@ -90,6 +90,21 @@ export class ListPiecesComponent implements OnInit {
 
   removePieces(){
     console.log(this.idPiece)
+    console.log(this.formRemove.get('totalRemove')?.value);
+    const data = {
+      id: this.idPiece,
+      amount: this.formRemove.get('totalRemove')?.value
+    }
+    this.pieceService.postRemovePiece(data).subscribe(
+      res=>{
+        console.log(res);
+        alert("La cantidad de piezas ha sido removida.");
+        this.searchPieces();
+      },
+      error=>{
+        alert("Ha ocurrido un error al remover las piezas en stock");
+      }
+    )
   }
 
   providePieces(){
