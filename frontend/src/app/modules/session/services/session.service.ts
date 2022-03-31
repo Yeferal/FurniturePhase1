@@ -12,31 +12,31 @@ export class SessionService {
   constructor(private http: HttpClient) { }
 
   isAuthenticatedAdmin():Observable<boolean> {
-    return this.http.post<boolean>('http://localhost:8080/user/isAdminLoggedIn',{
+    return this.http.post<boolean>('https://furniture-app-3.herokuapp.com/user/isAdminLoggedIn',{
       withCredentials: true,
     });
   }
 
   isAuthenticatedSales():Observable<boolean> {
-    return this.http.post<boolean>('http://localhost:8080/user/isSalesmanLoggedIn',{
+    return this.http.post<boolean>('https://furniture-app-3.herokuapp.com/user/isSalesmanLoggedIn',{
       withCredentials: true
     });
   }
 
   isAuthenticatedFabricate():Observable<boolean> {
-    return this.http.post<boolean>('http://localhost:8080/user/isFabricatemanLoggedIn',{
+    return this.http.post<boolean>('https://furniture-app-3.herokuapp.com/user/isFabricatemanLoggedIn',{
       withCredentials:true
     });
   }
 
   isAuthenticatedIsLogged():Observable<boolean> {
-    return this.http.post<boolean>('http://localhost:8080/user/isLoggedIn',{
+    return this.http.post<boolean>('https://furniture-app-3.herokuapp.com/user/isLoggedIn',{
       withCredentials:true
     });
   }
 
   postlogin(data: any){
-    return this.http.post<any>('http://localhost:8080/user/login',data, {
+    return this.http.post<any>('https://furniture-app-3.herokuapp.com/user/login',data, {
       withCredentials: true
     });
 

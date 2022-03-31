@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class CategoryService {
   //url service
   private url = "https://jsonplaceholder.typicode.com/todos/";
-  private URL = "http://localhost:8080/fabricate/category/";
+  private URL = "https://furniture-app-3.herokuapp.com/fabricate/category/";
   constructor(private http:HttpClient) { }
 
   //Get all categories thrown an api

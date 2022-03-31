@@ -10,7 +10,7 @@ import { Furniture } from '../../../core/models/furniture';
 export class FurnitureService {
   private url = "https://jsonplaceholder.typicode.com/todos/";
   private urlSoberanis = "http://localhost:3000/furniture";
-  private URL = "http://localhost:8080/fabricate";
+  private URL = "https://furniture-app-3.herokuapp.com/fabricate";
   constructor(private http:HttpClient) { }
 
   public getAllFurnitures():Observable<Array<Furniture>>{
@@ -40,19 +40,19 @@ export class FurnitureService {
   }
 
   public getFurnituresOnSession(): Observable<Array<Furniture>>{
-    return this.http.get<Array<Furniture>>("http://localhost:8080/sales/furniture-in-bill/on-session");
+    return this.http.get<Array<Furniture>>("https://furniture-app-3.herokuapp.com/sales/furniture-in-bill/on-session");
   }
 
   public registerFurnitureOnSession(data: any): Observable<any>{
-    return this.http.post<any>("http://localhost:8080/sales/furniture-in-bill/on-session", data);
+    return this.http.post<any>("https://furniture-app-3.herokuapp.com/sales/furniture-in-bill/on-session", data);
   }
 
   public deleteFurnitureOnSession(id: number): Observable<any>{
-    return this.http.delete<any>("http://localhost:8080/sales/furniture-in-bill/on-session/"+id);
+    return this.http.delete<any>("https://furniture-app-3.herokuapp.com/sales/furniture-in-bill/on-session/"+id);
   }
 
   public deleteAllFurnituresOnSession(): Observable<any>{
-    return this.http.delete<any>("http://localhost:8080/sales/furniture-in-bill/on-session");
+    return this.http.delete<any>("https://furniture-app-3.herokuapp.com/sales/furniture-in-bill/on-session");
   }
 
   public postFurniture(data: any, fileData: any){
@@ -86,14 +86,14 @@ export class FurnitureService {
   }
 
   public getListPlans(data: any): Observable<Page>{
-    return this.http.get<Page>('http://localhost:8080/admin/plan',{
+    return this.http.get<Page>('https://furniture-app-3.herokuapp.com/admin/plan',{
       withCredentials: true,
       params: data
     });
   }
 
   public getListPiecesPlan(id: number): Observable<any>{
-    return this.http.get<any>(`http://localhost:8080/fabricate/piece/get-pla-id/${id}`,{
+    return this.http.get<any>(`https://furniture-app-3.herokuapp.com/fabricate/piece/get-pla-id/${id}`,{
       withCredentials: true
     });
   }

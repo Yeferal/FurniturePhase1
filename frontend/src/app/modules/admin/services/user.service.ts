@@ -7,7 +7,7 @@ import { User } from 'src/app/core/models/user';
   providedIn: 'root'
 })
 export class UserService {
-  private url = 'http://localhost:8080/admin/user'
+  private url = 'https://furniture-app-3.herokuapp.com/admin/user'
   constructor(private httpClient:HttpClient) { }
 
   public registerUser(user: {}):Observable<any>{

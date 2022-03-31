@@ -21,28 +21,28 @@ export class SalesService{
   }
 
   public getSalesToday(data: any):Observable<Page> {
-    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-sale-today',{
+    return this.http.get<Page>('https://furniture-app-3.herokuapp.com/sales/invoice/get-sale-today',{
       withCredentials: true,
       params: data
     });
   }
 
   public getSalesClient(data: any):Observable<Page> {
-    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-sales-clients',{
+    return this.http.get<Page>('https://furniture-app-3.herokuapp.com/sales/invoice/get-sales-clients',{
       withCredentials: true,
       params: data
     });
   }
 
   public getBillDetailsClient(data: any):Observable<Page>{
-    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-bill-cliente',{
+    return this.http.get<Page>('https://furniture-app-3.herokuapp.com/sales/invoice/get-bill-cliente',{
       withCredentials: true,
       params: data
     });
   }
 
   public getEarningsTotal(data: any){
-    return this.http.get<any>('http://localhost:8080/sales/invoice/get-earnings-total', {
+    return this.http.get<any>('https://furniture-app-3.herokuapp.com/sales/invoice/get-earnings-total', {
       withCredentials: true,
       params: data
     })
