@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { PageGenerateInvoiceComponent } from './page-generate-invoice.component';
@@ -15,7 +16,8 @@ describe('PageGenerateInvoiceComponent', () => {
       imports: [
         HttpClientTestingModule,
         SharedModule,
-        RouterTestingModule
+        RouterTestingModule,
+        NgxPaginationModule
       ]
     })
     .compileComponents();

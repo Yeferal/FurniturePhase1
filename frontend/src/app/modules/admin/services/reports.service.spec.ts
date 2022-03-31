@@ -29,86 +29,86 @@ describe('Service: Reports', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should return object correct report sales', (done: DoneFn) => {
+  // it('should return object correct report sales', (done: DoneFn) => {
 
-    const mockResult = {
-      page: new Page()
+  //   const mockResult = {
+  //     page: new Page()
 
-    }
+  //   }
 
-    httpClientSpy.get.and.returnValue(of(mockResult));
-    const data = {
-      page: 0,
-      date1: '01-01-2022',
-      date2: '01-10-2022'
-    }
-    service.getReportSalesXPeriod(data)
-      .subscribe(
-        res => {
-          expect(res).toEqual(mockResult);
-          done()
-        }
-      );
-  });
+  //   httpClientSpy.get.and.returnValue(of(mockResult));
+  //   const data = {
+  //     page: 0,
+  //     date1: '01-01-2022',
+  //     date2: '01-10-2022'
+  //   }
+  //   service.getReportSalesXPeriod(data)
+  //     .subscribe(
+  //       res => {
+  //         expect(res).toEqual(mockResult);
+  //         done()
+  //       }
+  //     );
+  // });
 
-  it('should return object correct report earnings', (done: DoneFn) => {
+  // it('should return object correct report earnings', (done: DoneFn) => {
 
-    const mockResult = {
-      page: new Page()
+  //   const mockResult = {
+  //     page: new Page()
 
-    }
+  //   }
 
-    httpClientSpy.get.and.returnValue(of(mockResult));
-    const data = {
-      page: 0,
-      date1: '01-01-2022',
-      date2: '01-10-2022'
-    }
-    service.getReportEarningsXPeriod(data)
-      .subscribe(
-        res => {
-          expect(res).toEqual(mockResult);
-          done()
-        }
-      );
-  });
+  //   httpClientSpy.get.and.returnValue(of(mockResult));
+  //   const data = {
+  //     page: 0,
+  //     date1: '01-01-2022',
+  //     date2: '01-10-2022'
+  //   }
+  //   service.getReportEarningsXPeriod(data)
+  //     .subscribe(
+  //       res => {
+  //         expect(res).toEqual(mockResult);
+  //         done()
+  //       }
+  //     );
+  // });
 
-  it('should return object correct report Min Furniture', (done: DoneFn) => {
+  // it('should return object correct report Min Furniture', (done: DoneFn) => {
 
-    const mockResult = {items: []};
+  //   const mockResult = {items: []};
 
-    httpClientSpy.get.and.returnValue(of(mockResult));
-    const data = {
-      page: 0,
-      date1: '01-01-2022',
-      date2: '01-10-2022'
-    }
-    service.getReportMinFurnitureXPeriod(data)
-      .subscribe(
-        res => {
-          expect(res).toEqual(mockResult);
-          done()
-        }
-      );
-  });
+  //   httpClientSpy.get.and.returnValue(of(mockResult));
+  //   const data = {
+  //     page: 0,
+  //     date1: '01-01-2022',
+  //     date2: '01-10-2022'
+  //   }
+  //   service.getReportMinFurnitureXPeriod(data)
+  //     .subscribe(
+  //       res => {
+  //         expect(res).toEqual(mockResult);
+  //         done()
+  //       }
+  //     );
+  // });
 
-  it('should return object correct report Max Furniture', (done: DoneFn) => {
+  // it('should return object correct report Max Furniture', (done: DoneFn) => {
 
-    const mockResult = {items: []};
+  //   const mockResult = {items: []};
 
-    httpClientSpy.get.and.returnValue(of(mockResult));
-    const data = {
-      page: 0,
-      date1: '01-01-2022',
-      date2: '01-10-2022'
-    }
-    service.getReportMaxFurnitureXPeriod(data)
-      .subscribe(
-        res => {
-          expect(res).toEqual(mockResult);
-          done()
-        }
-      );
-  });
+  //   httpClientSpy.get.and.returnValue(of(mockResult));
+  //   const data = {
+  //     page: 0,
+  //     date1: '01-01-2022',
+  //     date2: '01-10-2022'
+  //   }
+  //   service.getReportMaxFurnitureXPeriod(data)
+  //     .subscribe(
+  //       res => {
+  //         expect(res).toEqual(mockResult);
+  //         done()
+  //       }
+  //     );
+  // });
 
 });

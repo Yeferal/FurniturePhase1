@@ -71,9 +71,9 @@ describe('RegisterFornitureComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    const form = component.pieceForm;
-    const amount = form.controls['amount'];
-    amount.setValue(null);
+    const form = component.planForm;
+    const namePlan = form.controls['namePlan'];
+    namePlan.setValue(null);
 
     expect(form.invalid).toBeTrue();
     
@@ -84,11 +84,9 @@ describe('RegisterFornitureComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    const form = component.pieceForm;
-    const namePiece = form.controls['namePiece'];
-    namePiece.setValue('Piece');
-    const amount = form.controls['amount'];
-    amount.setValue('10');
+    const form = component.planForm;
+    const namePlan = form.controls['namePlan'];
+    namePlan.setValue('Plan');
 
     expect(form.valid).toBeTrue();
   });

@@ -33,27 +33,25 @@ describe('CreationFurniturePlansComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return invalid planForm', () => {
+  it('should return invalid pieceForm', () => {
     fixture = TestBed.createComponent(CreationFurniturePlansComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    const form = component.planForm;
-    const name = form.controls['name'];
-    name.setValue(null);
+    const form = component.pieceForm;
+    const amount = form.controls['amount'];
+    amount.setValue(null);
     expect(form.invalid).toBeTrue();
   });
 
-  it('should return valid planForm', () => {
+  it('should return valid pieceForm', () => {
     fixture = TestBed.createComponent(CreationFurniturePlansComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    const form = component.planForm;
-    const name = form.controls['name'];
-    name.setValue('Mueble1');
-    const description = form.controls['description'];
-    description.setValue('Plano nuevo');
+    const form = component.pieceForm;
+    const amount = form.controls['amount'];
+    amount.setValue('1');
     expect(form.valid).toBeTrue();
   });
 
