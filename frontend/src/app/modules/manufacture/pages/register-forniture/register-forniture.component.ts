@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Furniture } from 'src/app/core/models/furniture';
 import { Piece } from 'src/app/core/models/piece';
+import { Assigment, Plan } from 'src/app/core/models/plan';
 import { FurnitureService } from '../../services/furniture.service';
 
 @Component({
@@ -23,9 +24,8 @@ export class RegisterFornitureComponent implements OnInit {
     description: new FormControl(null, null),
   });
 
-  pieceForm: FormGroup = new FormGroup({
-    namePiece: new FormControl(null, Validators.required),
-    amount: new FormControl(1, Validators.required),
+  planForm: FormGroup = new FormGroup({
+    namePlan: new FormControl("", Validators.required)
   });
 
   maxSizeRows: number = 10;
@@ -36,6 +36,11 @@ export class RegisterFornitureComponent implements OnInit {
   public preview: any;
   msg = "";
   furnitureS: Furniture = new Furniture();
+  planSelected: Plan;
+  listPlans: Array<Plan> = []
+  pageN: number = 0;
+  planSerch: string = '';
+  listAssignments: Array<Assigment> = []
 
   navbarAutocomplete = document.querySelector('#navbar-search-autocomplete');
   navbarData = ['One', 'Two', 'Three', 'Four', 'Five'];
@@ -44,7 +49,7 @@ export class RegisterFornitureComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer, private furnitureService: FurnitureService) { }
 
   ngOnInit(): void {
-    
+    this.getListPlan();
   }
 
   captureFile(event: any): any{
@@ -103,23 +108,23 @@ export class RegisterFornitureComponent implements OnInit {
       formFile.append('code',this.fornitureForm.get('code')?.value);
       formFile.append('profile',this.fornitureForm.get('assemblyUser')?.value);
       formFile.append('description',this.fornitureForm.get('description')?.value);
-      formFile.append('cost','500');
+      formFile.append('cost',this.totalCost+'');
       formFile.append('path',"");
-      formFile.append('plan',"1");
+      formFile.append('plan',this.planSelected.id+'');
       
       let data = {
         name: this.fornitureForm.get('name')?.value,
         price: this.fornitureForm.get('salePrice')?.value,
         creationDate: this.fornitureForm.get('creationDate')?.value,
         code: this.fornitureForm.get('code')?.value,
-        cost: 0,
+        cost: this.planSelected.cost,
         description: this.fornitureForm.get('description')?.value,
         path: '',
         profile: {
-          id: 1
+          id: this.fornitureForm.get('assemblyUser')?.value
         },
         plan: {
-          id: 1
+          id: this.planSelected.id
         },
         status: 1
       }
@@ -150,19 +155,56 @@ export class RegisterFornitureComponent implements OnInit {
     this.listPieces.splice(id,1);
   }
 
-  addPiece(){
-    console.log(this.pieceForm.value);
-    
-    let p: Piece = {
-      id: Math.floor(Math.random() * 100) + 1,
-      name: this.pieceForm.get('namePiece')?.value,
-      cost: Math.floor(Math.random() * 1000) + 1,
-      category: 'Madera',
-      amount: this.pieceForm.get('amount')?.value
-      //precio_venta: Math.floor(Math.random() * 1000.00) + 1.00
+  addPlan(i: number){
+    console.log(this.planForm.value);
+    this.planSelected = this.listPlans[i];
+
+    this.furnitureService.getListPiecesPlan(this.planSelected.id)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.listAssignments = res;
+          this.calculatePlanCost();
+        },
+        error => {
+          console.log(error);
+          
+        }
+      )
+  }
+
+  getListPlan(){
+
+    this.planSerch = (this.planForm.get('namePlan'))? this.planForm.get('namePlan')?.value : '';
+
+    let data = {
+      page: this.pageN,
+      name: this.planSerch
     }
 
-    this.listPieces.push(p);
+    this.furnitureService.getListPlans(data)
+      .subscribe(
+        res => {
+          console.log('ListPlans',res);
+          this.listPlans = res.content;
+        },
+        error => {
+          console.log(error);
+          
+        }
+      );
+  }
+
+  totalCost = 0;
+  calculatePlanCost(){
+    this.totalCost = 0;
+    this.listAssignments.forEach(element => {
+      console.log(element);
+      
+      if (element.piece.price!=undefined) {
+        this.totalCost += element.piece.price*element.amount;
+      }
+    });
   }
 
 }

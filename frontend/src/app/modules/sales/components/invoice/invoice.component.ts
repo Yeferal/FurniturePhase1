@@ -110,6 +110,7 @@ export class InvoiceComponent implements OnInit {
   cancelInvoice(){
     this.furnitureService.deleteAllFurnituresOnSession().subscribe(
       response => {
+        this.furnitures = [];
         alert("Se ha cancelado la venta exitosamente");
       },
       err => {

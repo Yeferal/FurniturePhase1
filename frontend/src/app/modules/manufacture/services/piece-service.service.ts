@@ -8,7 +8,7 @@ import { Piece } from '../../../core/models/piece';
 })
 export class PieceServiceService {
   private url = "http://localhost:3000/piece";
-  private URL = "https://furniture-app-3.herokuapp.com/fabricate/piece/";
+  private URL = "http://localhost:8080/fabricate/piece/";
 
   constructor(private http:HttpClient) { }
 
@@ -36,5 +36,11 @@ export class PieceServiceService {
 
   public deletePiece(id: number): Observable<any>{
     return this.http.delete<any>(this.URL+'delete/'+id);
+  }
+
+  postProvidePiece(data: any): Observable<any>{
+    return this.http.post<any>(`${this.URL}add-in-stock/${data.id}/${data.stock}/${data.cost}`,{}, {
+      withCredentials: true
+    });
   }
 }

@@ -8,7 +8,7 @@ import { Page } from 'src/app/core/models/page';
 })
 export class InvoicesService {
 
-  private URL = "https://furniture-app-3.herokuapp.com/sales"
+  private URL = "http://localhost:8080/sales"
   private url = "https://jsonplaceholder.typicode.com/todos/";
   constructor(private http:HttpClient) { }  
 
@@ -18,7 +18,7 @@ export class InvoicesService {
 
 
   public getInvoicesCliente(data: any):Observable<Page>{
-    return this.http.get<Page>('https://furniture-app-3.herokuapp.com/sales/invoice/get-bill-cliente',{
+    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-bill-cliente',{
       withCredentials: true,
       params: data
     });

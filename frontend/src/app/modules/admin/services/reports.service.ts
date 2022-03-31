@@ -7,7 +7,7 @@ import { Page } from 'src/app/core/models/page';
   providedIn: 'root'
 })
 export class ReportsService {
-private URL = 'https://furniture-app-3.herokuapp.com'
+private URL = 'http://localhost:8080'
 
 
 
@@ -15,28 +15,28 @@ private URL = 'https://furniture-app-3.herokuapp.com'
   constructor(private http: HttpClient) { }
 
   public getReportSalesXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('https://furniture-app-3.herokuapp.com/admin/bill-details/report-sales-x-period', {
+    return this.http.get<any>('http://localhost:8080/admin/bill-details/report-sales-x-period', {
       withCredentials: true,
       params: data
     });
   }
 
   public getReportEarningsXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('https://furniture-app-3.herokuapp.com/admin/report/report-earnings-x-period', {
+    return this.http.get<any>('http://localhost:8080/admin/report/report-earnings-x-period', {
       withCredentials: true,
       params: data
     });
   }
 
   public getReportMinFurnitureXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('https://furniture-app-3.herokuapp.com/admin/report/report-min-furniture-x-period', {
+    return this.http.get<any>('http://localhost:8080/admin/report/report-min-furniture-x-period', {
       withCredentials: true,
       params: data
     });
   }
 
   public getReportMaxFurnitureXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('https://furniture-app-3.herokuapp.com/admin/report/report-max-furniture-x-period', {
+    return this.http.get<any>('http://localhost:8080/admin/report/report-max-furniture-x-period', {
       withCredentials: true,
       params: data
     });

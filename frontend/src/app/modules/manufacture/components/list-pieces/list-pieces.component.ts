@@ -93,7 +93,24 @@ export class ListPiecesComponent implements OnInit {
   }
 
   providePieces(){
+    let data = {
+      id: this.idPiece,
+      stock: this.formProvide.get("totalProvide")?.value,
+      cost: this.formProvide.get("cost")?.value
+    }
 
+    this.pieceService.postProvidePiece(data)
+      .subscribe(
+        res => {
+          console.log(res);
+          alert("Pieza Abastecida");
+          this.searchPieces();
+        },
+        error => {
+          console.log(error);
+          alert('Error al Abastecer');
+        }
+      );
   }
 
   changeSelectedId(event: any){
