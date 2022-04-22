@@ -8,7 +8,7 @@ import { Client } from 'src/app/core/models/client';
 })
 export class ClientService {
 
-  url = 'https://furniture-app-3.herokuapp.com/sales/client';
+  url = 'http://localhost:8080/sales/client';
   constructor(private http: HttpClient) { }
 
   getClient(nit: any): Observable<Client>{

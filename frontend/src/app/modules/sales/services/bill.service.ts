@@ -12,7 +12,7 @@ export class BillService {
   constructor(private http:HttpClient) { }  
 
   public getReturnClient(data: any):Observable<Page>{
-    return this.http.get<Page>('https://furniture-app-3.herokuapp.com/sales/invoice/get-return-client',{
+    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-return-client',{
       withCredentials: true,
       params: data
     });

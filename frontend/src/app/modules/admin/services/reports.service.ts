@@ -7,7 +7,7 @@ import { Page } from 'src/app/core/models/page';
   providedIn: 'root'
 })
 export class ReportsService {
-private URL = 'https://furniture-app-3.herokuapp.com'
+private URL = 'http://localhost:8080/'
 
 
 
@@ -15,7 +15,7 @@ private URL = 'https://furniture-app-3.herokuapp.com'
   constructor(private http: HttpClient) { }
 
   public getReportSalesXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('https://furniture-app-3.herokuapp.com/admin/bill-details/report-sales-x-period', {
+    return this.http.get<any>('http://localhost:8080/admin/bill-details/report-sales-x-period', {
       withCredentials: true,
       params: data
     });
@@ -28,11 +28,11 @@ private URL = 'https://furniture-app-3.herokuapp.com'
       }),
       responseType: 'text' as 'text'
     };
-    return this.http.post('https://furniture-app-3.herokuapp.com/admin/export/report-sales-x-period', data, httpOptions);
+    return this.http.post('http://localhost:8080/admin/export/report-sales-x-period', data, httpOptions);
   }
 
   public getReportEarningsXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('https://furniture-app-3.herokuapp.com/admin/report/report-earnings-x-period', {
+    return this.http.get<any>('http://localhost:8080/admin/report/report-earnings-x-period', {
       withCredentials: true,
       params: data
     });
@@ -45,11 +45,11 @@ private URL = 'https://furniture-app-3.herokuapp.com'
       }),
       responseType: 'text' as 'text'
     };
-    return this.http.post('https://furniture-app-3.herokuapp.com/admin/export/report-earnings-x-period', data, httpOptions);
+    return this.http.post('http://localhost:8080/admin/export/report-earnings-x-period', data, httpOptions);
   }
 
   public getReportMinFurnitureXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('https://furniture-app-3.herokuapp.com/admin/report/report-min-furniture-x-period', {
+    return this.http.get<any>('http://localhost:8080/admin/report/report-min-furniture-x-period', {
       withCredentials: true,
       params: data
     });
@@ -62,11 +62,11 @@ private URL = 'https://furniture-app-3.herokuapp.com'
       }),
       responseType: 'text' as 'text'
     };
-    return this.http.post('https://furniture-app-3.herokuapp.com/admin/export/report-min-furniture-x-period', data, httpOptions);
+    return this.http.post('http://localhost:8080/admin/export/report-min-furniture-x-period', data, httpOptions);
   }
 
   public getReportMaxFurnitureXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('https://furniture-app-3.herokuapp.com/admin/report/report-max-furniture-x-period', {
+    return this.http.get<any>('http://localhost:8080/admin/report/report-max-furniture-x-period', {
       withCredentials: true,
       params: data
     });
@@ -79,7 +79,7 @@ private URL = 'https://furniture-app-3.herokuapp.com'
       }),
       responseType: 'text' as 'text'
     };
-    return this.http.post('https://furniture-app-3.herokuapp.com/admin/export/report-max-furniture-x-period', data, httpOptions);
+    return this.http.post('http://localhost:8080/admin/export/report-max-furniture-x-period', data, httpOptions);
   }
 
   public getReturnFurnitures(page:any, date1:any, date2:any):Observable<any>{
@@ -93,7 +93,7 @@ private URL = 'https://furniture-app-3.herokuapp.com'
       }),
       responseType: 'text' as 'text'
     };
-    return this.http.post('https://furniture-app-3.herokuapp.com/admin/export/report-return-furniture', data, httpOptions);
+    return this.http.post('http://localhost:8080/admin/export/report-return-furniture', data, httpOptions);
   }
 
   public getReportBestSellerXPeriod(data: any): Observable<any>{

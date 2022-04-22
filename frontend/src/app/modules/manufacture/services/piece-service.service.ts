@@ -8,7 +8,7 @@ import { Piece } from '../../../core/models/piece';
 })
 export class PieceServiceService {
   private url = "http://localhost:3000/piece";
-  private URL = "https://furniture-app-3.herokuapp.com/fabricate/piece/";
+  private URL = "http://localhost:8080/fabricate/piece/";
 
   constructor(private http:HttpClient) { }
 
