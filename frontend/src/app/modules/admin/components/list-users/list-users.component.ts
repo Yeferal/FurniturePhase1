@@ -32,8 +32,6 @@ export class ListUsersComponent implements OnInit {
   }
   
   filterUsers(){
-    console.log(this.formFilter.value);
-    
     this._userService.getFilterAllUsers(this.page,this.formFilter.value.username,this.formFilter.value.role).subscribe(
       res => {
         this.users = res.content;
@@ -45,7 +43,6 @@ export class ListUsersComponent implements OnInit {
         console.log(err);
       }
     )
-
   }
 
   getUsers(){

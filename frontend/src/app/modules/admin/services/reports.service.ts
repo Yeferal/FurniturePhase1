@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Page } from 'src/app/core/models/page';
+import { GLOBAL } from 'src/app/core/rutas';
 
 @Injectable({
   providedIn: 'root'
@@ -83,7 +84,7 @@ private URL = 'http://localhost:8080/'
   }
 
   public getReturnFurnitures(page:any, date1:any, date2:any):Observable<any>{
-    return this.http.get(this.URL+"/admin/furniture?page="+page+"&date1="+date1+"&date2="+date2)
+    return this.http.get(GLOBAL.REPORT_SERVICE+"admin/report/devolution?page="+page+"&date1="+date1+"&date2="+date2)
   }
 
   public exportReturnFurnitures(data:any):Observable<any>{

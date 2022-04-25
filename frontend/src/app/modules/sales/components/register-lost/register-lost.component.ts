@@ -60,19 +60,11 @@ export class RegisterLostComponent implements OnInit {
         this.furnitureService.ReturnFurniture(cod, this.idBill).subscribe(
           result => {
             console.log(result);
-            
-            if(result.status_code == 200) {
               //this.typeMessage.emit(1)
               this.removeItem(this.idBill);
               //this.emessage.emit("Mueble devuelto")
               this.showMessage=1
               this.message="Mueble devuelto"
-            }else{
-              //this.typeMessage.emit(2)
-              //this.emessage.emit("Error al devolver mueble, intente de nuevo")
-              this.showMessage=2
-              this.message="Error al devolver mueble, intente de nuevo"
-            }
           },
           err => {
             console.warn(err);
