@@ -33,11 +33,11 @@ export class PieceFormComponent implements OnInit, OnChanges {
       Validators.min(0),
       Validators.pattern('[0-9]+')
     ]),
-    piecePrice:new FormControl('',[
+    /*piecePrice:new FormControl('',[
       Validators.min(0),
       Validators.pattern('[0-9]+($|.[0-9]+)'),
       Validators.required,
-    ]),
+    ]),*/
     pieceCost:new FormControl('',[
       Validators.min(0),
       Validators.pattern('[0-9]+($|.[0-9]+)'),
@@ -73,7 +73,7 @@ export class PieceFormComponent implements OnInit, OnChanges {
         res=> {
           this.piece=res
           this.pieceForm.value.pieceName = this.piece.name
-          this.pieceForm.value.piecePrice = this.piece.price
+          //this.pieceForm.value.piecePrice = this.piece.price
           this.pieceForm.value.pieceCost = this.piece.cost
           this.pieceForm.value.pieceCategory = this.piece.category.id
         },
@@ -93,7 +93,7 @@ export class PieceFormComponent implements OnInit, OnChanges {
       this.pieceService.saveUpdate({
         id: this.selectedId,
         name: this.pieceForm.value.pieceName?this.pieceForm.value.pieceName:this.piece.name,
-        price: this.pieceForm.value.piecePrice?this.pieceForm.value.piecePrice:this.piece.price,
+        price: 0,
         cost: this.pieceForm.value.pieceCost?this.pieceForm.value.pieceCost:this.piece.cost,
         stock: 0,
         category:{
@@ -119,7 +119,7 @@ export class PieceFormComponent implements OnInit, OnChanges {
     }else{
       this.pieceService.savePiece({
         name: this.pieceForm.value.pieceName,
-        price: this.pieceForm.value.piecePrice,
+        price: 0,
         cost: this.pieceForm.value.pieceCost,
         stock: this.pieceForm.value.pieceAmount,
         category:{

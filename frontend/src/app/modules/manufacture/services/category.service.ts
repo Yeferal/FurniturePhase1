@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Category } from '../../../core/models/category';
 import { Observable } from 'rxjs';
 import { GLOBAL } from 'src/app/core/rutas';
@@ -15,11 +15,14 @@ export class CategoryService {
 
   //Get all categories thrown an api
   public getAllCategories(filter:string=""): Observable<Array<Category>>{
-    return this.http.get<Array<Category>>(GLOBAL.INVENTORY_SERVICE+this.URL+"get-all-categories?filter="+filter);
+    console.log("ENTRO ACA");
+    return this.http.get<Array<Category>>(GLOBAL.INVENTORY_SERVICE+this.URL+"?name="+filter,{
+      withCredentials: true
+    });
   }
 
   public saveCategory(category:any):Observable<Category> {
-    return this.http.post<any>(GLOBAL.INVENTORY_SERVICE+this.URL+'create-category',category,{
+    return this.http.post<any>(GLOBAL.INVENTORY_SERVICE+this.URL,category,{
       withCredentials: true,
     });
   }

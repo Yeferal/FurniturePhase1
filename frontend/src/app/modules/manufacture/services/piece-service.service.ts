@@ -2,36 +2,37 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Piece } from '../../../core/models/piece';
+import { GLOBAL } from 'src/app/core/rutas';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PieceServiceService {
   private url = "http://localhost:3000/piece";
-  private URL = "http://localhost:8080/fabricate/piece/";
+  private URL = "fabricate/piece/";
 
   constructor(private http:HttpClient) { }
 
   //Get all categories thrown an api
   public getAllPieces(pageNumber: number, name: string): Observable<any>{
-    const final_url = this.URL+'get-all'+((pageNumber!=0)? '?page='+pageNumber+((name!='')?'&name='+name:''):((name!='')? '?name='+name:''));
+    const final_url = GLOBAL.INVENTORY_SERVICE+this.URL+'get-all'+((pageNumber!=0)? '?page='+pageNumber+((name!='')?'&name='+name:''):((name!='')? '?name='+name:''));
     return this.http.get<Array<Piece>>(final_url);
   }
 
   public getPiece(id: number): Observable<Piece>{
-    return this.http.get<Piece>(this.url+'/'+id);
+    return this.http.get<Piece>(GLOBAL.INVENTORY_SERVICE+this.URL+id);
   }
 
   public savePiece(piece: any): Observable<Piece>{
-    return this.http.post<Piece>(this.URL+'register-piece',piece);
+    return this.http.post<Piece>(GLOBAL.INVENTORY_SERVICE+this.URL,piece);
   }
 
   public saveUpdate(piece: any): Observable<Piece>{
-    return this.http.post<Piece>(this.URL+'update-piece',piece);
+    return this.http.put<Piece>(GLOBAL.INVENTORY_SERVICE+this.URL,piece);
   }
 
   public getPieceById(id: number): Observable<Piece>{
-    return this.http.get<Piece>(this.URL+'get-piece/'+id);
+    return this.http.get<Piece>(GLOBAL.INVENTORY_SERVICE+this.URL+id);
   }
 
   public deletePiece(id: number): Observable<any>{
@@ -39,13 +40,15 @@ export class PieceServiceService {
   }
 
   public postProvidePiece(data: any): Observable<any>{
-    return this.http.post<any>(`${this.URL}add-in-stock/${data.id}/${data.stock}/${data.cost}`,{}, {
+    ///stock/{id}/{stock}/{cost}
+    return this.http.post<any>(`${GLOBAL.INVENTORY_SERVICE+this.URL}stock/${data.id}/${data.stock}/${data.cost}`,{}, {
       withCredentials: true
     });
   }
 
   public postRemovePiece(data: any): Observable<any>{
-    return this.http.post<any>(`${this.URL}remove-in-stock/${data.id}/${data.amount}`,{},{
+    ///remove/{id}/{stock}
+    return this.http.post<any>(`${GLOBAL.INVENTORY_SERVICE+this.URL}remove/${data.id}/${data.amount}`,{},{
       withCredentials: true
     })
   }
