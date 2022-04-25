@@ -9,8 +9,8 @@ import { User } from 'src/app/core/models/user';
 export class AdminService {
   private url = "https://jsonplaceholder.typicode.com/users";
   constructor(private http:HttpClient) { }
-
+  /*
   public getAllUsers(): Observable<Array<User>> {
     return this.http.get<Array<User>>(this.url);
-  }
+  }*/
 }

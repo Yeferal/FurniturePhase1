@@ -29,6 +29,15 @@ describe('Service: Reports', () => {
     expect(service).toBeTruthy();
   }));
 
+    it('should return a list of devolutions',(done: DoneFn)=>{
+      const mockResult = [{}]
+      httpClientSpy.get.and.returnValue(of(mockResult));
+      service.getReturnFurnitures(1,'2020-01-01','2020-01-01')
+      .subscribe(result => {
+        expect(result).toEqual(mockResult);
+        done();
+      })
+    })
   // it('should return object correct report sales', (done: DoneFn) => {
 
   //   const mockResult = {
