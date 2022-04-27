@@ -35,16 +35,12 @@ export class EarningsComponent implements OnInit {
     
   }
 
-  calculateEarning(){
-    
-
-  }
   getEarnings() {
-    if (this.formFilter.invalid) {
-      this.msjError = "Debe de llenar Todo los Campos"
-      this.errorForm = true;
-      return ;
-    }
+    // if (this.formFilter.invalid) {
+    //   this.msjError = "Debe de llenar Todo los Campos"
+    //   this.errorForm = true;
+    //   return ;
+    // }
 
     if (this.formFilter.get('dateStart')?.value > this.formFilter.get('dateEnd')?.value) {
       this.msjError = "El intervalo de tiempo es incorrecto"

@@ -54,8 +54,8 @@ describe('PieceFormComponent', () => {
     pieceCategory.setValue('Tornillo');
     const pieceAmount = form.controls['pieceAmount'];
     pieceAmount.setValue('10');
-    const piecePrice = form.controls['piecePrice'];
-    piecePrice.setValue('10.2');
+    // const piecePrice = form.controls['piecePrice'];
+    // piecePrice.setValue('10.2');
     const pieceCost = form.controls['pieceCost'];
     pieceCost.setValue('2.20');
     expect(form.valid).toBeTrue();

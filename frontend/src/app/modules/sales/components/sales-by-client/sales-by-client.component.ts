@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Bill } from 'src/app/core/models/bill';
 import { BillDetail } from 'src/app/core/models/bill-detail';
 import { Furniture } from 'src/app/core/models/furniture';
@@ -18,7 +18,7 @@ export class SalesByClientComponent implements OnInit {
   detailSale:Array<Furniture> = []
   formFilter = new FormGroup(
     {
-      dateStart:new FormControl(''),
+      dateStart:new FormControl('', Validators.required),
       dateEnd:new FormControl(''),
       name:new FormControl('')
     }

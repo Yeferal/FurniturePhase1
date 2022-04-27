@@ -56,7 +56,6 @@ export class ConsultInvoicesComponent implements OnInit {
       },
       error => {
         console.log(error);
-        
       }
     );
     
@@ -96,12 +95,9 @@ export class ConsultInvoicesComponent implements OnInit {
         this.listBillDetail.length
         if(!this.paginate.empty)
           this.noInvoicesError = true;
-
-        
       },
       error => {
         console.log(error);
-        
       }
     );
   }

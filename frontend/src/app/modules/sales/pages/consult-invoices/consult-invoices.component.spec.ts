@@ -52,4 +52,79 @@ describe('ConsultInvoicesComponent', () => {
     noInvoices.setValue('1010');
     expect(form.valid).toBeTrue();
   });
+
+  it('should return true is changes openContent', () => {
+    fixture = TestBed.createComponent(ConsultInvoicesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const openContent = component.openContent;
+    component.openCont();
+    const openContent2 = component.openContent;
+    expect(openContent2).toEqual(!openContent)
+  });
+
+  it('should return true is changes searchInvoices() form Invalid', () => {
+    fixture = TestBed.createComponent(ConsultInvoicesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const form = component.formInvoices;
+    const noInvoices = form.controls['noInvoices'];
+    noInvoices.setValue(null);
+    component.searchInvoices();
+    expect(form.invalid).toBeTrue();
+  });
+
+  it('should return true is changes searchInvoices() form Valid', () => {
+    fixture = TestBed.createComponent(ConsultInvoicesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const form = component.formInvoices;
+    const noInvoices = form.controls['noInvoices'];
+    noInvoices.setValue('1');
+    component.searchInvoices();
+    expect(form.invalid).toBeFalse();
+  });
+
+  it('should return true is page changes from nextPage()', () => {
+    fixture = TestBed.createComponent(ConsultInvoicesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const page = component.page;
+    component.nextPage();
+    const nextpage = component.page;
+    expect(nextpage).toBe(1);
+  });
+
+  it('should return true is page changes from prevPage()', () => {
+    fixture = TestBed.createComponent(ConsultInvoicesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const page = component.page;
+    component.nextPage();
+    component.nextPage();
+    component.prevPage();
+    const prevpage = component.page;
+    expect(prevpage).toBe(1);
+  });
+
+  it('should return true is page changes from setPage()', () => {
+    fixture = TestBed.createComponent(ConsultInvoicesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const page = 3;
+    component.setPage(3);
+    const setpage = component.page;
+    expect(setpage).toBe(page);
+  });
+
+  it('should counter return changes of array true', () => {
+    fixture = TestBed.createComponent(ConsultInvoicesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    const counter = component.counter(1);
+    expect(counter).toBeInstanceOf(Array);
+  });
+
+
 });

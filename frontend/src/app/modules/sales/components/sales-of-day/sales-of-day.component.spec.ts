@@ -30,4 +30,53 @@ describe('SalesOfDayComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should return true is getSalesToday()', () => {
+  //   fixture = TestBed.createComponent(SalesOfDayComponent);
+  //   component = fixture.componentInstance;
+  //   fixture.detectChanges();
+
+    
+  // });
+
+  it('should return true is page changes from nextPage()', () => {
+    fixture = TestBed.createComponent(SalesOfDayComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const page = component.page;
+    component.nextPage();
+    const nextpage = component.page;
+    expect(nextpage).toBe(1);
+  });
+
+  it('should return true is page changes from prevPage()', () => {
+    fixture = TestBed.createComponent(SalesOfDayComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const page = component.page;
+    component.nextPage();
+    component.nextPage();
+    component.prevPage();
+    const prevpage = component.page;
+    expect(prevpage).toBe(1);
+  });
+
+  it('should return true is page changes from setPage()', () => {
+    fixture = TestBed.createComponent(SalesOfDayComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const page = 3;
+    component.setPage(3);
+    const setpage = component.page;
+    expect(setpage).toBe(page);
+  });
+
+  it('should counter return changes of array true', () => {
+    fixture = TestBed.createComponent(SalesOfDayComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    const counter = component.counter(1);
+    expect(counter).toBeInstanceOf(Array);
+  });
 });

@@ -12,13 +12,13 @@ export class SalesService{
   private url = "https://jsonplaceholder.typicode.com/todos/";
   constructor(private http:HttpClient) { }
   
-  public getSalesOfNow():Observable<Array<Sales>>{
-    return this.http.get<Array<Sales>>(this.url);
-  }
+  // public getSalesOfNow():Observable<Array<Sales>>{
+  //   return this.http.get<Array<Sales>>(this.url);
+  // }
 
-  public getSalesByClient(name:string){
-    return this.http.get<Array<Sales>>(this.url)
-  }
+  // public getSalesByClient(name:string){
+  //   return this.http.get<Array<Sales>>(this.url)
+  // }
 
   public getSalesToday(data: any):Observable<Page> {
     return this.http.get<Page>('http://localhost:8080/sales/invoice/get-sale-today',{
