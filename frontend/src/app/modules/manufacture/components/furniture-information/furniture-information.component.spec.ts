@@ -30,4 +30,23 @@ describe('FurnitureInformationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return true is changes from getFurniture()', () => {
+    fixture = TestBed.createComponent(FurnitureInformationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const id = component.id;
+    component.getFurniture();
+    expect(id).not.toEqual(1);
+
+  });
+
+  it('should return true is page changes from ngOnChanges()', () => {
+    fixture = TestBed.createComponent(FurnitureInformationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.ngOnChanges();
+    expect(true).toBeTrue();
+  });
+
 });

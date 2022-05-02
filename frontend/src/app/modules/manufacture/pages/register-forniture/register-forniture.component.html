@@ -19,17 +19,17 @@
                                     <div class="card-body">
                                         <div  class="align-items-center justify-content-between mb-4" style="width: 100%; background: transparent;">
                                             <!-- src="../../../assets/img/undraw_photos_re_pvh3.svg" -->
-                                            <img *ngIf="preview" [src]="preview" alt="" 
+                                            <img *ngIf="preview" [src]="preview" alt="" class="selimg"
                                             style=" min-height: 100%;
                                                     min-width: 100%; max-height: 100%;
                                             max-width: 100%; border-radius: 20%; box-shadow: 0 0 5px rgb(124, 122, 122);">
-                                            <img *ngIf="!preview" src="../../../assets/img/undraw_photos_re_pvh3.svg" alt="" 
+                                            <img *ngIf="!preview" src="../../../assets/img/undraw_photos_re_pvh3.svg" alt="" class="selimg"
                                             style=" min-height: 100%;
                                                     min-width: 100%; max-height: 100%;
                                             max-width: 100%; border-radius: 20%; box-shadow: 0 0 5px rgb(124, 122, 122);">
                                             <input type="file" 
                                             (change)="captureFile($event)" 
-                                            class="btn btn-success btn-circle" style="margin-left: 45%; margin-top: -7%;" hidden id="validatedCustomFile" accept="image/png, image/jpeg" required>
+                                            class="btn btn-success btn-circle sel" style="margin-left: 45%; margin-top: -7%;" hidden id="validatedCustomFile" accept="image/png, image/jpeg" required>
                                             <label for="validatedCustomFile" class="btn btn-success btn-circle"  style="margin-left: 45%; margin-top: -7%;"><i class="fas fa-plus"></i></label>
                                             
                                         </div>

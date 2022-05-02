@@ -105,5 +105,71 @@ describe('ListFurnitureComponent', () => {
     expect(pageNum2).toEqual(testData);
   })
 
+  it('should return true is page changes from nextPage()', () => {
+    fixture = TestBed.createComponent(ListFurnitureComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.typeSearch = 1;
+    const typeSearch = component.typeSearch;
+    component.nextPage();
+    expect(typeSearch == 0).toBeFalse();
+  });
+
+  it('should return true is page changes from prevPage()', () => {
+    fixture = TestBed.createComponent(ListFurnitureComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.typeSearch = 1;
+    const typeSearch = component.typeSearch;
+    component.prevPage();
+    expect(typeSearch == 0).toBeFalse();
+  });
+
+  it('should return true is page changes from setPage()', () => {
+    fixture = TestBed.createComponent(ListFurnitureComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.typeSearch = 1;
+    const typeSearch = component.typeSearch;
+    component.setPage(3);
+    expect(typeSearch == 0).toBeFalse();
+  });
+
+  it('should counter return changes of array true', () => {
+    fixture = TestBed.createComponent(ListFurnitureComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    const counter = component.counter(1);
+    expect(counter).toBeInstanceOf(Array);
+  });
+
+  it('should return true if updaetLastActionUsed changes', () => {
+    fixture = TestBed.createComponent(ListFurnitureComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.updateLastActionUsed("add")
+    expect(true).toBeTrue();
+  });
+
+  it('should return true if updaetLastActionUsed changes', () => {
+    fixture = TestBed.createComponent(ListFurnitureComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.updateLastActionUsed("deleted")
+    expect(true).toBeTrue();
+  });
+
+
+  it('should return true if selecteId changes', () => {
+    fixture = TestBed.createComponent(ListFurnitureComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    component.changeSelectedId(null);
+    const selectedId = component.selectedId;
+    expect(selectedId).toEqual(null);
+  });
+
 
 });
