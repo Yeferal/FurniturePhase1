@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Page } from 'src/app/core/models/page';
+import { GLOBAL } from 'src/app/core/rutas';
 import { Sales } from '../../../core/models/sales';
 
 
@@ -21,28 +22,28 @@ export class SalesService{
   // }
 
   public getSalesToday(data: any):Observable<Page> {
-    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-sale-today',{
+    return this.http.get<Page>(GLOBAL.SALES_REPORT_SERVICE+'sales/invoice/get-sale-today',{
       withCredentials: true,
       params: data
     });
   }
 
   public getSalesClient(data: any):Observable<Page> {
-    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-sales-clients',{
+    return this.http.get<Page>(GLOBAL.SALES_REPORT_SERVICE+'sales/invoice/get-sales-clients',{
       withCredentials: true,
       params: data
     });
   }
 
   public getBillDetailsClient(data: any):Observable<Page>{
-    return this.http.get<Page>('http://localhost:8080/sales/invoice/get-bill-cliente',{
+    return this.http.get<Page>(GLOBAL.SALES_REPORT_SERVICE+'sales/invoice/get-bill-cliente',{
       withCredentials: true,
       params: data
     });
   }
 
   public getEarningsTotal(data: any){
-    return this.http.get<any>('http://localhost:8080/sales/invoice/get-earnings-total', {
+    return this.http.get<any>(GLOBAL.SALES_REPORT_SERVICE+'sales/invoice/get-earnings-total', {
       withCredentials: true,
       params: data
     })

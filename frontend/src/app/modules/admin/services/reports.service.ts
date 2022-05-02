@@ -16,7 +16,7 @@ private URL = 'http://localhost:8080/'
   constructor(private http: HttpClient) { }
 
   public getReportSalesXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('http://localhost:8080/admin/bill-details/report-sales-x-period', {
+    return this.http.get<any>(GLOBAL.REPORT_SERVICE+'admin/bill-details/report-sales-x-period', {
       withCredentials: true,
       params: data
     });
@@ -33,7 +33,7 @@ private URL = 'http://localhost:8080/'
   }
 
   public getReportEarningsXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('http://localhost:8080/admin/report/report-earnings-x-period', {
+    return this.http.get<any>(GLOBAL.REPORT_SERVICE+'admin/report/report-earnings-x-period', {
       withCredentials: true,
       params: data
     });
@@ -50,7 +50,7 @@ private URL = 'http://localhost:8080/'
   }
 
   public getReportMinFurnitureXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('http://localhost:8080/admin/report/report-min-furniture-x-period', {
+    return this.http.get<any>(GLOBAL.REPORT_SERVICE+'admin/report/report-min-furniture-x-period', {
       withCredentials: true,
       params: data
     });
@@ -67,7 +67,7 @@ private URL = 'http://localhost:8080/'
   }
 
   public getReportMaxFurnitureXPeriod(data: any):Observable<any>{
-    return this.http.get<any>('http://localhost:8080/admin/report/report-max-furniture-x-period', {
+    return this.http.get<any>(GLOBAL.REPORT_SERVICE+'admin/report/report-max-furniture-x-period', {
       withCredentials: true,
       params: data
     });

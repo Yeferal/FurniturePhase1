@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Page } from 'src/app/core/models/page';
+import { GLOBAL } from 'src/app/core/rutas';
 import { Furniture } from '../../../core/models/furniture';
 
 @Injectable({
@@ -23,7 +24,7 @@ export class FurnitureService {
   }
 
   public getFurniture(id: number): Observable<Furniture>{
-    return this.http.get<Furniture>(this.URL+'/furniture/get-furniture',{
+    return this.http.get<Furniture>(GLOBAL.FURNITURE_SERVICE+'fabricate/furniture/get-furniture',{
       withCredentials: true,
       params: {code: id}
     });
@@ -56,21 +57,21 @@ export class FurnitureService {
   }
 
   public postFurniture(data: any, fileData: any){
-    return this.http.post<any>(this.URL+'/furniture/register-furniture',fileData,{
+    return this.http.post<any>(GLOBAL.FURNITURE_SERVICE+'fabricate/furniture/register-furniture',fileData,{
       withCredentials: true,
       // params: {file: fileData},
     });
   }
 
   public getAllFurnitureListFilter(page: any, filter: any){
-    return this.http.get<any>(this.URL+'/furniture/get-allFurniture-filter?page='+page,{
+    return this.http.get<any>(GLOBAL.FURNITURE_SERVICE+'fabricate/furniture/get-allFurniture-filter?page='+page,{
       withCredentials: true,
       params: filter
     });
   }
 
   public getAllFurnitureList(page: any){
-    return this.http.get<any>(this.URL+'/furniture/get-allFurniture?page='+page,{
+    return this.http.get<any>(GLOBAL.FURNITURE_SERVICE+'fabricate/furniture/get-allFurniture?page='+page,{
       withCredentials: true
     });
   }
@@ -86,7 +87,7 @@ export class FurnitureService {
   }
 
   public getListPlans(data: any): Observable<Page>{
-    return this.http.get<Page>('http://localhost:8080/admin/plan',{
+    return this.http.get<Page>(GLOBAL.ADMIN_SERVICE+'admin/plan',{
       withCredentials: true,
       params: data
     });
