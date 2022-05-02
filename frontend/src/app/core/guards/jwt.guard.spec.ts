@@ -21,4 +21,7 @@ describe('JwtGuard', () => {
   it('should be created', () => {
     expect(guard).toBeTruthy();
   });
+  it('should be guard canActive return true', () => {
+    expect(guard.canActivate()).toBeTrue();
+  });
 });
