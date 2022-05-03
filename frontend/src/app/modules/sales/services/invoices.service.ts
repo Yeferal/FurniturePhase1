@@ -27,7 +27,7 @@ export class InvoicesService {
 
   public registerSale(data: any): Observable<any>{
     console.log(data);
-    return this.http.post<any>(this.URL+"/bill",data);
+    return this.http.post<any>(GLOBAL.SALE_SERVICE+"sale/bill",data);
   }
 
 }

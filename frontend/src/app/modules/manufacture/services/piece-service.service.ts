@@ -36,7 +36,7 @@ export class PieceServiceService {
   }
 
   public deletePiece(id: number): Observable<any>{
-    return this.http.delete<any>(this.URL+'delete/'+id);
+    return this.http.delete<any>(GLOBAL.INVENTORY_SERVICE+'fabricate/piece/'+id);
   }
 
   public postProvidePiece(data: any): Observable<any>{

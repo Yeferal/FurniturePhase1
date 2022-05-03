@@ -33,20 +33,18 @@ export class ClientFormComponent implements OnInit {
   searchClient(event: any){
     this.clientService.getClient(event.target.value).subscribe(
       (response:any)=>{
-        if(response.found){
-          if(Array.isArray(response)){
-            this.client = response[0].client;
-          } else {
-            this.client = response.client;
-          }
-        }else{
-          this.client = new Client();
-          this.client.id = event.target.value;
+        console.log(response);
+        if(Array.isArray(response)){
+          this.client = response[0];
+        } else {
+          this.client = response;
         }
         this.sendClientUpdate();
       },
       (error: HttpErrorResponse) => {
-        alert("Ocurrio un error en el servidor al buscar al cliente");
+        this.client = new Client();
+        this.client.id = event.target.value;
+        this.sendClientUpdate();
       }
     );
   }

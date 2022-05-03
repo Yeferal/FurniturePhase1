@@ -31,29 +31,29 @@ export class FurnitureService {
   }
 
   public getFurnituresOnSale(name: string, pageNumber: number): Observable<Array<Furniture>>{
-    const final_url = this.URL+'/furniture/on-sale'+((pageNumber!=0)? '?page='+pageNumber+((name!='')?'&name='+name:''):((name!='')? '?name='+name:''));
+    const final_url = GLOBAL.SALE_SERVICE+'sale/furniture/on-sale'+((pageNumber!=0)? '?page='+pageNumber+((name!='')?'&name='+name:''):((name!='')? '?name='+name:''));
     return this.http.get<Array<Furniture>>(final_url);
   }
 
   public getFurnituresOnStorage(name: string, pageNumber: number): Observable<Array<Furniture>>{
-    const final_url = this.URL+'/furniture/on-storage'+((pageNumber!=0)? '?page='+pageNumber+((name!='')?'&name='+name:''):((name!='')? '?name='+name:''));
+    const final_url = GLOBAL.SALE_SERVICE+'sale/furniture/on-storage'+((pageNumber!=0)? '?page='+pageNumber+((name!='')?'&name='+name:''):((name!='')? '?name='+name:''));
     return this.http.get<Array<Furniture>>(final_url);
   }
 
   public getFurnituresOnSession(): Observable<Array<Furniture>>{
-    return this.http.get<Array<Furniture>>("http://localhost:8080/sales/furniture-in-bill/on-session");
+    return this.http.get<Array<Furniture>>(GLOBAL.SALE_SERVICE+"sales/furniture-in-bill/on-session");
   }
 
   public registerFurnitureOnSession(data: any): Observable<any>{
-    return this.http.post<any>("http://localhost:8080/sales/furniture-in-bill/on-session", data);
+    return this.http.post<any>(GLOBAL.SALE_SERVICE+"sales/furniture-in-bill/on-session", data);
   }
 
   public deleteFurnitureOnSession(id: number): Observable<any>{
-    return this.http.delete<any>("http://localhost:8080/sales/furniture-in-bill/on-session/"+id);
+    return this.http.delete<any>(GLOBAL.SALE_SERVICE+"sales/furniture-in-bill/on-session/"+id);
   }
 
   public deleteAllFurnituresOnSession(): Observable<any>{
-    return this.http.delete<any>("http://localhost:8080/sales/furniture-in-bill/on-session");
+    return this.http.delete<any>(GLOBAL.SALE_SERVICE+"sales/furniture-in-bill/on-session");
   }
 
   public postFurniture(data: any, fileData: any){
@@ -77,13 +77,13 @@ export class FurnitureService {
   }
 
   public updateStatus(id: number):Observable<any>{
-    return this.http.put<any>(this.URL+'/furniture/put-furniture-on-sale/'+id,{
+    return this.http.put<any>(GLOBAL.SALE_SERVICE+'sale/furniture/put-furniture-on-sale/'+id,{
       withCredentials: true
     });
   }
 
   public putOnSale(data: any): Observable<any>{
-    return this.http.put<any>(this.URL+"/furniture/put-furniture-on-sale/",data);
+    return this.http.put<any>(GLOBAL.SALE_SERVICE+"sale/furniture/put-furniture-on-sale",data);
   }
 
   public getListPlans(data: any): Observable<Page>{
