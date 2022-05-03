@@ -104,12 +104,11 @@ export class CreationFurniturePlansComponent implements OnInit {
         assignments: assignments
       }
       this.planService.createPlan(data).subscribe(
-        (response:any) =>{
+        res=>{
           alert("Se ha creado el plan con éxito");
           this.plan.name = ""; this.plan.description="";
           this.listPiecesPlan = [];
-        },
-        (err:any) =>{
+        },err=>{
           alert("Ha ocurrido un error al hacer la solicitud que crea un plan");
         }
       );

@@ -98,7 +98,7 @@ private URL = 'http://localhost:8080/'
   }
 
   public getReportBestSellerXPeriod(data: any): Observable<any>{
-    return this.http.get(this.URL+"/admin/report/report-best-seller-x-period",{
+    return this.http.get(GLOBAL.REPORT_SERVICE+"/admin/report/report-best-seller-x-period",{
       withCredentials: true,
       params: data
     })
@@ -115,7 +115,7 @@ private URL = 'http://localhost:8080/'
   }
 
   public getReportBestEarnerXPeriod(data: any): Observable<any>{
-    return this.http.get(this.URL+"/admin/report/report-best-earner-x-period",{
+    return this.http.get(GLOBAL.REPORT_SERVICE+"/admin/report/report-best-earner-x-period",{
       withCredentials: true,
       params: data
     });
