@@ -20,7 +20,6 @@ export class RegisterFornitureComponent implements OnInit {
     // cost: new FormControl(null,  [Validators.required, Validators.pattern('[0-9]+(.[0-9]+)*')]),
     creationDate: new FormControl(null, Validators.required),
     code: new FormControl(null, Validators.required),
-    assemblyUser: new FormControl(null, Validators.required),
     description: new FormControl(null, null),
   });
 
@@ -90,7 +89,7 @@ export class RegisterFornitureComponent implements OnInit {
   addForniture(){
     console.log(this.files.length);
     
-    if (this.fornitureForm.invalid || this.files.length==0) {
+    if (this.fornitureForm.invalid) {
       this.msg = "Debe de llenar todos los campos"
       return;
     }
@@ -106,7 +105,6 @@ export class RegisterFornitureComponent implements OnInit {
       formFile.append('price',this.fornitureForm.get('price')?.value);
       formFile.append('creationDate',this.fornitureForm.get('creationDate')?.value);
       formFile.append('code',this.fornitureForm.get('code')?.value);
-      formFile.append('profile',this.fornitureForm.get('assemblyUser')?.value);
       formFile.append('description',this.fornitureForm.get('description')?.value);
       formFile.append('cost',this.totalCost+'');
       formFile.append('path',"");
@@ -114,22 +112,18 @@ export class RegisterFornitureComponent implements OnInit {
       
       let data = {
         name: this.fornitureForm.get('name')?.value,
-        price: this.fornitureForm.get('salePrice')?.value,
+        price: this.fornitureForm.get('price')?.value,
         creationDate: this.fornitureForm.get('creationDate')?.value,
         code: this.fornitureForm.get('code')?.value,
         cost: this.planSelected.cost,
         description: this.fornitureForm.get('description')?.value,
         path: '',
-        profile: {
-          id: this.fornitureForm.get('assemblyUser')?.value
-        },
-        plan: {
-          id: this.planSelected.id
-        },
+        profile: "1",
+        plan: this.planSelected.id,
         status: 1
       }
 
-      this.furnitureService.postFurniture(data, formFile).subscribe(
+      this.furnitureService.postFurniture(data).subscribe(
         res => {
           this.furnitureS = res;
           if(this.furnitureS.msj){

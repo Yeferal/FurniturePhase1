@@ -56,10 +56,10 @@ export class FurnitureService {
     return this.http.delete<any>(GLOBAL.SALE_SERVICE+"sales/furniture-in-bill/on-session");
   }
 
-  public postFurniture(data: any, fileData: any){
-    return this.http.post<any>(GLOBAL.FURNITURE_SERVICE+'fabricate/furniture/register-furniture',fileData,{
+  public postFurniture(data: any){
+    return this.http.post<any>(GLOBAL.FURNITURE_SERVICE+'fabricate/furniture/register-furniture',data,{
       withCredentials: true,
-      // params: {file: fileData},
+      params: data,
     });
   }
 
@@ -94,7 +94,7 @@ export class FurnitureService {
   }
 
   public getListPiecesPlan(id: number): Observable<any>{
-    return this.http.get<any>(`http://localhost:8080/fabricate/piece/get-pla-id/${id}`,{
+    return this.http.get<any>(GLOBAL.ADMIN_SERVICE+`admin/plan/get-pla-id/${id}`,{
       withCredentials: true
     });
   }

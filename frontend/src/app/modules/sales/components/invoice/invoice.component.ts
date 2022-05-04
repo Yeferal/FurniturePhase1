@@ -142,7 +142,9 @@ export class InvoiceComponent implements OnInit {
   searchFurnituresOnSession():any{
     this.furnitureService.getFurnituresOnSession().subscribe(
       (response: any)=>{
-        response.furnituresInBill.forEach((furnitureInBill:any) => {
+        console.warn(response);
+        response.forEach((furnitureInBill:any) => {
+          console.error(furnitureInBill.furniture);
           this.furnitures.push(furnitureInBill.furniture)
         });
       },
