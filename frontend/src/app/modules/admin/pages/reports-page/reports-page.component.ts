@@ -147,7 +147,7 @@ export class ReportsPageComponent implements OnInit {
     this.reportsService.getReportSalesXPeriod(data).subscribe(
       res => {
         console.log(res);
-        this.items = res;
+        this.items = res.content;
         
         
       },
@@ -196,7 +196,7 @@ export class ReportsPageComponent implements OnInit {
     this.reportsService.getReportEarningsXPeriod(data).subscribe(
       res => {
         console.log(res);
-        this.items = res;
+        this.items = res.content;
       },
       error => {
         console.log(error);
@@ -332,9 +332,6 @@ export class ReportsPageComponent implements OnInit {
       date1: this.reportForm.get('date1')?.value? this.reportForm.get('date1')?.value : '0001-01-01',
       date2: this.reportForm.get('date2')?.value? this.reportForm.get('date2')?.value : '9999-01-01'
     }
-    console.log(data);
-    
-    
     this.reportsService.getReportBestSellerXPeriod(data).subscribe(
       res => {
         console.log(res);
