@@ -98,4 +98,8 @@ export class FurnitureService {
       withCredentials: true
     });
   }
+
+  public existsFurnitureOnSession(code: number): Observable<any>{
+    return this.http.get<any>(GLOBAL.SALE_SERVICE+`sales/furniture-in-bill/is-on-session/${code}`)
+  }
 }

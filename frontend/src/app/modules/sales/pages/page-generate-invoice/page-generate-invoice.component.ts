@@ -26,12 +26,25 @@ export class PageGenerateInvoiceComponent implements OnInit {
   }
 
   addFurnitureToInvoice(event: any){
+    let index = 0;
     for(let i = 0; i < this.furnituresOnSale.length; i++){
       if(this.furnituresOnSale[i].code == event){
-        this.lastAddedFurniture = this.furnituresOnSale[i];
+        index = i;
         break;
       }
     }
+    this.furnitureService.existsFurnitureOnSession(this.furnituresOnSale[index].code).subscribe(
+      response =>{
+        if(response){
+          this.lastAddedFurniture = this.furnituresOnSale[index];
+        }else{
+          alert("Ya agregó este mueble a la factura, no puede agregarlo de nuevo");
+        }
+      },
+      err =>{
+        alert("Ha ocurrido un error al intentar agregar el mueble a la factura");
+      }
+    );
   }
 
   setLastFurniture(event: any){

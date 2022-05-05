@@ -31,29 +31,15 @@ export class InvoiceComponent implements OnInit {
   }
 
   addFurniture(furniture: Furniture){
-    if(this.existFurniture(furniture)){
-      alert("Ya agregó este mueble a la factura, no puede agregarlo de nuevo");
-    }else{
-      this.furnitureService.registerFurnitureOnSession(furniture).subscribe(
-        (response: any) => {
-          if(response.wasAdded) this.furnitures.push(furniture);
-          alert("Se agregado correctamente a la factura");
-        },
-        (err: any) => {
-          console.error(err);
-        }
-      );
-    }
-  }
-
-  existFurniture(furniture: Furniture){
-    let value = false;
-    this.furnitures.forEach((tmp: Furniture) => {
-      if(tmp.code == furniture.code){
-        value = true;
+    this.furnitureService.registerFurnitureOnSession(furniture).subscribe(
+      (res: any) => {
+        if(res) this.furnitures.push(furniture);
+        alert("Se agregado correctamente a la factura");
+      },
+      (err: any) => {
+        console.error(err);
       }
-    });
-    return value;
+    );
   }
 
   removeFurniture(id: number){
@@ -62,7 +48,7 @@ export class InvoiceComponent implements OnInit {
       if(this.furnitures[i].code == id) {
         this.furnitureService.deleteFurnitureOnSession(this.furnitures[i].code).subscribe(
           (response: any) => {
-            if(response.wasDeleted){
+            if(response){
               this.furnitures.splice(i,1);
             }
           },
@@ -142,9 +128,7 @@ export class InvoiceComponent implements OnInit {
   searchFurnituresOnSession():any{
     this.furnitureService.getFurnituresOnSession().subscribe(
       (response: any)=>{
-        console.warn(response);
         response.forEach((furnitureInBill:any) => {
-          console.error(furnitureInBill.furniture);
           this.furnitures.push(furnitureInBill.furniture)
         });
       },
