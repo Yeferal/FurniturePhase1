@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Page } from 'src/app/core/models/page';
+import { GLOBAL } from 'src/app/core/rutas';
 
 @Injectable({
   providedIn: 'root'
@@ -12,31 +13,31 @@ export class SessionService {
   constructor(private http: HttpClient) { }
 
   isAuthenticatedAdmin():Observable<boolean> {
-    return this.http.post<boolean>('http://localhost:8080/user/isAdminLoggedIn',{
+    return this.http.post<boolean>(GLOBAL.GATEWAY_SERVICE+'user/isAdminLoggedIn',{
       withCredentials: true,
     });
   }
 
   isAuthenticatedSales():Observable<boolean> {
-    return this.http.post<boolean>('http://localhost:8080/user/isSalesmanLoggedIn',{
+    return this.http.post<boolean>(GLOBAL.GATEWAY_SERVICE+'user/isSalesmanLoggedIn',{
       withCredentials: true
     });
   }
 
   isAuthenticatedFabricate():Observable<boolean> {
-    return this.http.post<boolean>('http://localhost:8080/user/isFabricatemanLoggedIn',{
+    return this.http.post<boolean>(GLOBAL.GATEWAY_SERVICE+'user/isFabricatemanLoggedIn',{
       withCredentials:true
     });
   }
 
   isAuthenticatedIsLogged():Observable<boolean> {
-    return this.http.post<boolean>('http://localhost:8080/user/isLoggedIn',{
+    return this.http.post<boolean>(GLOBAL.GATEWAY_SERVICE+'user/isLoggedIn',{
       withCredentials:true
     });
   }
 
   postlogin(data: any){
-    return this.http.post<any>('http://localhost:8080/user/login',data, {
+    return this.http.post<any>(GLOBAL.GATEWAY_SERVICE+'user/login',data, {
       withCredentials: true
     });
 
